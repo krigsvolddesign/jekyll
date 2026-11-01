@@ -1,0 +1,50 @@
+/* Krigsvold compositions. Values resolve to the existing shell's semantic roles. */
+.example-root {
+  --ex-bg: var(--krigsvold-bg);
+  --ex-text: var(--krigsvold-text);
+  --ex-strong: var(--krigsvold-text-strong);
+  --ex-muted: var(--krigsvold-muted);
+  --ex-link: var(--krigsvold-link);
+  --ex-panel: var(--krigsvold-panel);
+  --ex-line: var(--krigsvold-line);
+  --ex-control-line: var(--krigsvold-control-line);
+  --ex-input: var(--krigsvold-input-bg);
+  --ex-focus: var(--krigsvold-focus-ring);
+  --ex-on-accent: var(--krigsvold-on-accent);
+  --ex-mono: "Roboto Mono", monospace;
+}
+.example-frame--landing .example-section, .example-frame--dossier .example-section, .example-frame--detail .example-section, .example-frame--collection .example-section { display: grid; grid-template-columns: minmax(10rem, 1fr) minmax(0, 3fr); gap: clamp(2rem, 4vw, 4rem); border-top: 1px solid var(--ex-line); padding-top: 2rem; }
+.example-frame--landing .example-section:first-of-type { border-top: 0; padding-top: 0; }
+.example-frame--reading .example-section__label { border-top: 1px solid var(--ex-line); padding-top: 1.5rem; }
+.example-document { display: grid; grid-template-columns: 13rem minmax(0, 1fr); gap: clamp(2rem, 4vw, 4rem); }
+.example-document > .example-local-index { position: sticky; top: 7rem; align-self: start; }
+.example-frame--collection .example-list > li { display: grid; grid-template-columns: 9rem minmax(0, 1fr); gap: 1.5rem; padding-block: 1.25rem; }
+.example-frame--collection .example-list__meta { flex-direction: column; align-items: start; }
+.example-card { border-top-width: 2px; }
+.example-frame--workspace .example-section__label { border-bottom: 1px solid var(--ex-line); padding-bottom: .75rem; }
+@media (max-width: 64rem) { .example-document { display: block; } .example-document > .example-local-index { position: static; margin-bottom: 2rem; } }
+@media (max-width: 48rem) { .example-frame--landing .example-section, .example-frame--dossier .example-section, .example-frame--detail .example-section, .example-frame--collection .example-section { display: block; } .example-frame--collection .example-list > li { display: block; } }
+
+/* Table captions use the reading text role, not the inherited framework gray. */
+.example-root caption { color: var(--ex-text); }
+
+/* Native .btn supplies typography, geometry, transitions, and pressed states. */
+.example-root .btn { margin-bottom: 0; }
+/* Light and dark foreground/background roles change together; interpolating
+   their colors crosses low-contrast intermediate pairs. Retain non-color motion. */
+.example-root :is(.btn-dark-blue,.btn-outline-dark-blue) { transition-property: box-shadow, transform; }
+.example-root .btn-dark-blue { --bs-btn-active-bg: var(--navy-900); --bs-btn-active-border-color: var(--navy-900); --bs-btn-disabled-bg: var(--navy-900); }
+.example-root .btn-dark-blue:focus-visible { color: white; background: var(--blue-600); }
+.example-root .btn-outline-dark-blue { --bs-btn-color: var(--navy-900); --bs-btn-border-color: var(--navy-900); --bs-btn-hover-border-color: var(--navy-900); --bs-btn-active-bg: var(--navy-900); --bs-btn-active-border-color: var(--navy-900); }
+.example-root .btn-outline-dark-blue:hover:not(.active) { color: var(--navy-900); }
+.example-root .btn-outline-dark-blue:focus-visible { color: white; background: var(--navy-900); }
+/* On dark reading surfaces, reuse the source hero's ice/white action states. */
+html[data-appearance=dark] .example-root .btn-dark-blue { background: var(--ice-200); color: var(--navy-950); }
+html[data-appearance=dark] .example-root .btn-dark-blue:hover,
+html[data-appearance=dark] .example-root .btn-dark-blue:focus-visible { background: white; color: var(--navy-950); }
+html[data-appearance=dark] .example-root .btn-outline-dark-blue { color: white; border-color: white; background: transparent; box-shadow: none; }
+html[data-appearance=dark] .example-root .btn-outline-dark-blue:hover:not(.active),
+html[data-appearance=dark] .example-root .btn-outline-dark-blue:focus-visible { color: var(--navy-950); border-color: var(--ice-200); background: var(--ice-200); opacity: 1; }
+
+/* Long titles must remain readable at every masthead breakpoint. */
+.page-masthead h1 { overflow-wrap:anywhere; }
