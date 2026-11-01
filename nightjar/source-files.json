@@ -50,6 +50,7 @@
   "_includes/header.html",
   "_includes/masthead.html",
   "_includes/toc.html",
+  "_includes/version-navigation.html",
   "_layouts/default.html",
   "_layouts/example-collection.html",
   "_layouts/example-dashboard.html",
@@ -187,5 +188,7 @@
   "nightjar/source-files.json",
   "nightjar/verify-html.py",
   "nightjar/verify.py",
+  "scripts/docs-archive.py",
+  "scripts/source-shell-provenance.json",
   "setup.md"
 ]

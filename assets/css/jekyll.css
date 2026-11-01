@@ -25,3 +25,6 @@ html[data-appearance=dark] .page-index a {color:var(--color-gold-300,var(--ice-4
 /* Krigsvold navigation keeps its uppercase identity without an active-link underline. */
 .site-navbar .nav-link { text-transform: uppercase; }
 .site-navbar .nav-link[aria-current="page"] { text-decoration: none; }
+
+/* The Krigsvold source shell overlays its header on dashboard pages. */
+.krigsvold .docs-version-nav--dashboard { padding-top: 7rem; }
