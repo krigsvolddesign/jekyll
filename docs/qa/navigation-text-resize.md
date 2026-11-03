@@ -1,0 +1,9 @@
+# Navigation text resizing
+
+At 1440px with the root font set to 200%, the accepted host gave the brand 51.22px despite its rendered content requiring 315px. The source shell combines a zero flex basis and a shrinkable brand with a desktop no-wrap navigation row. Consequently the brand's painted text overlapped the first destination even though the anchor boxes and page overflow checks passed.
+
+The host stylesheet now establishes a navigation size container. When its available measure is at most 70em, it reuses the existing disclosure menu, destinations, appearance control, and keyboard behavior. The query follows the container's computed font size, so enlarged text uses the disclosure while a roomy ordinary desktop retains the original row. No type is reduced. The source shell, markup, JavaScript, artwork, overlays, ribbon, typography and colors are unchanged. Without JavaScript, destinations remain visible and the inactive disclosure button remains hidden.
+
+Run `npm run test:navigation -- /absolute/path/to/built/site` after building the site. Set `CHROMIUM_PATH` only when using a system Chromium; the default uses Playwright's installed Chromium. The test bounds navigation, font readiness, individual operations and total execution. It checks 38 representative states across 320, 768, 1440 and 1920px, both appearances, homepage/compact search/dashboard contexts, actual 200% root text, and no-JavaScript states. Painted text ranges must not overlap, brand content must fit its allocated width, closed navigation must clear the page heading, and the document must not overflow. Enter opens the existing menu; Escape closes it and restores focus.
+
+This is a shared host accessibility correction, not a recipe-specific organizational difference. Browser and direct visual evidence remain separate from physical assistive-technology testing.

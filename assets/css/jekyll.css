@@ -203,3 +203,22 @@ html[data-appearance="dark"] body.krigsvold .site-footer a:focus-visible {
     color: CanvasText !important;
   }
 }
+
+/* Host navigation adapts to text size as well as viewport pixels. The source
+   desktop row can otherwise give its nowrap brand zero room at enlarged text.
+   Reuse the existing disclosure and its keyboard behavior when the available
+   font-relative measure cannot hold all destinations; never shrink the type. */
+.nav-shell { container-type:inline-size; container-name:host-navigation; }
+@container host-navigation (max-width:70em) {
+  .site-navbar.navbar-expand-lg { flex-wrap:wrap; }
+  .site-navbar .navbar-brand { flex:1 1 0; white-space:normal; }
+  .site-navbar .navbar-brand span { overflow-wrap:normal; }
+  .site-navbar.navbar-expand-lg .navbar-toggler { display:block; }
+  .site-navbar.navbar-expand-lg .navbar-collapse { flex-basis:100%; display:none!important; max-height:70dvh; overflow-y:auto; }
+  .site-navbar.navbar-expand-lg .navbar-collapse.show,
+  .site-navbar.navbar-expand-lg:not([data-navigation-ready]) .navbar-collapse { display:block!important; }
+  .site-navbar.navbar-expand-lg .navbar-nav { flex-direction:column; align-items:stretch!important; }
+  .site-navbar .appearance-toggle { margin:.75rem 0; }
+  .site-navbar.navbar-expand-lg:not([data-navigation-ready]) .navbar-toggler { display:none; }
+  .site-navbar.navbar-expand-lg:not([data-navigation-ready]) .navbar-collapse { max-height:none; overflow:visible; }
+}
