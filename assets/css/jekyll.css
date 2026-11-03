@@ -28,3 +28,58 @@ html[data-appearance=dark] .page-index a {color:var(--color-gold-300,var(--ice-4
 
 /* The Krigsvold source shell overlays its header on dashboard pages. */
 .krigsvold .docs-version-nav--dashboard { padding-top: 7rem; }
+
+/* Host-owned polar panorama: source navy/ice roles, never a new palette.
+   The opt-in image sits behind a mode-independent text scrim; plain pages retain
+   the canonical shell's existing inverse-appearance masthead. */
+.page-masthead--illustrated {
+  background-color:var(--navy-900,#0a1d35);
+  overflow:hidden;
+  isolation:isolate;
+}
+.page-masthead--illustrated .page-masthead__art {
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+}
+.page-masthead--illustrated .page-masthead__art img {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+.page-masthead--illustrated .page-masthead__veil,
+html[data-appearance="dark"] .page-masthead--illustrated .page-masthead__veil {
+  z-index:1;
+  background:linear-gradient(90deg, rgb(6 19 37 / .94) 0%, rgb(10 29 53 / .82) 52%, rgb(10 29 53 / .64) 84%, rgb(10 29 53 / .42) 100%);
+}
+.page-masthead--illustrated .container { z-index:2; }
+.page-masthead--illustrated :is(h1,p,.eyebrow),
+html[data-appearance="dark"] .page-masthead--illustrated :is(h1,p,.eyebrow) {
+  color:#fff!important;
+  text-shadow:0 1px 2px rgb(6 19 37 / .28);
+}
+html[data-appearance="dark"] .page-masthead--illustrated { background-color:var(--navy-900,#0a1d35); }
+@media(max-width:48rem) {
+  .page-masthead--illustrated .page-masthead__art img { object-position:65% center; }
+}
+@media(max-width:61.99rem) {
+  .page-masthead--illustrated .page-masthead__veil,
+  html[data-appearance="dark"] .page-masthead--illustrated .page-masthead__veil {
+    background:linear-gradient(90deg, rgb(6 19 37 / .97), rgb(10 29 53 / .8));
+  }
+}
+@media(forced-colors:active) {
+  .page-masthead--illustrated .page-masthead__art,
+  .page-masthead--illustrated .page-masthead__veil { display:none; }
+  html[data-appearance] .page-masthead--illustrated { background:Canvas!important; color:CanvasText!important; }
+  html[data-appearance] .page-masthead--illustrated :is(h1,p,.eyebrow) { color:CanvasText!important; text-shadow:none; }
+}
+@media print {
+  .page-masthead--illustrated .page-masthead__art,
+  .page-masthead--illustrated .page-masthead__veil { display:none; }
+  html[data-appearance] .page-masthead--illustrated { background:white!important; color:black!important; }
+  html[data-appearance] .page-masthead--illustrated :is(h1,p,.eyebrow) { color:black!important; text-shadow:none; }
+}

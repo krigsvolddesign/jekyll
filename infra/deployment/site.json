@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "family": "krigsvold",
+  "repository": "krigsvolddesign/jekyll",
+  "accountId": "f6142510bef6212dfa78bc6932acc80f",
+  "targets": {
+    "develop": {
+      "worker": "krigsvolddesign-jekyll-reference",
+      "environment": "jekyll-development",
+      "origin": "https://develop-krigsvolddesign-jekyll-reference.k3jph.workers.dev",
+      "previewName": "develop"
+    },
+    "main": {
+      "worker": "krigsvolddesign-jekyll-reference",
+      "environment": "jekyll-production",
+      "origin": "https://jekyll.krigsvolddesign.dev"
+    }
+  }
+}
