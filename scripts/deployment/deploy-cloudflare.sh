@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 set -euo pipefail
-branch="${JEKYLL_DEPLOY_BRANCH:-${WORKERS_CI_BRANCH:-}}"
+if [[ -n "${WORKERS_CI_BRANCH:-}" && -n "${JEKYLL_DEPLOY_BRANCH:-}" && "${WORKERS_CI_BRANCH:-}" != "${JEKYLL_DEPLOY_BRANCH:-}" ]]; then
+  echo 'Conflicting GitFlow branch authorities: local override disagrees with Cloudflare CI' >&2
+  exit 1
+fi
+branch="${WORKERS_CI_BRANCH:-${JEKYLL_DEPLOY_BRANCH:-}}"
 if [ "$branch" != main ]; then
   echo 'Production deployment requires the main branch' >&2
   exit 1

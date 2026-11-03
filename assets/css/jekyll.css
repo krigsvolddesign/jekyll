@@ -36,6 +36,7 @@ html[data-appearance=dark] .page-index a {color:var(--color-gold-300,var(--ice-4
   background-color:var(--navy-900,#0a1d35);
   overflow:hidden;
   isolation:isolate;
+  min-height:clamp(470px,33.333333vw,724px);
 }
 .page-masthead--illustrated .page-masthead__art {
   position:absolute;
@@ -47,7 +48,7 @@ html[data-appearance=dark] .page-index a {color:var(--color-gold-300,var(--ice-4
   display:block;
   width:100%;
   height:100%;
-  object-fit:cover;
+  object-fit:contain;
   object-position:center;
 }
 .page-masthead--illustrated .page-masthead__veil,
@@ -70,6 +71,19 @@ html[data-appearance="dark"] .page-masthead--illustrated { background-color:var(
   html[data-appearance="dark"] .page-masthead--illustrated .page-masthead__veil {
     background:linear-gradient(90deg, rgb(6 19 37 / .97), rgb(10 29 53 / .8));
   }
+}
+/* Below the source navigation breakpoint, preserve the complete panorama
+   above the text. The existing polar overlay declarations remain unchanged. */
+@media(max-width:991.98px) {
+  body.krigsvold:has(.page-masthead--illustrated) .nav-shell {
+    position:relative;
+    background:var(--navy-950,#061325);
+  }
+  .page-masthead--illustrated { display:block; min-height:0; padding:0; }
+  .page-masthead--illustrated .page-masthead__art { display:block; position:relative; inset:auto; width:100%; }
+  .page-masthead--illustrated .page-masthead__art img { width:100%; height:auto; aspect-ratio:3 / 1; object-fit:contain; object-position:center; }
+  .page-masthead--illustrated .page-masthead__veil { inset:0 0 auto; height:calc(100vw / 3); }
+  .page-masthead--illustrated .container { padding-block:2.5rem 3rem; }
 }
 @media(forced-colors:active) {
   /* Background-only hamburger bars disappear in high contrast. Keep a visible
