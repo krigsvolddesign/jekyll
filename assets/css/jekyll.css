@@ -118,3 +118,25 @@ html[data-appearance="dark"] .page-masthead--illustrated { background-color:var(
   html[data-appearance] .page-masthead--illustrated { background:white!important; color:black!important; }
   html[data-appearance] .page-masthead--illustrated :is(h1,p,.eyebrow) { color:black!important; text-shadow:none; }
 }
+
+/* The canonical Krigsvold design language exposes its palette as a ribbon
+   immediately below its home masthead. Reuse the verified foundation swatches;
+   preserve the already-approved ice-sheet image and polar scrim verbatim. */
+.krigsvold-palette-ribbon {
+  display:flex;
+  width:100%;
+  height:clamp(1.25rem,2vw,2rem);
+  overflow:hidden;
+}
+.krigsvold-palette-ribbon > span {
+  display:block;
+  flex:1 1 0;
+  min-width:0;
+  background:var(--palette-swatch);
+}
+@media(forced-colors:active) {
+  .krigsvold-palette-ribbon {display:none;}
+}
+@media print {
+  .krigsvold-palette-ribbon {display:none;}
+}
