@@ -1,7 +1,7 @@
 title: Krigsvold Jekyll
 family: krigsvold
 description: A reference shell for publishing with Krigsvold, rendered by Jekyll.
-url: ""
+url: "https://jekyll.krigsvolddesign.dev"
 baseurl: ""
 markdown: kramdown
 highlighter: rouge
