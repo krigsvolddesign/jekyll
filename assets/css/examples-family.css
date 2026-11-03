@@ -71,3 +71,6 @@ html[data-appearance=dark] .example-root .btn-outline-dark-blue:focus-visible { 
  .example-root:is([data-example="guide"],[data-example="reference"],[data-example="integrations"],[data-example="opportunity"]) .example-section,
  .example-documentation-paths > li { border-color:CanvasText; }
 }
+
+.example-documentation-paths__scope { min-width:0; }
+.example-documentation-paths__scope img { display:block; max-width:100%; height:auto; margin-bottom:1rem; }
