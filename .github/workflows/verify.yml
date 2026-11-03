@@ -32,3 +32,8 @@ jobs:
         env:
           BUNDLE_PATH: ${{ github.workspace }}/vendor/bundle
           BUNDLE_FROZEN: 'true'
+      - name: Verify native grammar fixture compatibility
+        run: python3 -m unittest discover -s tests -p 'test_grammar.py'
+        env:
+          BUNDLE_PATH: ${{ github.workspace }}/vendor/bundle
+          BUNDLE_FROZEN: 'true'
