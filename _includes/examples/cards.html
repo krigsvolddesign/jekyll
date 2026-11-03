@@ -1,4 +1,4 @@
-<div class="example-cards">
+{% if page.record_id == 'documentation' %}{% include examples/documentation-paths.html items=include.items %}{% else %}<div class="example-cards">
   {% for item in include.items %}
   <article class="example-card">
     {% if item.image %}<img src="{{ item.image | relative_url }}" alt="{{ item.alt | escape }}" width="720" height="480" loading="lazy">{% endif %}
@@ -7,3 +7,4 @@
   </article>
   {% endfor %}
 </div>
+{% endif %}
