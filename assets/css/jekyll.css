@@ -72,6 +72,27 @@ html[data-appearance="dark"] .page-masthead--illustrated { background-color:var(
   }
 }
 @media(forced-colors:active) {
+  /* Background-only hamburger bars disappear in high contrast. Keep a visible
+     action/state cue while retaining the button's existing accessible name. */
+  .site-navbar .navbar-toggler {
+    flex:0 0 auto;
+    width:auto;
+    min-width:4.25rem;
+    min-height:44px;
+    padding:.5rem .75rem;
+    color:ButtonText!important;
+    background:Canvas!important;
+    border:1px solid ButtonText!important;
+  }
+  .site-navbar .navbar-toggler .navbar-toggler-icon { display:none; background-image:none; }
+  .site-navbar .navbar-toggler::after {
+    content:"Menu";
+    display:block;
+    color:ButtonText;
+    font:700 .875rem/1.2 var(--sans,Arial,sans-serif);
+  }
+  .site-navbar .navbar-toggler[aria-expanded="true"]::after { content:"Close"; }
+  .site-navbar .navbar-toggler:focus-visible { outline:2px solid Highlight; outline-offset:3px; }
   .page-masthead--illustrated .page-masthead__art,
   .page-masthead--illustrated .page-masthead__veil { display:none; }
   html[data-appearance] .page-masthead--illustrated { background:Canvas!important; color:CanvasText!important; }

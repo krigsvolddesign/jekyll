@@ -50,6 +50,23 @@ try{
   await p.emulateMedia({forcedColors:'none',media:'print'});assert.equal(await p.locator('.page-masthead__art').evaluate(n=>getComputedStyle(n).display),'none');assert.equal(await p.locator('h1').evaluate(n=>getComputedStyle(n).color),'rgb(0, 0, 0)');
   await p.emulateMedia({media:'screen'});await p.evaluate(()=>document.querySelector('.page-masthead__art').remove());assert.match(await p.locator('.page-masthead').evaluate(n=>getComputedStyle(n).backgroundColor),/rgb\(10, 29, 53\)/);
  }finally{await c.close()}
+ report.forcedColorNavigation=[];
+ for(const base of ['', '/preview'])for(const mode of ['light','dark']){
+  const c=await browser.newContext({viewport:{width:320,height:1000},forcedColors:'active',reducedMotion:'reduce'});c.setDefaultTimeout(10000);c.setDefaultNavigationTimeout(15000);
+  const p=await c.newPage();
+  try{
+   await bounded(`forced-color navigation ${base||'/'} ${mode}`,()=>p.goto(`http://127.0.0.1:${port}${base}/`,{waitUntil:'load'}));
+   await p.evaluate(mode=>document.documentElement.dataset.appearance=mode,mode);
+   const menu=p.getByRole('button',{name:'Menu',exact:true});
+   assert.equal(await menu.isVisible(),true,'Forced-color menu button remains visible');
+   const cue=()=>menu.evaluate(n=>{const style=getComputedStyle(n,'::after'),rect=n.getBoundingClientRect();return {text:style.content,display:style.display,color:style.color,width:rect.width,height:rect.height,iconDisplay:getComputedStyle(n.querySelector('.navbar-toggler-icon')).display}});
+   const closed=await cue();assert.equal(closed.text,'"Menu"','A visible Menu cue replaces the background-only icon');assert.notEqual(closed.display,'none');assert.notEqual(closed.color,'rgba(0, 0, 0, 0)');assert.ok(closed.width>=44&&closed.height>=44);assert.equal(closed.iconDisplay,'none');
+   await menu.focus();await p.keyboard.press('Enter');assert.equal(await menu.getAttribute('aria-expanded'),'true');assert.equal(await p.locator('#site-nav').isVisible(),true);const opened=await cue();assert.equal(opened.text,'"Close"','Expanded state exposes a visible Close cue');
+   if(evidence)await p.screenshot({path:join(evidence,`${engineName}-${base?'preview':'root'}-${mode}-forced-menu.png`),fullPage:false});
+   await p.keyboard.press('Escape');assert.equal(await menu.getAttribute('aria-expanded'),'false');assert.equal(await menu.evaluate(n=>document.activeElement===n),true,'Escape restores menu focus');assert.equal((await cue()).text,'"Menu"');assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'Forced-color navigation does not overflow');
+   report.forcedColorNavigation.push({base:base||'/',mode,closed,opened,keyboardOpenAndEscapeRestore:true});
+  }finally{await c.close()}
+ }
  report.status='passed';if(evidence)writeFileSync(join(evidence,engineName+'-hero.json'),JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({status:'passed',engine:engineName,cases:report.cases.length,axeScans:report.axe.length}));
 }finally{
  clearTimeout(watchdog);if(browser)await bounded('browser cleanup',()=>browser.close(),10000);if(server)server.kill();rmSync(temporary,{recursive:true,force:true});
