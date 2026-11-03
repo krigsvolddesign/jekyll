@@ -222,3 +222,37 @@ html[data-appearance="dark"] body.krigsvold .site-footer a:focus-visible {
   .site-navbar.navbar-expand-lg:not([data-navigation-ready]) .navbar-toggler { display:none; }
   .site-navbar.navbar-expand-lg:not([data-navigation-ready]) .navbar-collapse { max-height:none; overflow:visible; }
 }
+
+
+/* Compact reference pages: the floating navbar belongs over the hero, not in
+   a separate navy strip above a light inverse-appearance masthead. Keep the
+   source inset floating bar, but start the masthead at the viewport origin. */
+@media (min-width:992px) {
+  body.krigsvold.hero-context--compact:not(.dashboard-page) .nav-shell {
+    position:absolute;
+    background:transparent;
+  }
+  body.krigsvold.hero-context--compact:not(.dashboard-page) .page-masthead.hero--compact {
+    padding-top:clamp(8.25rem,10vw,9.25rem);
+  }
+}
+/* The small-screen navbar remains in flow so its expanded menu cannot cover
+   the heading. Match the immediately adjacent hero surface in both modes. */
+@media (max-width:991.98px) {
+  body.krigsvold.hero-context--compact:not(.dashboard-page) .nav-shell {
+    position:relative;
+    background:var(--navy-900,#0a1d35);
+  }
+  html[data-appearance="dark"] body.krigsvold.hero-context--compact:not(.dashboard-page) .nav-shell {
+    background:var(--paper,#fbfaf7);
+  }
+}
+/* Keep no-JavaScript navigation accessible, and prevent an open tall menu
+   from overlaying compact-page reading content at desktop widths. */
+body.krigsvold.hero-context--compact:not(.dashboard-page):has(.site-navbar:not([data-navigation-ready]),.site-navbar.is-menu-open) .nav-shell {
+  position:relative;
+  background:var(--navy-900,#0a1d35);
+}
+html[data-appearance="dark"] body.krigsvold.hero-context--compact:not(.dashboard-page):has(.site-navbar:not([data-navigation-ready]),.site-navbar.is-menu-open) .nav-shell {
+  background:var(--paper,#fbfaf7);
+}
