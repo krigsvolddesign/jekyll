@@ -8,3 +8,14 @@
 .dash-heading h1 { font-family:var(--serif); font-weight:700; }
 .dash-metric { border-top-width:2px; }
 .dash-sidebar a[aria-current=page], .dash-sidebar a[aria-current=page]:hover { text-decoration: none; }
+
+/* #91: the selected scope owns its existing controls, status and metrics;
+   charts and source records remain independent working regions. */
+.dash-scope { padding-bottom:1.5rem; margin-bottom:2rem; border-bottom:1px solid var(--ex-line); }
+.dash-scope > .dash-metrics { margin-bottom:0; }
+/* Keep the collection visible beside its existing editor when space permits.
+   Font-relative bases wrap whole regions at enlarged text and narrow widths. */
+.dash-app[data-dashboard="administration"] .dash-administration-work { display:flex; flex-wrap:wrap; gap:1.5rem; margin-bottom:1.5rem; }
+.dash-administration-work > .dash-panel { flex:2 1 36rem; min-width:0; margin-bottom:0; }
+.dash-administration-work > .dash-editor { flex:1 1 22rem; }
+@media(forced-colors:active) { .dash-scope { border-color:CanvasText; } }
