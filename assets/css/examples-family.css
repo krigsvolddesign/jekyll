@@ -126,3 +126,7 @@ html[data-appearance=dark] .example-root .btn-outline-dark-blue:focus-visible { 
  .example-root[data-example="search"] .example-search-scope { background:Canvas; }
  .example-report-index, .example-root[data-example="search"] .example-search-output { border-color:CanvasText; }
 }
+/* Reserve the native submit label's intrinsic width; the input owns the
+   remaining query column instead of squeezing a word across two lines. */
+.example-root[data-example="search"] .example-search__controls input { min-width:0; flex:1 1 auto; }
+.example-root[data-example="search"] .example-search__controls button { flex:0 0 auto; white-space:nowrap; }

@@ -14,6 +14,7 @@ let browser,server;
 const watchdog=setTimeout(()=>{console.error('Collection overall deadline exceeded');process.exit(1)},210000);
 const bounded=async(label,fn,ms=20000)=>{let timer;try{return await Promise.race([fn(),new Promise((_,reject)=>timer=setTimeout(()=>reject(Error(label+' timed out')),ms))])}finally{clearTimeout(timer)}};
 const norm=s=>s.replace(/\s+/g,' ').trim();
+const submitLabelFits=page=>page.locator('.example-search__controls button[type=submit]').evaluate(n=>{const range=document.createRange();range.selectNodeContents(n);const lines=Array.from(range.getClientRects()).filter(r=>r.width&&r.height),box=n.getBoundingClientRect();return lines.length===1&&lines.every(r=>r.left>=box.left-1&&r.right<=box.right+1)});
 try {
  for(const base of['','/preview'])assert.equal(spawnSync('python3',['nightjar/build.py','--destination',join(dir,base||'.'),'--baseurl',base],{stdio:'inherit',timeout:120000}).status,0);
  server=spawn('python3',['-u','-m','http.server','0','--bind','127.0.0.1','--directory',dir],{stdio:['ignore','pipe','ignore']});
@@ -43,7 +44,7 @@ try {
      const csv=p.getByRole('link',{name:'Download example data (CSV)',exact:true});assert.equal(await csv.getAttribute('href'),base+'/assets/examples/observations.csv');assert.equal(await csv.getAttribute('download'),'observations.csv');
     } else {
      const region=p.getByRole('region',{name:'Search results',exact:true}),box=p.getByRole('searchbox',{name:'Search the example record'});
-     assert.equal(await region.count(),1);assert.equal(await box.isEnabled(),true);
+     assert.equal(await region.count(),1);assert.equal(await box.isEnabled(),true);assert.equal(await submitLabelFits(p),true,'native submit label stays on one line within its button');
      await box.fill(article.title);await box.press('Enter');await p.waitForFunction(()=>document.querySelectorAll('[data-search-results] li').length===1);
      assert.equal(norm(await region.locator('h3').textContent()),article.title);
      assert.equal(norm(await region.locator('li p').textContent()),article.summary);
@@ -53,7 +54,7 @@ try {
     }
     const axe=await bounded('full accessibility '+id,()=>new AxeBuilder({page:p}).analyze(),30000);
     assert.deepEqual(axe.violations.map(v=>({id:v.id,targets:v.nodes.map(n=>n.target)})),[]);
-    await p.evaluate(()=>document.documentElement.style.fontSize='200%');assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'200% text retains context');await p.evaluate(()=>document.documentElement.style.fontSize='');
+    await p.evaluate(()=>document.documentElement.style.fontSize='200%');assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true,'200% text retains context');if(id==='search')assert.equal(await submitLabelFits(p),true,'enlarged submit label remains complete and unwrapped');await p.evaluate(()=>document.documentElement.style.fontSize='');
     await p.emulateMedia({forcedColors:'active'});assert.equal(await p.locator('main h1').isVisible(),true);await p.emulateMedia({forcedColors:'none',media:'print'});assert.equal(await p.locator('main h1').isVisible(),true);await p.emulateMedia({media:'screen'});
     if(id==='search') {
      const box=p.getByRole('searchbox',{name:'Search the example record'});
