@@ -26,3 +26,9 @@ jobs:
         run: |
           python3 -m unittest discover -s tests -p 'test_hero.py'
           python3 -m unittest discover -s tests -p 'test_deployment.py'
+          python3 -m unittest discover -s tests -p 'test_pr_preview_verification.py'
+      - name: Verify actual Liquid hero resolution
+        run: python3 -m unittest discover -s tests -p 'test_identity.py'
+        env:
+          BUNDLE_PATH: ${{ github.workspace }}/vendor/bundle
+          BUNDLE_FROZEN: 'true'

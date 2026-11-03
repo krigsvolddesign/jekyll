@@ -2,6 +2,7 @@
 layout: page
 title: Krigsvold, in plain sight.
 eyebrow: The Jekyll reference
+hero_variant: signature
 hero_image: /assets/images/hero/krigsvold-hero-2172.webp
 hero_image_640: /assets/images/hero/krigsvold-hero-640.webp
 hero_image_960: /assets/images/hero/krigsvold-hero-960.webp

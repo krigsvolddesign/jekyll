@@ -1,0 +1,83 @@
+{
+  "language": {
+    "hero_variant": "section",
+    "hero_image": "/assets/images/sections/krigsvold-mountains-1920.webp",
+    "hero_image_width": 1920,
+    "hero_image_height": 640,
+    "hero_image_variants": [
+      {
+        "url": "/assets/images/sections/krigsvold-mountains-640.webp",
+        "width": 640
+      },
+      {
+        "url": "/assets/images/sections/krigsvold-mountains-960.webp",
+        "width": 960
+      },
+      {
+        "url": "/assets/images/sections/krigsvold-mountains-1440.webp",
+        "width": 1440
+      },
+      {
+        "url": "/assets/images/sections/krigsvold-mountains-1920.webp",
+        "width": 1920
+      }
+    ],
+    "hero_focal_point": "center",
+    "asset_id": "krigsvold-mountains",
+    "provenance": "provenance/krigsvold-mountains.json"
+  },
+  "journal": {
+    "hero_variant": "section",
+    "hero_image": "/assets/images/sections/krigsvold-penguins-1920.webp",
+    "hero_image_width": 1920,
+    "hero_image_height": 640,
+    "hero_image_variants": [
+      {
+        "url": "/assets/images/sections/krigsvold-penguins-640.webp",
+        "width": 640
+      },
+      {
+        "url": "/assets/images/sections/krigsvold-penguins-960.webp",
+        "width": 960
+      },
+      {
+        "url": "/assets/images/sections/krigsvold-penguins-1440.webp",
+        "width": 1440
+      },
+      {
+        "url": "/assets/images/sections/krigsvold-penguins-1920.webp",
+        "width": 1920
+      }
+    ],
+    "hero_focal_point": "center",
+    "asset_id": "krigsvold-penguins",
+    "provenance": "provenance/krigsvold-penguins.json"
+  },
+  "examples": {
+    "hero_variant": "section",
+    "hero_image": "/assets/images/sections/krigsvold-sea-ice-1920.webp",
+    "hero_image_width": 1920,
+    "hero_image_height": 640,
+    "hero_image_variants": [
+      {
+        "url": "/assets/images/sections/krigsvold-sea-ice-640.webp",
+        "width": 640
+      },
+      {
+        "url": "/assets/images/sections/krigsvold-sea-ice-960.webp",
+        "width": 960
+      },
+      {
+        "url": "/assets/images/sections/krigsvold-sea-ice-1440.webp",
+        "width": 1440
+      },
+      {
+        "url": "/assets/images/sections/krigsvold-sea-ice-1920.webp",
+        "width": 1920
+      }
+    ],
+    "hero_focal_point": "center",
+    "asset_id": "krigsvold-sea-ice",
+    "provenance": "provenance/krigsvold-sea-ice.json"
+  }
+}

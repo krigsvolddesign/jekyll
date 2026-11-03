@@ -53,7 +53,7 @@ try{
  }
  const c=await browser.newContext(),p=await c.newPage();
  try{
-  await p.goto(`http://127.0.0.1:${port}/language/`);assert.equal(await p.locator('.page-masthead__art').count(),0,'Hero must remain opt-in');
+  await p.goto(`http://127.0.0.1:${port}/setup/`);assert.equal(await p.locator('.page-masthead__art').count(),0,'Hero must remain opt-in on compact pages');
   await p.goto(`http://127.0.0.1:${port}/`);await p.emulateMedia({forcedColors:'active'});assert.equal(await p.locator('.page-masthead__art').evaluate(n=>getComputedStyle(n).display),'none');
   await p.emulateMedia({forcedColors:'none',media:'print'});assert.equal(await p.locator('.page-masthead__art').evaluate(n=>getComputedStyle(n).display),'none');assert.equal(await p.locator('h1').evaluate(n=>getComputedStyle(n).color),'rgb(0, 0, 0)');
   await p.emulateMedia({media:'screen'});await p.evaluate(()=>document.querySelector('.page-masthead__art').remove());assert.match(await p.locator('.page-masthead').evaluate(n=>getComputedStyle(n).backgroundColor),/rgb\(10, 29, 53\)/);

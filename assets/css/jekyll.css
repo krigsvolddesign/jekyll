@@ -141,6 +141,35 @@ html[data-appearance="dark"] .page-masthead--illustrated { background-color:var(
   .krigsvold-palette-ribbon {display:none;}
 }
 
+/* Portable host hero variants: existing signature art/tints above are unchanged.
+   Compact reading headings keep the source polar identity without cinema. */
+body.krigsvold:is(.hero-context--compact,.hero-context--plain):not(.dashboard-page) .nav-shell { position:relative; background:var(--navy-950); }
+.page-masthead:is(.hero--compact,.hero--plain) { min-height:0; padding:2.5rem 0 3rem; }
+.page-masthead:is(.hero--compact,.hero--plain) h1 { font-size:clamp(2rem,4vw,3.5rem); line-height:1.12; }
+.hero--plain .page-masthead__veil { display:none; }
+html[data-appearance] .hero--plain { background:var(--paper); color:var(--ink); }
+html[data-appearance] .hero--plain :is(h1,p,.eyebrow) { color:var(--ink); }
+.page-masthead.hero--section { min-height:320px; padding:7rem 0 1.5rem; }
+.hero--section .page-masthead__art img { object-fit:cover; }
+.hero--section h1 { font-size:clamp(2.2rem,4.2vw,3.8rem); line-height:1.08; }
+.hero--section p { max-width:46rem; }
+@media(max-width:991.98px) {
+  .page-masthead.hero--section { min-height:0; padding:0; }
+  .hero--section .page-masthead__art img { object-fit:contain; }
+  .hero--section .container { padding-block:1.75rem 2rem; }
+}
+@media(forced-colors:active) {
+  html[data-appearance] .page-masthead:is(.hero--section,.hero--compact,.hero--plain) { background:Canvas!important; color:CanvasText!important; }
+  html[data-appearance] .page-masthead:is(.hero--section,.hero--compact,.hero--plain) :is(h1,p,.eyebrow) { color:CanvasText!important; }
+}
+@media print {
+  .page-masthead:is(.hero--section,.hero--compact,.hero--plain) { min-height:0!important; padding:1rem 0!important; }
+}
+
+.hero-image-credit { font-size:.8rem; margin-block:.75rem 0; }
+.hero-image-credit a { color:inherit; text-decoration:underline; text-underline-offset:.15em; }
+
+html[data-appearance] .hero--section .hero-image-credit a { color:#fff!important; }
 
 /* Krigsvold reference dark mode: a deliberately light footer provides a
    polar-paper counterpoint to dark content, with original navy text.
