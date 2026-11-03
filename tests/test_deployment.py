@@ -1,6 +1,8 @@
 """Deployment boundaries and immutable artifact checks; no network or secrets."""
 import importlib.util
 import json
+import os
+import subprocess
 from pathlib import Path
 import tempfile
 import unittest
@@ -10,6 +12,28 @@ spec=importlib.util.spec_from_file_location('deployment_artifact',ROOT/'scripts/
 artifact=importlib.util.module_from_spec(spec);spec.loader.exec_module(artifact)
 
 class DeploymentTests(unittest.TestCase):
+    def test_pr_preview_is_separate_from_protected_deployments(self):
+        build=(ROOT/'scripts/deployment/build-cloudflare.sh').read_text()
+        preview=(ROOT/'scripts/deployment/preview-cloudflare.sh').read_text()
+        pr=(ROOT/'scripts/deployment/pr-preview-cloudflare.sh').read_text()
+        self.assertIn('pr-preview-source.py',build)
+        self.assertIn('PR_PREVIEW_ONLY:',build)
+        self.assertIn('pr-preview-cloudflare.sh',preview)
+        self.assertIn('exec bash scripts/deployment/pr-preview-cloudflare.sh',preview)
+        self.assertIn('--ignore-base-config',pr)
+        self.assertNotIn('deploy-cloudflare.sh',pr)
+        self.assertNotIn('native.py record',pr)
+        for script in ['build-cloudflare.sh','preview-cloudflare.sh','pr-preview-cloudflare.sh']:
+            p=ROOT/'scripts/deployment'/script
+            result=subprocess.run(['bash','-n',str(p)],capture_output=True,text=True)
+            self.assertEqual(result.returncode,0,result.stderr)
+        env={**os.environ,'WORKERS_CI_BRANCH':'main'}
+        env.pop('JEKYLL_DEPLOY_BRANCH',None)
+        denied=subprocess.run(['bash',str(ROOT/'scripts/deployment/preview-cloudflare.sh')],
+                              env=env,capture_output=True,text=True,timeout=10)
+        self.assertNotEqual(denied.returncode,0)
+        self.assertIn('Production cannot use a Preview command',denied.stderr)
+
     def test_only_reviewed_gitflow_promotion_shape(self):
         sha='a'*40
         good={'merged_at':'2026-11-03T00:00:00Z','merge_commit_sha':sha,'base':{'ref':'main'},'head':{'ref':'release/hero','sha':sha},'user':{'login':'author'}}
@@ -179,7 +203,7 @@ class NativeEntrypointBranchTests(unittest.TestCase):
                 self.assertEqual(result.returncode,77,result.stderr)
                 self.assertIn('preflight reached local dependency',result.stdout)
         self.assertEqual(self.invoke('deploy-cloudflare.sh','develop',None).returncode,1)
-        self.assertEqual(self.invoke('build-cloudflare.sh','feature/unreviewed',None).returncode,1)
+        self.assertEqual(self.invoke('build-cloudflare.sh','feature/unreviewed',None).returncode,77)  # PR build reaches isolated preflight
 
 class CloudflareBuildMetadataTests(unittest.TestCase):
     def test_local_manual_build_has_no_native_build_claim(self):
