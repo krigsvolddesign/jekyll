@@ -79,3 +79,24 @@ html[data-appearance=dark] .example-root .btn-outline-dark-blue:focus-visible { 
    comparison regions. Reuse the source example container width; prose retains
    its own bounded measure. Other document archetypes are audited separately. */
 .example-root:is([data-example="faq"],[data-example="changelog"],[data-example="dashboard-components"]) .example-reading { max-width:74rem; }
+
+/* #91 collection/dossier wave: retain existing metadata and scoped regions.
+   Report navigation stays in flow because labels already form a left column. */
+.example-report-index { margin-bottom:2rem; padding-bottom:1rem; border-bottom:1px solid var(--ex-line); }
+.example-report-index .example-local-index ol { display:flex; flex-wrap:wrap; gap:.5rem 1.5rem; margin-bottom:0; }
+.example-report-index .example-local-index li { margin-bottom:.5rem; }
+.example-report-body .example-stats dd { font-variant-numeric:tabular-nums; }
+.example-root[data-example="search"] .example-search-scope { padding:1.5rem; background:var(--ex-panel); }
+.example-root[data-example="search"] .example-search-scope label { margin-top:0; }
+.example-root[data-example="search"] .example-search-output { margin-top:2rem; padding-top:1.25rem; border-top:1px solid var(--ex-line); }
+/* Search creates one body child, not a metadata/body listing pair. Let the
+   existing title and summary use their actual region, without invented fields. */
+.example-root[data-example="search"] [data-search-results] > li { display:block; }
+.example-root[data-example="search"] [data-search-results] > li > div { max-width:68ch; }
+@media(max-width:48rem) {
+ .example-root[data-example="search"] .example-search-scope { padding:1rem; }
+}
+@media(forced-colors:active) {
+ .example-root[data-example="search"] .example-search-scope { background:Canvas; }
+ .example-report-index, .example-root[data-example="search"] .example-search-output { border-color:CanvasText; }
+}
