@@ -12,9 +12,11 @@ const build=path.resolve(process.argv[2]||ownedBuild),evidence=process.env.NAVIG
 await mkdir(evidence,{recursive:true});
 const bounded=async(label,fn,ms=15000)=>{let timer;try{return await Promise.race([fn(),new Promise((_,reject)=>timer=setTimeout(()=>reject(Error(label+' timed out')),ms))])}finally{clearTimeout(timer)}};
 const report={engine:engineName,build,cases:[],startedAt:new Date().toISOString()};let server,browser;
+const remainingBuildBudget=()=>{const remaining=180000-(Date.now()-started);assert.ok(remaining>0,'Overall 180s budget exhausted before self-build');return Math.min(120000,remaining)};
 const deadline=setTimeout(()=>{console.error('Navigation overall 180s deadline exceeded');process.exit(1)},180000);
 try {
- if(ownedBuild)assert.equal(spawnSync('python3',['nightjar/build.py','--destination',build],{stdio:'inherit',timeout:120000}).status,0,'Locked standalone navigation build');
+ if(ownedBuild)assert.equal(spawnSync('python3',['nightjar/build.py','--destination',build],{stdio:'inherit',timeout:remainingBuildBudget()}).status,0,'Locked standalone navigation build');
+ assert.ok(Date.now()-started<180000,'Overall 180s budget exhausted by self-build');
  server=http.createServer(async(req,res)=>{try{const u=new URL(req.url,'http://local'),file=path.join(build,u.pathname+(u.pathname.endsWith('/')?'index.html':''));res.setHeader('Content-Type',({'.html':'text/html','.css':'text/css','.js':'text/javascript','.svg':'image/svg+xml','.woff':'font/woff','.woff2':'font/woff2','.webp':'image/webp'})[path.extname(file)]||'application/octet-stream');res.end(await readFile(file));}catch{res.writeHead(404);res.end();}});
  await bounded('navigation server startup',()=>new Promise(resolve=>server.listen(0,'127.0.0.1',resolve)),10000);
  browser=await bounded('navigation browser launch',()=>engine.launch(engineName==='chromium'&&process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{}),30000);

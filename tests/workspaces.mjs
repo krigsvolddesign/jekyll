@@ -9,6 +9,7 @@ import AxeBuilder from '@axe-core/playwright';
 const started=Date.now(),name=process.env.BROWSER||'chromium',engine={chromium,firefox,webkit}[name];assert.ok(engine);
 const fixture=JSON.parse(readFileSync('_data/dashboards.json')),dir=mkdtempSync(join(tmpdir(),'krigsvold-workspaces-')),rows=[];
 let server,browser;
+const remainingBuildBudget=()=>{const remaining=180000-(Date.now()-started);assert.ok(remaining>0,'Overall 180s budget exhausted before self-build');return Math.min(120000,remaining)};
 const deadline=setTimeout(()=>{console.error('Operational overall 180s deadline exceeded');process.exit(1)},180000);
 const bounded=async(label,fn,ms=15000)=>{console.log('OPERATION',label);let timer;try{return await Promise.race([fn(),new Promise((_,reject)=>timer=setTimeout(()=>reject(Error(label+' timed out')),ms))])}finally{clearTimeout(timer)}};
 const text=async locator=>(await locator.textContent()).trim();
@@ -81,7 +82,8 @@ async function operations(page) {
 }
 
 try {
- for(const base of['','/preview'])assert.equal(spawnSync('python3',['nightjar/build.py','--destination',join(dir,base||'.'),'--baseurl',base],{stdio:'inherit',timeout:120000}).status,0);
+ for(const base of['','/preview'])assert.equal(spawnSync('python3',['nightjar/build.py','--destination',join(dir,base||'.'),'--baseurl',base],{stdio:'inherit',timeout:remainingBuildBudget()}).status,0);
+ assert.ok(Date.now()-started<180000,'Overall 180s budget exhausted by self-build');
  server=spawn('python3',['-u','-m','http.server','0','--bind','127.0.0.1','--directory',dir],{stdio:['ignore','pipe','ignore']});
  const port=await bounded('server startup',()=>new Promise(resolve=>server.stdout.on('data',b=>{const m=String(b).match(/port (\d+)/);if(m)resolve(m[1])})),10000),origin=`http://127.0.0.1:${port}`;
  browser=await bounded('browser launch',()=>engine.launch(name==='chromium'&&process.env.CHROMIUM_PATH?{executablePath:process.env.CHROMIUM_PATH}:{}),30000);
