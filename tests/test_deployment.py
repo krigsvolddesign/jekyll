@@ -1,6 +1,8 @@
 """Deployment boundaries and immutable artifact checks; no network or secrets."""
 import importlib.util
 import json
+import os
+import subprocess
 from pathlib import Path
 import tempfile
 import unittest
@@ -201,7 +203,7 @@ class NativeEntrypointBranchTests(unittest.TestCase):
                 self.assertEqual(result.returncode,77,result.stderr)
                 self.assertIn('preflight reached local dependency',result.stdout)
         self.assertEqual(self.invoke('deploy-cloudflare.sh','develop',None).returncode,1)
-        self.assertEqual(self.invoke('build-cloudflare.sh','feature/unreviewed',None).returncode,1)
+        self.assertEqual(self.invoke('build-cloudflare.sh','feature/unreviewed',None).returncode,77)  # PR build reaches isolated preflight
 
 class CloudflareBuildMetadataTests(unittest.TestCase):
     def test_local_manual_build_has_no_native_build_claim(self):
