@@ -10,9 +10,10 @@ spacing, tint, and responsive composition. No shared Core asset is replaced.
 | `compact` | Articles, docs, example details, setup | Restrained polar heading; no cinematic image |
 | `plain` | Utility/support | Restrained paper heading with opaque polar navigation |
 
-The default is compact. Existing homepage `hero_image` front matter still selects
-signature. Legacy interior image front matter selects section. Signature requested
-on an interior page resolves to compact. Unknown names resolve to compact.
+The default is compact. Explicit supported variants take precedence. Existing
+homepage nonempty `hero_image` front matter without a variant selects signature. Legacy interior image front matter selects section. Signature requested
+on an interior page resolves to compact. Unknown names resolve to compact. Empty or whitespace-only image paths do not
+opt into photography. Dashboards resolve to plain without image composition.
 Dashboards keep their existing application layout and do not receive a masthead.
 
 Image-backed variants accept the existing `hero_image`, `hero_image_640`,
