@@ -151,4 +151,49 @@ class PreviewOutputTests(unittest.TestCase):
         data=self.payload();data['deployment']['env']={'unexpected':{'type':'plain_text','text':'synthetic'}}
         with self.assertRaises(AssertionError):module.parse_preview_output(json.dumps(data))
 
+
+
+class NativeEntrypointBranchTests(unittest.TestCase):
+    def invoke(self,script,ci,local):
+        import os
+        with tempfile.TemporaryDirectory() as temp:
+            fake=Path(temp)
+            for name in ['gem','python3']:
+                path=fake/name;path.write_text('#!/bin/sh\nprintf "preflight reached local dependency\\n"\nexit 77\n');path.chmod(0o755)
+            env={**os.environ,'PATH':temp}
+            for key in ['WORKERS_CI_BRANCH','JEKYLL_DEPLOY_BRANCH','CLOUDFLARE_API_TOKEN']:env.pop(key,None)
+            if ci is not None:env['WORKERS_CI_BRANCH']=ci
+            if local is not None:env['JEKYLL_DEPLOY_BRANCH']=local
+            return subprocess.run(['/bin/bash',str(ROOT/'scripts/deployment'/script)],cwd=ROOT,env=env,text=True,capture_output=True,timeout=5)
+    def test_conflicting_ci_and_local_branches_fail_before_dependencies(self):
+        for script in ['build-cloudflare.sh','deploy-cloudflare.sh']:
+            for ci,local in [('develop','main'),('main','develop')]:
+                result=self.invoke(script,ci,local)
+                self.assertEqual(result.returncode,1)
+                self.assertIn('Conflicting GitFlow branch authorities',result.stderr)
+                self.assertNotIn('preflight reached',result.stdout)
+    def test_matching_ci_and_absent_ci_local_override_keep_existing_guards(self):
+        for script,branch in [('build-cloudflare.sh','develop'),('deploy-cloudflare.sh','main')]:
+            for ci,local in [(branch,None),(branch,branch),(None,branch)]:
+                result=self.invoke(script,ci,local)
+                self.assertEqual(result.returncode,77,result.stderr)
+                self.assertIn('preflight reached local dependency',result.stdout)
+        self.assertEqual(self.invoke('deploy-cloudflare.sh','develop',None).returncode,1)
+        self.assertEqual(self.invoke('build-cloudflare.sh','feature/unreviewed',None).returncode,1)
+
+class CloudflareBuildMetadataTests(unittest.TestCase):
+    def test_local_manual_build_has_no_native_build_claim(self):
+        self.assertIsNone(artifact.cloudflare_build_metadata('develop','a'*40,{}))
+    def test_native_fields_are_validated_and_secrets_never_copied(self):
+        values={'WORKERS_CI_BUILD_UUID':'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa','WORKERS_CI_COMMIT_SHA':'a'*40,'WORKERS_CI_BRANCH':'develop','CLOUDFLARE_API_TOKEN':'private-synthetic-value','WORKERS_CI':'not-required'}
+        result=artifact.cloudflare_build_metadata('develop','a'*40,values)
+        self.assertEqual(result['buildUuid'],values['WORKERS_CI_BUILD_UUID']);self.assertEqual(result['commitSha'],'a'*40);self.assertEqual(result['branch'],'develop');self.assertIs(result['independentAttestationClaimed'],False)
+        self.assertNotIn('private-synthetic-value',json.dumps(result));self.assertNotIn('WORKERS_CI',result)
+    def test_mismatched_or_malformed_reported_values_fail(self):
+        valid={'WORKERS_CI_BUILD_UUID':'aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa','WORKERS_CI_COMMIT_SHA':'a'*40,'WORKERS_CI_BRANCH':'develop'}
+        for key,value in [('WORKERS_CI_BUILD_UUID','not-a-uuid'),('WORKERS_CI_COMMIT_SHA','b'*40),('WORKERS_CI_COMMIT_SHA','not-a-hash'),('WORKERS_CI_BRANCH','main')]:
+            with self.assertRaises(AssertionError):artifact.cloudflare_build_metadata('develop','a'*40,{**valid,key:value})
+        with self.assertRaises(AssertionError):artifact.cloudflare_build_metadata('develop','a'*40,{'WORKERS_CI_COMMIT_SHA':'b'*40})
+
+
 if __name__=='__main__':unittest.main()

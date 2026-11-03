@@ -6,9 +6,12 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[1]
 APPROVED = {
-    'assets/images/hero/hero-original.webp': '17b91b3f19262990862648fec1f9dc8df1b6784401b7bf93bbc3821f6020d1dd',
-    'assets/images/hero/hero-960.webp': '451bbf708dbd48a2a79252891aae542b5b7694050dd0dc403cea9e36218b7630',
-    'assets/images/hero/hero-640.webp': 'cba6e2a3011668ba83e6bc85c04a9ba960edb3bf1d334240655638a84166d874',
+    'assets/images/hero/krigsvold-hero-master.png': '11ab8f82242fc0d51232c9e7f1603f30d69a9234024b09effc3f579176bb81ef',
+    'assets/images/hero/krigsvold-hero-2172.webp': 'e967893b399f8e13041b011a71cb55440b44340e140050e0408d6f7b0ad158e5',
+    'assets/images/hero/krigsvold-hero-1920.webp': '639455d5bfa4fb482730a064926cb16064273ec7c6ddf81ab65a185d35588ea4',
+    'assets/images/hero/krigsvold-hero-1440.webp': 'fe8a40b8a9e0fd00c6e71ccdb4b2d67ef1035eb85639f70035db55b61c082505',
+    'assets/images/hero/krigsvold-hero-960.webp': '332e766837f33a5acf4d61df3ed800fdc78ff5acf628abbe8e81b978c6cb43fd',
+    'assets/images/hero/krigsvold-hero-640.webp': 'ad25f988dbde7dc9b485a937cb678995088bc50e7fc727e75d7ad901be81e434',
 }
 
 
@@ -22,8 +25,8 @@ class ApprovedHeroTests(unittest.TestCase):
             data = (ROOT/entry['path']).read_bytes()
             self.assertEqual(hashlib.sha256(data).hexdigest(), APPROVED[entry['path']])
             self.assertEqual(len(data), entry['bytes'])
-        original = manifest['files'][0]
-        self.assertEqual((original['width'], original['height']), (1536, 509))
+        original = next(f for f in manifest['files'] if f['role'] == 'archival-master')
+        self.assertEqual((original['width'], original['height']), (2172, 724))
 
     def test_standalone_source_archive_retains_assets_and_attribution(self):
         entries = json.loads((ROOT/'nightjar/source-files.json').read_text())
