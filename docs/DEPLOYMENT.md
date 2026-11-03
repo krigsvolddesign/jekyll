@@ -2,7 +2,7 @@
 
 Jekyll builds the site. Cloudflare Workers serves the generated static HTML, CSS, fonts and locally hosted images; it does not execute Ruby at request time.
 
-The build command is `bash scripts/deployment/build-cloudflare.sh`. That script runs locked Bundler/Jekyll directly for root and `/preview`. Python only stages the source allowlist, verifies provenance, creates the deterministic source ZIP, retains frozen documentation, and hashes the already-built output. It does not invoke Ruby. Ruby is pinned through the native build variable `RUBY_VERSION=3.2.11`; Bundler remains 2.4.19 and the existing Gemfile.lock pins Jekyll 4.3.2. Set `NODE_VERSION=24.19.0` and `SKIP_DEPENDENCY_INSTALL=true`. The integrity-locked local Wrangler is 4.156.2.
+The build command is `bash scripts/deployment/build-cloudflare.sh`. That script runs locked Bundler/Jekyll directly for root and `/preview`. Python only stages the source allowlist, verifies provenance, creates the deterministic source ZIP, retains frozen documentation, and hashes the already-built output. It does not invoke Ruby. Committed `.ruby-version` and `.node-version` files pin Ruby 3.2.11 and Node 24.19.0; no dashboard runtime or build variables are required. Bundler remains 2.4.19 and the existing Gemfile.lock pins Jekyll 4.3.2. Cloudflare may perform its normal dependency installation before the command; the script still explicitly verifies and installs the locked dependencies. `SKIP_DEPENDENCY_INSTALL=true` is an optional build-only optimization, never a runtime binding or a prerequisite. The integrity-locked local Wrangler is 4.156.2.
 
 ## GitFlow and one native deployment authority
 
@@ -35,3 +35,5 @@ The main-only production helper records the prior single-version deployment, pub
 Visual review still compares actual desktop/tablet/mobile, light/dark, imagery, source typography, navigation and cropping against jameshoward.us and krigsvold.org. Automated checks alone do not certify visual fidelity.
 
 Live payload verification has a 300-second overall deadline, at most four in-flight requests, and a 25-second whole-request deadline. Cancellation unwinds within at most 30 additional seconds. The Preview upload command has its own 300-second limit. Failed checks and timeouts remain failures.
+
+When Cloudflare supplies its documented native build UUID, commit and branch, `.well-known/deployment.json` records those three validated, whitelisted fields in `cloudflareBuild`. Builds outside native Cloudflare CI record `null`. These are environment-reported identifiers, not independent attestation; preserve the corresponding native build log/link to prove the trigger. No credentials or other environment values are copied.
