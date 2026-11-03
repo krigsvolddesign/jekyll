@@ -2,6 +2,11 @@
 layout: page
 title: Krigsvold, in plain sight.
 eyebrow: The Jekyll reference
+hero_image: /assets/images/hero/hero-original.webp
+hero_image_640: /assets/images/hero/hero-640.webp
+hero_image_960: /assets/images/hero/hero-960.webp
+hero_image_width: 1536
+hero_image_height: 509
 description: The same shell. Markdown, Liquid, and a little JavaScript. Nothing hiding the design.
 ---
 ## A smaller engine. The same language.

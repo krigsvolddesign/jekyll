@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "family": "krigsvold",
+  "role": "Jekyll host-owned decorative panoramic hero; not a Core foundation asset",
+  "approval": "Original Antarctic glacier/ice-shelf composition selected by maintainer in design review, design-workbench#88; supplied for repository inclusion in work order",
+  "sourceArchive": "approved-panoramic-heroes.zip",
+  "sourceArchiveSha256": "f4728156b8974d96de6a28589f7ed0453439f4b0130eae31cba94eddfb99b7c7",
+  "artworkSource": "User-supplied approved asset archive from preceding ChatGPT design session; not a photograph from krigsvold.org and not a later 16:9 regeneration",
+  "rights": "Maintainer supplied and authorized these exact assets for this repository; no third-party stock-photo or photographer attribution is asserted. Repository code licensing does not assert an independent third-party artwork license.",
+  "runtimeExternalImageRequests": false,
+  "files": [
+    {
+      "path": "assets/images/hero/hero-original.webp",
+      "width": 1536,
+      "height": 509,
+      "bytes": 82654,
+      "sha256": "17b91b3f19262990862648fec1f9dc8df1b6784401b7bf93bbc3821f6020d1dd"
+    },
+    {
+      "path": "assets/images/hero/hero-960.webp",
+      "width": 960,
+      "height": 318,
+      "bytes": 28452,
+      "sha256": "451bbf708dbd48a2a79252891aae542b5b7694050dd0dc403cea9e36218b7630"
+    },
+    {
+      "path": "assets/images/hero/hero-640.webp",
+      "width": 640,
+      "height": 212,
+      "bytes": 14446,
+      "sha256": "cba6e2a3011668ba83e6bc85c04a9ba960edb3bf1d334240655638a84166d874"
+    }
+  ],
+  "sourceAuthority": {
+    "site": "https://krigsvold.org/",
+    "observedStylesheet": {
+      "url": "https://krigsvold.org/_astro/Page.7T515cpF.css",
+      "sha256": "2d2203baeaf2013ba46f30d26d81f0946f99508e8ee8895cab15da77ee5631f8"
+    },
+    "observationMethod": "Actual origin HTML and stylesheet retrieval; independent rendered visual review is separate evidence",
+    "preservedSourceRules": [
+      "Roboto UI and Roboto Slab headings",
+      "navy950 #061325, navy900 #0a1d35, blue600 #286a9d, ice400 #9ed5e6, paper #fbfaf7",
+      "source navigation and page-masthead geometry; unmodified shell.css",
+      "plain masthead inverse appearance retains paper/ink"
+    ],
+    "hostExtension": "Only opt-in illustrated masthead adds host-owned decorative picture and navy/ice scrim, with white image-backed text in both appearances"
+  }
+}
