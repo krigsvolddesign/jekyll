@@ -49,6 +49,19 @@ try {
       if (js && item.id === 'home') {
         const result = await bounded(`${engineName} ${base||'/'} route=${item.id} accessibility`,()=>new AxeBuilder({page}).analyze());
         assert.deepEqual(result.violations.map(v => v.id), [], `axe ${base}/${item.id}`);
+        const footer=page.locator('.site-footer');
+        assert.equal(await footer.evaluate(el=>getComputedStyle(el).backgroundColor),
+          'rgb(6, 19, 37)','Light mode retains source polar navy footer');
+        await page.evaluate(()=>document.documentElement.dataset.appearance='dark');
+        assert.equal(await footer.evaluate(el=>getComputedStyle(el).backgroundColor),
+          'rgb(255, 255, 255)','Dark mode has a white footer');
+        assert.equal(await footer.evaluate(el=>getComputedStyle(el).color),
+          'rgb(6, 19, 37)','Dark mode has canonical navy footer text');
+        assert.equal(await footer.locator('.footer-owner').evaluate(el=>getComputedStyle(el).color),
+          'rgb(6, 19, 37)','Footer ownership link is visible against white');
+        assert.equal(await footer.locator('h2').first().evaluate(el=>getComputedStyle(el).color),
+          'rgb(6, 19, 37)','Section titles are navy against white');
+        await page.evaluate(()=>document.documentElement.dataset.appearance='light');
       }
     }
     await context.close();
