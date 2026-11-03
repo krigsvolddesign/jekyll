@@ -1,0 +1,1 @@
+<ul class="example-documentation-paths">{% for item in include.items %}<li><h3><a href="{% include examples/url.html url=item.url %}">{{ item.title | escape }}</a></h3><p>{{ item.summary | escape }}</p></li>{% endfor %}</ul>
