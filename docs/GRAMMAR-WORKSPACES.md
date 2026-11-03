@@ -60,3 +60,22 @@ family distinction. Its original Chromium proof at `6f34960` is retained separat
 the adapted `test:navigation` self-builds and exercises the same 38 states in the
 selected engine, with bounded synchronization and no disabled-JavaScript font API
 wait. See `docs/qa/navigation-text-resize.md` for the detailed finding and limits.
+
+## Consolidated candidate and verification provenance
+
+The final candidate normally merges the collection/search source at
+`3e5d49dcf47cc3b9e6646e66274fb246d5848df2` into the workspace feature. That
+source remains in its original ancestry and is attributed in
+`GRAMMAR-COLLECTIONS.md`. The original collection PR remains unmerged: its
+Cloudflare authentication failure is retained as a failed infrastructure record,
+not represented as a successful native build or accepted develop integration.
+This consolidation combines the two reviewed scopes without bypassing a gate.
+
+The preliminary workspace source `d4a207d` passed the unchanged focused gate in
+Chromium (41.117 seconds) and Firefox (79.232 seconds), and its adapted navigation
+gate passed all 38 Firefox states in 40.259 seconds. These are local proofs, not
+hosted or native Cloudflare approval of the consolidated source. Only workflow
+and package-script unions were needed when combining the two branches; every
+inherited suite, all three engines, cancellation and bounded job execution remain.
+The consolidated candidate requires fresh hosted checks, a genuine Cloudflare
+preview and complete actual-service acceptance before any develop merge.
