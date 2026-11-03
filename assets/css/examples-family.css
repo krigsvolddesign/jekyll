@@ -49,6 +49,37 @@ html[data-appearance=dark] .example-root .btn-outline-dark-blue:focus-visible { 
 /* Long titles must remain readable at every masthead breakpoint. */
 .page-masthead h1 { overflow-wrap:anywhere; }
 
+/* #91: source FAQ groups and aligned news/fellow regions translated to these
+   three tasks. Native disclosures and complete original fixture prose remain. */
+.example-question-scope { display:grid; grid-template-columns:minmax(9rem,1fr) minmax(0,2.5fr); gap:clamp(1.5rem,3vw,3rem); margin-block:0 3rem; }
+.example-question-scope > header { border-top:1px solid var(--ex-line); padding-top:1rem; }
+.example-question-scope h3 { margin:0; font:700 1.15rem/1.35 var(--serif); color:var(--ex-strong); }
+.example-faq--scoped details { margin:0; padding:0; border-top:1px solid var(--ex-line); border-bottom:0; }
+.example-faq--scoped details:last-child { border-bottom:1px solid var(--ex-line); }
+.example-faq--scoped summary { position:relative; min-height:44px; padding:1rem 2.5rem 1rem 0; line-height:1.5; }
+.example-faq--scoped .example-faq__answer { padding-bottom:1.25rem; }
+.example-faq--scoped details p { margin:0; }
+.example-release, .example-component-register__entry { display:grid; grid-template-columns:minmax(10rem,1fr) minmax(0,2.5fr); gap:clamp(1.5rem,3vw,3rem); padding-block:2rem; border-top:1px solid var(--ex-line); }
+.example-release h2, .example-component-register__scope h2 { margin:0; color:var(--ex-strong); font:700 1.35rem/1.35 var(--serif); }
+.example-release__version { display:block; font-variant-numeric:tabular-nums; font-size:1.75rem; }
+.example-release__separator { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+.example-release time { display:block; margin-top:.5rem; color:var(--ex-muted); font:400 .875rem/1.5 var(--sans); }
+.example-release .example-prose > :first-child, .example-component-register__entry .example-prose > :first-child { margin-top:0; }
+.example-component-register__entry .example-prose p { max-width:65ch; }
+@media(max-width:48rem) {
+ .example-question-scope, .example-release, .example-component-register__entry { grid-template-columns:minmax(0,1fr); gap:1rem; }
+ .example-question-scope { margin-bottom:2rem; }
+ .example-release, .example-component-register__entry { padding-block:1.5rem; }
+}
+@media(forced-colors:active) {
+ .example-question-scope > header, .example-faq--scoped details, .example-release, .example-component-register__entry { border-color:CanvasText; }
+}
+@media print { .example-question-scope, .example-release, .example-component-register__entry { break-inside:avoid; } }
+/* The old 46rem envelope included the index and its gap, squeezing nested
+   comparison regions. Reuse the source example container width; prose retains
+   its own bounded measure. Other document archetypes are audited separately. */
+.example-root:is([data-example="faq"],[data-example="changelog"],[data-example="dashboard-components"]) .example-reading { max-width:74rem; }
+
 /* #91 reading/reference wave: the navigation index is outside the prose
    measure. Shared fixture order and semantic section headings remain intact. */
 .example-frame--document .example-reading { max-width:74rem; }

@@ -60,6 +60,14 @@ jobs:
           BUNDLE_FROZEN: 'true'
           BUNDLE_PATH: ${{ github.workspace }}/vendor/bundle
 
+      - name: Verify native grammar exemplar semantics and accessibility
+        run: npm run test:grammar
+        timeout-minutes: 5
+        env:
+          BROWSER: ${{ matrix.browser }}
+          BUNDLE_FROZEN: 'true'
+          BUNDLE_PATH: ${{ github.workspace }}/vendor/bundle
+
       - name: Verify reading scopes and generic table landmarks
         run: npm run test:reading
         timeout-minutes: 6
