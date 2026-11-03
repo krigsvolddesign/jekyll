@@ -140,3 +140,37 @@ html[data-appearance="dark"] .page-masthead--illustrated { background-color:var(
 @media print {
   .krigsvold-palette-ribbon {display:none;}
 }
+
+
+/* Krigsvold reference dark mode: a deliberately light footer provides a
+   polar-paper counterpoint to dark content, with original navy text.
+   The light-mode footer and the canonical homepage overlay stay untouched. */
+html[data-appearance="dark"] body.krigsvold .site-footer {
+  background-color: #ffffff;
+  color: #061325;
+}
+html[data-appearance="dark"] body.krigsvold .site-footer :is(h2,p,.site-footer__base) {
+  color: #061325;
+}
+html[data-appearance="dark"] body.krigsvold .site-footer a,
+html[data-appearance="dark"] body.krigsvold .site-footer .footer-owner {
+  color: #061325 !important;
+}
+html[data-appearance="dark"] body.krigsvold .site-footer a:is(:hover,:focus-visible) {
+  color: #286a9d !important;
+}
+html[data-appearance="dark"] body.krigsvold .site-footer .site-footer__base {
+  border-top-color: #d9dee2;
+}
+html[data-appearance="dark"] body.krigsvold .site-footer a:focus-visible {
+  outline-color: #286a9d;
+}
+@media (forced-colors:active) {
+  html[data-appearance="dark"] body.krigsvold .site-footer {
+    background: Canvas;
+    color: CanvasText;
+  }
+  html[data-appearance="dark"] body.krigsvold .site-footer :is(h2,p,.site-footer__base,a,.footer-owner) {
+    color: CanvasText !important;
+  }
+}
