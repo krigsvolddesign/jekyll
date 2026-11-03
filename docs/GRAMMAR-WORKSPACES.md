@@ -47,3 +47,16 @@ Homepage art/tint/ribbon, footer identity, core tokens/fonts and frozen archives
 remain outside this work. The complete inherited suites remain required. A small
 new operational gate is budgeted using measured preceding CI durations, not by
 skipping engines, assertions or difficult states.
+
+## Reviewed host navigation correction
+
+A separate navigation branch, normally merged into this feature, appends 19 host
+`jekyll.css` lines to address an independently observed 200% text overlap. A
+font-relative size container reuses the existing disclosure menu when its measure
+cannot accommodate the desktop row; no typography is shrunk. Original hero
+artwork, tint declarations, canonical shell and header JavaScript remain intact.
+This is a shared host accessibility correction, not a manufactured operational
+family distinction. Its original Chromium proof at `6f34960` is retained separately;
+the adapted `test:navigation` self-builds and exercises the same 38 states in the
+selected engine, with bounded synchronization and no disabled-JavaScript font API
+wait. See `docs/qa/navigation-text-resize.md` for the detailed finding and limits.

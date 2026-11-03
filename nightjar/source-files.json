@@ -165,6 +165,7 @@
   "docs/archetypes/VERIFICATION.md",
   "docs/archetypes/contracts/catalog.schema.json",
   "docs/archetypes/contracts/dashboards.schema.json",
+  "docs/qa/navigation-text-resize.md",
   "docs/source-shell/CONTRACT.md",
   "docs/source-shell/README.md",
   "examples/about.html",
