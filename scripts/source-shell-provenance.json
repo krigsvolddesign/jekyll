@@ -1,0 +1,9 @@
+{
+  "family": "krigsvold",
+  "source_repository_at_capture": "krigsvoldtheme/krigsvoldtheme",
+  "source_commit": "fa4a66c8675d9258f733250f1e32149c3622ea39",
+  "source_shell_sha256": "a65b1cbbe032d46be7373b1f3a90ca46ba1b3971fa85c98975cd9ec76394c05d",
+  "legacy_package": "@krigsvold/theme",
+  "legacy_version": "2.2.3",
+  "legacy_registry_integrity": "sha512-SWsyy7btUfuj2n5VeQXPJrh4LPutkxBH2cjya8Z9Nlits2sYdE50++8fJcbXKU8PrbM6f7ALTqpy7yAlhQ2yTg=="
+}
