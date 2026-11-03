@@ -1,0 +1,155 @@
+{
+  "id": "krigsvold-mountains",
+  "family": "krigsvold",
+  "fileTitle": "File:Transantarctic Mountains November 2019.jpg",
+  "sourcePage": "https://commons.wikimedia.org/wiki/File:Transantarctic_Mountains_November_2019.jpg",
+  "sourceImageUrl": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Transantarctic_Mountains_November_2019.jpg",
+  "retrievedAt": "2026-11-03T18:53:18.583838+00:00",
+  "sourceMetadata": {
+    "DateTime": {
+      "value": "2021-12-15 16:34:45",
+      "source": "mediawiki-metadata",
+      "hidden": ""
+    },
+    "ObjectName": {
+      "value": "Transantarctic Mountains November 2019",
+      "source": "mediawiki-metadata"
+    },
+    "CommonsMetadataExtension": {
+      "value": 1.2,
+      "source": "extension",
+      "hidden": ""
+    },
+    "Categories": {
+      "value": "Transantarctic Mountains|Self-published work|Uploaded via Campaign:wsc-us|Images of people in science from Wiki Science Competition 2021|Images from Wiki Science Competition 2021 in the United States|General category images from Wiki Science Competition 2021 in the United States",
+      "source": "commons-categories",
+      "hidden": ""
+    },
+    "Assessments": {
+      "value": "",
+      "source": "commons-categories",
+      "hidden": ""
+    },
+    "ImageDescription": {
+      "value": "",
+      "source": "commons-desc-page"
+    },
+    "DateTimeOriginal": {
+      "value": "2014-02-28 23:26:28",
+      "source": "commons-desc-page"
+    },
+    "Credit": {
+      "value": "<span class=\"int-own-work\" lang=\"en\">Own work</span>",
+      "source": "commons-desc-page"
+    },
+    "Artist": {
+      "value": "<a href=\"//commons.wikimedia.org/w/index.php?title=User:Mirriat&amp;action=edit&amp;redlink=1\" class=\"new\" title=\"User:Mirriat (page does not exist)\">John Hardin</a>",
+      "source": "commons-desc-page"
+    },
+    "LicenseShortName": {
+      "value": "CC BY 4.0",
+      "source": "commons-desc-page",
+      "hidden": ""
+    },
+    "UsageTerms": {
+      "value": "Creative Commons Attribution 4.0",
+      "source": "commons-desc-page"
+    },
+    "AttributionRequired": {
+      "value": "true",
+      "source": "commons-desc-page",
+      "hidden": ""
+    },
+    "LicenseUrl": {
+      "value": "https://creativecommons.org/licenses/by/4.0",
+      "source": "commons-desc-page"
+    },
+    "Copyrighted": {
+      "value": "True",
+      "source": "commons-desc-page",
+      "hidden": ""
+    },
+    "Restrictions": {
+      "value": "",
+      "source": "commons-desc-page",
+      "hidden": ""
+    },
+    "License": {
+      "value": "cc-by-4.0",
+      "source": "commons-templates",
+      "hidden": ""
+    }
+  },
+  "author": "John Hardin",
+  "credit": "John Hardin / Wikimedia Commons",
+  "license": "CC BY 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "sourceSha256": "b6c3ab3a5bf150807ee403038ede06c33605ec03c748031218593fe83ab04f5b",
+  "sourceBytes": 4198861,
+  "sourceWidth": 5472,
+  "sourceHeight": 3648,
+  "originalFile": "assets/images/sections/originals/krigsvold-mountains.jpg",
+  "originalBytesModified": false,
+  "derivatives": [
+    {
+      "path": "assets/images/sections/krigsvold-mountains-640.webp",
+      "url": "/assets/images/sections/krigsvold-mountains-640.webp",
+      "width": 640,
+      "height": 213,
+      "sha256": "5e0559317f4596824b45a5e6415937c98cd82eadf534c32416d3c2f0b35fabf4",
+      "bytes": 11560,
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
+    },
+    {
+      "path": "assets/images/sections/krigsvold-mountains-960.webp",
+      "url": "/assets/images/sections/krigsvold-mountains-960.webp",
+      "width": 960,
+      "height": 320,
+      "sha256": "9e94f3b6b195fe63edfd66c490a14d93d6cd332669d7d3af80127419ad671785",
+      "bytes": 20556,
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
+    },
+    {
+      "path": "assets/images/sections/krigsvold-mountains-1440.webp",
+      "url": "/assets/images/sections/krigsvold-mountains-1440.webp",
+      "width": 1440,
+      "height": 480,
+      "sha256": "842ca9c1dc1852192b693e5b08385b0696203517344c0d5fde998ff54fc4842b",
+      "bytes": 34798,
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
+    },
+    {
+      "path": "assets/images/sections/krigsvold-mountains-1920.webp",
+      "url": "/assets/images/sections/krigsvold-mountains-1920.webp",
+      "width": 1920,
+      "height": 640,
+      "sha256": "1603107fa7b37202ef52fe20ff76bcc6abc2ef54090daf87ce67568e5930cf77",
+      "bytes": 51794,
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0"
+    }
+  ],
+  "transformation": {
+    "cropBoxPixels": [
+      0,
+      1400,
+      5472,
+      3224
+    ],
+    "orientedSourceWidth": 5472,
+    "orientedSourceHeight": 3648,
+    "method": "EXIF orientation, RGB conversion, explicit3:1crop, Lanczos resize, WebP quality88 method6; no tint/recolor/retouch",
+    "tintAppliedToSource": false
+  },
+  "focalPoint": "center",
+  "recommendedPage": "language",
+  "attributionText": "Transantarctic Mountains November 2019.jpg \u2014 John Hardin; CC BY 4.0. Cropped to3:1 and resized as WebP. Source: https://commons.wikimedia.org/wiki/File:Transantarctic_Mountains_November_2019.jpg. License: https://creativecommons.org/licenses/by/4.0.",
+  "derivativeLicense": "CC BY 4.0",
+  "derivativeLicenseUrl": "https://creativecommons.org/licenses/by/4.0",
+  "shareAlikeRequired": false,
+  "sourceSha256VerifiedAfterProcessing": true,
+  "hostRelocation": "Original file path relocated into host assets; original and derivative bytes unchanged."
+}

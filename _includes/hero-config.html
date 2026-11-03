@@ -1,0 +1,8 @@
+{%- comment -%}Host composition only. Legacy image front matter remains supported; signature is home-only.{%- endcomment -%}
+{%- assign hero_variant = page.hero_variant | default: 'compact' -%}
+{%- unless hero_variant == 'signature' or hero_variant == 'section' or hero_variant == 'compact' or hero_variant == 'plain' -%}{%- assign hero_variant = 'compact' -%}{%- endunless -%}
+{%- if page.url == '/' and page.hero_image -%}{%- assign hero_variant = 'signature' -%}
+{%- elsif hero_variant == 'signature' -%}{%- assign hero_variant = 'compact' -%}
+{%- elsif page.hero_variant == nil and page.hero_image -%}{%- assign hero_variant = 'section' -%}{%- endif -%}
+{%- assign hero_has_image = false -%}
+{%- if page.hero_image -%}{%- if hero_variant == 'signature' or hero_variant == 'section' -%}{%- assign hero_has_image = true -%}{%- endif -%}{%- endif -%}

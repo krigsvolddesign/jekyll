@@ -1,0 +1,91 @@
+{
+  "page": {
+    "pageid": 53442041,
+    "ns": 6,
+    "title": "File:Old sea ice, young sea ice (30940289812).jpg",
+    "index": 5,
+    "imagerepository": "local",
+    "imageinfo": [
+      {
+        "size": 3537102,
+        "width": 4608,
+        "height": 3456,
+        "url": "https://upload.wikimedia.org/wikipedia/commons/4/48/Old_sea_ice%2C_young_sea_ice_%2830940289812%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+        "descriptionurl": "https://commons.wikimedia.org/wiki/File:Old_sea_ice,_young_sea_ice_(30940289812).jpg",
+        "descriptionshorturl": "https://commons.wikimedia.org/w/index.php?curid=53442041",
+        "extmetadata": {
+          "DateTime": {
+            "value": "2016-11-23 12:13:07",
+            "source": "mediawiki-metadata",
+            "hidden": ""
+          },
+          "ObjectName": {
+            "value": "Old sea ice, young sea ice (30940289812)",
+            "source": "mediawiki-metadata"
+          },
+          "CommonsMetadataExtension": {
+            "value": 1.2,
+            "source": "extension",
+            "hidden": ""
+          },
+          "Categories": {
+            "value": "PD NASA|Operation IceBridge|Antarctic sea ice|2016 in Antarctica|Flickr images reviewed by FlickreviewR|Files from NASA ICE Flickr stream",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "Assessments": {
+            "value": "",
+            "source": "commons-categories",
+            "hidden": ""
+          },
+          "ImageDescription": {
+            "value": "New sea ice with finger rafting (right), next to older sea ice floes. Photo captured during Operation IceBridge's mission \u201cEnglish Coast\u201d on Nov. 17, 2016. (NASA/Maria-Jose Vi\u00f1as).",
+            "source": "commons-desc-page"
+          },
+          "DateTimeOriginal": {
+            "value": "2016-11-17 15:54",
+            "source": "commons-desc-page"
+          },
+          "Credit": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/photos/nasa_ice/30940289812/\">Old sea ice, young sea ice</a>",
+            "source": "commons-desc-page"
+          },
+          "Artist": {
+            "value": "<a rel=\"nofollow\" class=\"external text\" href=\"https://www.flickr.com/people/59345957@N05\">NASA ICE</a>",
+            "source": "commons-desc-page"
+          },
+          "LicenseShortName": {
+            "value": "Public domain",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "UsageTerms": {
+            "value": "Public domain",
+            "source": "commons-desc-page"
+          },
+          "AttributionRequired": {
+            "value": "false",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Copyrighted": {
+            "value": "False",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "Restrictions": {
+            "value": "",
+            "source": "commons-desc-page",
+            "hidden": ""
+          },
+          "License": {
+            "value": "pd",
+            "source": "commons-templates",
+            "hidden": ""
+          }
+        }
+      }
+    ]
+  },
+  "retrievedAt": "2026-11-03T18:53:18.527900+00:00"
+}
