@@ -1,0 +1,1251 @@
+{
+  "schemaVersion": 1,
+  "family": "krigsvold",
+  "archive": "history/frozen-docs-1.0.0.tar.gz",
+  "sha256": "bb97c74579f345783beeb66bd11e53783a175537e1a00699613a8e8fcd7ab47c",
+  "sourceRelease": "https://github.com/krigsvolddesign/jekyll/releases/tag/v1.0.0",
+  "sourceZipSha256": "aac2f16d643a331f40d2a15ea3d4bfaf8ee64c96742fb28b7bb8620c64d58a17",
+  "capture": "Existing deployed static documentation retained byte-for-byte; not rebuilt from current development source.",
+  "files": [
+    {
+      "path": "docs/v/1.0.0/404.html",
+      "bytes": 6715,
+      "sha256": "19d4477d81d6097b9f2006e0e80221822866db0d8d720ec6761baa432c65abcd"
+    },
+    {
+      "path": "docs/v/1.0.0/LICENSE",
+      "bytes": 1076,
+      "sha256": "1067907e4c1a431923d3e1b37c42e3fbb8dbeb79aab20ccc0e8c8e7c1323eed6"
+    },
+    {
+      "path": "docs/v/1.0.0/NOTICE.md",
+      "bytes": 736,
+      "sha256": "8e5b59cf0cc4e427296763f718407ba4760821f95c1208ee51620050bcbbf398"
+    },
+    {
+      "path": "docs/v/1.0.0/VERSION",
+      "bytes": 6,
+      "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/css/dashboard-family.css",
+      "bytes": 1030,
+      "sha256": "c6881d516291fff6ec1c5383b43cfeb5a1f4682559685f250ecfb51a4e4ae609"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/css/dashboard.css",
+      "bytes": 8047,
+      "sha256": "edb906bb6801d654fbeb9767e8672f1873c7738505951e099665e2de150a937d"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/css/examples-family.css",
+      "bytes": 4250,
+      "sha256": "189a7318406b5762fb8fa085e50db1133eb663c758cca8dbd48a6ba185f20dec"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/css/examples.css",
+      "bytes": 11086,
+      "sha256": "06ce4da75d5cfad84360b14b0c121007f1af95673483f434a2d036b202dd7d95"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/css/fonts.css",
+      "bytes": 5580,
+      "sha256": "acc1aca21d6a25594b82e6c63da7e8e0f3fcb6459e2bb60521ac0db7556bf162"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/css/jekyll.css",
+      "bytes": 2227,
+      "sha256": "91d428f5c4002c6a8effcf2fba36fea55c006e924d12ee701a5fbb31c78941ba"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/css/scientific.css",
+      "bytes": 2074,
+      "sha256": "08614aa3c62d2217aaf709c6f94e9704dec8145f3b63427c76f1e36554c6c5ab"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/css/shell.css",
+      "bytes": 593642,
+      "sha256": "a65b1cbbe032d46be7373b1f3a90ca46ba1b3971fa85c98975cd9ec76394c05d"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/examples/coast.svg",
+      "bytes": 616,
+      "sha256": "8854d27cabdcb1c8a471b7fdb56ae640a957f3c5977cdd9ffa71ca44dd7f8b4b"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/examples/notebook.svg",
+      "bytes": 506,
+      "sha256": "7ea9240d26c7cb2d60912dbad34c4eff87aaa8f48f65735987e1843292b18353"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/examples/observations.csv",
+      "bytes": 136,
+      "sha256": "8818a5383144e4e4ff8525631ddd3186f04836763564cba37abae9ed9dd3c955"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/examples/station.svg",
+      "bytes": 541,
+      "sha256": "a8c6618b46b679c509d4ff3ca6fb289d9f39b9feebba51e69f383d2d0571cb85"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-LICENSE.txt",
+      "bytes": 4512,
+      "sha256": "84044c09058803d87a241bd28abb4ce30a433d7db9c27a04da3efad6a0ca539c"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-latin-400-italic.BpsFK_tr.woff",
+      "bytes": 22856,
+      "sha256": "b926f7b97d2f6bf1a12cbfc65a0394120ae401d5ff5cc3a484fafddf0618fd6b"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-latin-400-italic.CSuqwwKr.woff2",
+      "bytes": 23672,
+      "sha256": "5d0e978b6560631da2504e1612e91ee1ff959c04adae245eb320ac90cad2ba2f"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-latin-400-normal.BqEyEoaF.woff2",
+      "bytes": 21884,
+      "sha256": "425c0713a8176f92273d378599c7eac57de7fafabd4bd0ed457b70eb8f80d371"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-latin-400-normal.D27F5sTu.woff",
+      "bytes": 21060,
+      "sha256": "6cff12116b83321230347db75d0721e70c27c6ec69eccca93ca4b1556eaaf67f"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-latin-500-italic.DOe3GFcv.woff2",
+      "bytes": 23896,
+      "sha256": "b5843bdfcb8683f34fb44444cf15d2a03ad93d6b11934a55d059aae2b650bbfe"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-latin-500-italic.DYW_i9qW.woff",
+      "bytes": 22968,
+      "sha256": "1742eadcf53022296ab6d2b536a782fb97e0a842bbf4a46b75ff3708ab24d047"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-latin-500-normal.7RbcRiD8.woff2",
+      "bytes": 22200,
+      "sha256": "5bcc3aa180e7f26f643cd5b2621cd7c2de193d0661d913a94afd3d4881a7a34b"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-latin-500-normal.fsTFPL3E.woff",
+      "bytes": 21168,
+      "sha256": "8fa8e562e1a2997b442cd71ce0aa5c1814b119a80331d9cfdd0f4eb032e8a0bd"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-latin-700-italic.Cb9agdGy.woff2",
+      "bytes": 23988,
+      "sha256": "cc04783263e416f8ee2a218fde6ffd532d6b81636d3187d30e39e4ad05736d5e"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-latin-700-italic.DyccbiE3.woff",
+      "bytes": 22964,
+      "sha256": "bae8102694ddf05ad437268b85de6df81aeb7412e4d39fd834687dd3272dd1de"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-latin-700-normal.BZpUvMxY.woff2",
+      "bytes": 22240,
+      "sha256": "b9d66d1708156f765ada51939bc24ed259dafa69eb631b36e443680fe9e15879"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-latin-700-normal.YuyVweIx.woff",
+      "bytes": 21216,
+      "sha256": "19e78b1c5f2c683c28800f84dd6d453ddb67987b0079060a4cbe50c7bdded148"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-mono-LICENSE.txt",
+      "bytes": 4513,
+      "sha256": "b489132782690f2cc1ed23ab56d7057bbb08c42573603e8e704ae2e2ea9c8216"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-mono-latin-400-italic.B_vYWRnS.woff2",
+      "bytes": 13928,
+      "sha256": "e4a744be99f104ecbd224af9a91da2a7cadd76e1b9cde550b26e341d2e465349"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-mono-latin-400-italic.Br0OE6wL.woff",
+      "bytes": 17396,
+      "sha256": "fcb3ae2d69514d180dad5531cbca053a7875dfc162c4a71fc5c483efca8ca7c7"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-mono-latin-400-normal.DBZPkcnn.woff",
+      "bytes": 15720,
+      "sha256": "9690f3c6eb06d0a4e7b3de424daa616612e31718cf5440b3fc5977db72673d24"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-mono-latin-400-normal.GekRknry.woff2",
+      "bytes": 12680,
+      "sha256": "e03013e0baa5690a803c188da2214d920c3245b25ad78421ecc8ae86cd842ae9"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-mono-latin-500-italic.D-wAjtQg.woff2",
+      "bytes": 14144,
+      "sha256": "6ae318fb48664db81936182f961e5c326dc10228cec8d50f72be0f1da2fd5126"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-mono-latin-500-italic.D6SF9iFo.woff",
+      "bytes": 17584,
+      "sha256": "f28af2e29c9d44c030f2d06547c9b6f5845f65622780959bf8dd7ca06dd28658"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-mono-latin-500-normal.D6j6AMzd.woff",
+      "bytes": 15932,
+      "sha256": "ae8da93ddfad37b344aa6f615bd26771c58e3b3be3a371a623e90a7cd28f432d"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-mono-latin-500-normal.pxIOXZmA.woff2",
+      "bytes": 12936,
+      "sha256": "ce7027efa5c894e8b244b0ca05ec121b6a85655957afd9c76c59b56910de7d4e"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-mono-latin-700-italic.APUcH-iK.woff2",
+      "bytes": 13960,
+      "sha256": "21eb25612d5c76e78c41bacf87adf6dbb44f20e4ee7f75be6c260e512310c087"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-mono-latin-700-italic.BibL9KEE.woff",
+      "bytes": 17504,
+      "sha256": "5699ca875213d64bb6167f70f7e536e1bd1cc87dabe8226375981b6364f2e4b9"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-mono-latin-700-normal.CHYrj1DZ.woff",
+      "bytes": 15848,
+      "sha256": "7ac13ad17113e63e24d7c0be1bb447faa26c23f75c12a0a87e8c68ae4e8ed0cc"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-mono-latin-700-normal.foxDnrFi.woff2",
+      "bytes": 12696,
+      "sha256": "283fbef73f42c21722c5a3efc7a44b0c38aac1ada665602b2144c13ed58c0e99"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-slab-LICENSE.txt",
+      "bytes": 11404,
+      "sha256": "58fde637cb64b89166884b28067832233d8440e409b1666d6455c578bf135cf8"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-slab-latin-400-normal.DwurWVj7.woff2",
+      "bytes": 13968,
+      "sha256": "484e9925bb3045e88a8eec1103ab125e6dbe486172fb56b06fe6751c8b570839"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-slab-latin-400-normal.wzK1bUc4.woff",
+      "bytes": 17664,
+      "sha256": "0955e34245e7b69776d433aa6bce99a1a9286e33710472e46cf3a6777517d5b3"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-slab-latin-700-normal.ThI0IOtl.woff",
+      "bytes": 17900,
+      "sha256": "f9af152b7ce8f7291f9ea7f1806009b207bc3a4af8ca3e0ec9b24cf6c90e1b01"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/fonts/roboto-slab-latin-700-normal.WCCj9XVQ.woff2",
+      "bytes": 14184,
+      "sha256": "66fa77aafb51fb5058e1fd7e34977f55e84494600bccb2d4cc9d0cbc998eb5cb"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/js/dashboard-model.mjs",
+      "bytes": 14441,
+      "sha256": "882e7dce010d7120727fccc3599b2b3e90473db93066de70d93a61d05a8179c5"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/js/dashboard-ui.mjs",
+      "bytes": 6035,
+      "sha256": "3f551d6ab16d74cefdec7d8246bfce448b85f8412694b106826ea312c31dfb4f"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/js/dashboards.mjs",
+      "bytes": 27070,
+      "sha256": "94ebca4a88c7e820dfb801e28d9251c7f781d016d43f1ee9f34c2876f9de7b01"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/js/examples.js",
+      "bytes": 16730,
+      "sha256": "e2dd5bd36a17050db6aff9512c1bbad22feba8f686de548a9e7849dee1b64735"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/js/scientific.mjs",
+      "bytes": 3263,
+      "sha256": "ccff3cf6fda8b5952b1b03b3a5aaa0eb0bf09339b979c0b87c211a2f93bc51fe"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/js/shell.js",
+      "bytes": 1499,
+      "sha256": "814a3ed82f1e9664e8fe4047959b05db4e2d1930cea127d21bf4274c5f06da41"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/js/thermal-model.mjs",
+      "bytes": 1696,
+      "sha256": "f33396b42f6711fe54435caa9e7577144eea779786b4838e68ee43ce3e2a13f9"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/mark.svg",
+      "bytes": 930,
+      "sha256": "741f03e83df63c3b492ac209e0b8d0a73738e7c5cfb3f859c52a606fc54a80e4"
+    },
+    {
+      "path": "docs/v/1.0.0/assets/owner.svg",
+      "bytes": 36757,
+      "sha256": "05c66bb02e8ec8a2277a452a5f3728362c7ea7f087ee19126230d9d1d114423a"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/about/index.html",
+      "bytes": 7953,
+      "sha256": "5ec04078d6d83c1f38a8567858661039d2e5d4926acb4341106235a38b462443"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/archive/index.html",
+      "bytes": 8522,
+      "sha256": "4f52e7b1fa9a7136bc8ed8a29c687ebcf88d7f6a02fa332207af33bd3446ec85"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/article/index.html",
+      "bytes": 8674,
+      "sha256": "d0361f9600f082e39355b3adf3f3d96936fbac4d69249a7b4cf807711e9c1f24"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/careers/index.html",
+      "bytes": 7206,
+      "sha256": "c5eda52a428062251d0ac2fddcb46c124ab176f2d457f65ec848371d4894c5af"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/case-study/index.html",
+      "bytes": 8210,
+      "sha256": "fc2941f2023e46edf40c8b488feb6403c5e4668f6ddf1cfb658b5103363590d9"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/categories/index.html",
+      "bytes": 6737,
+      "sha256": "7b9aa7bf219b94214b720af80719c9ab3ed944d9d37ed3f2a1f294afa4fcbf7c"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/category/index.html",
+      "bytes": 7261,
+      "sha256": "8e54f8cc231168ad4d3de541faec4bec77dc6cb9fae9a527297da70a9ffe239c"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/changelog/index.html",
+      "bytes": 7625,
+      "sha256": "ee68820359156ee609e78b68d78398e2d0405944c92a3aa78c8f2930bde927c2"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/chat/index.html",
+      "bytes": 7243,
+      "sha256": "31aed140f4fbace33c5773ffc91bf75675566e1f4cf472f1f13cb38efba1c513"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/collection-item/index.html",
+      "bytes": 7713,
+      "sha256": "17ef65ca35437dc5a6535c51d3d801673a6c36532f23471421ac8b5c17262a92"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/collection/index.html",
+      "bytes": 7739,
+      "sha256": "b7373eb58ccd3ebfd459619e7a5cfe7bfc59af651095d5f1d77d25517f8f2f77"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/coming-soon/index.html",
+      "bytes": 8059,
+      "sha256": "eef67f47e13330121a49f9e37e9b7335e8d046a6d9e9b3a981fe2cb557be115d"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/contact/index.html",
+      "bytes": 8147,
+      "sha256": "887c22be5c0340b6c8a81b39c2962bc70d1a314291089dd8974a467d302efb6e"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/dashboard-administration/index.html",
+      "bytes": 49846,
+      "sha256": "c213bc34c366e0916d1c102e378b0856e4b713417c2e220acc06d2a6e00c5d40"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/dashboard-analytics/index.html",
+      "bytes": 49449,
+      "sha256": "67af74230e65aee24c1c962da14fb3dea1c464b0cb3a094466b1581c94faa1dd"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/dashboard-components/index.html",
+      "bytes": 8647,
+      "sha256": "1cedc5048cb5c205cfdeb1f796dfd2a9c0ebd1da7fb886d27089db26202a37c3"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/dashboard-operations/index.html",
+      "bytes": 48243,
+      "sha256": "0107cdc09433237cc28f937c7ebb87c3c5afa5fcf1000d0ef58e6abad1ceb02b"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/documentation/index.html",
+      "bytes": 6879,
+      "sha256": "d379c971e7983cc2f672eaf1eae04d64e0e0a165da9e1723d5330cc661dde571"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/event/index.html",
+      "bytes": 8275,
+      "sha256": "88045fb413a13cf01830b8bf42fc88e8136eb4a0559be509b1b6ed829f91e58d"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/events/index.html",
+      "bytes": 7877,
+      "sha256": "267e47ecc89069ba7a62384339de0747142bb9dfb27d773c2cdda47421b86fbd"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/faq/index.html",
+      "bytes": 7292,
+      "sha256": "0af1cbe6279d51c4a42e5151c293ab225237eeaafe6062a73d0c4291b840b515"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/fleet/index.html",
+      "bytes": 7970,
+      "sha256": "64b7ae3f8a074ede96afe8fab15a4dc69701b5bc38a9fd8b6f69264c09a3373b"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/gallery/index.html",
+      "bytes": 8325,
+      "sha256": "0e2a476e76acce3602f222ab6910cf251b0ef8904ec33cee6aad93de5105f271"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/guide/index.html",
+      "bytes": 7948,
+      "sha256": "ea655da6778533a2a93b5bc925a024918e0ccb6daa4786aec3c061939018bf66"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/home/index.html",
+      "bytes": 7582,
+      "sha256": "f88f81f6dda7a58628fc67b168426d144d2c560158570d6522874191a78e5990"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/index.html",
+      "bytes": 21901,
+      "sha256": "e63af8c2fff83c388a034ee897bf9c862baa578076a5e2f59a47d136c59df978"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/integrations/index.html",
+      "bytes": 9036,
+      "sha256": "8176b444feb200a730befc069e375836c372ada03969978d993ddc2aab1da0b4"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/not-found/index.html",
+      "bytes": 6813,
+      "sha256": "451e221b09d7112fb5936851ff4293727901766e51ddd9551420077413948e0b"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/opportunity/index.html",
+      "bytes": 8370,
+      "sha256": "1f6f46a234a1f80659977fbe5c921577e90dd929aae44cb5d14d2205d5174fd5"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/password-reset/index.html",
+      "bytes": 8420,
+      "sha256": "c08dea88f16770ebb477a1d29242fd3f7c8c04320f77863e2139318fc15a974d"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/patterns/index.html",
+      "bytes": 7993,
+      "sha256": "3e4cec88b57536025ed55a84eccec6eef3a94c4cc6fcfd8ead9f28e9480a8bc2"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/person/index.html",
+      "bytes": 8560,
+      "sha256": "560fe7ea3e1c0a813fed4a5a6540b3ee0b74e329a2086c14f298d59b84704d9f"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/place/index.html",
+      "bytes": 7762,
+      "sha256": "cab8b14f07feb04d18fb92ed8fa5763358065553a639c34d27ab27c9aa1d786d"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/pricing/index.html",
+      "bytes": 7819,
+      "sha256": "0eac0b17bb7dc1dc7888d8224ef6f2a43a082bca197a056b734058f254d5a684"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/privacy/index.html",
+      "bytes": 7929,
+      "sha256": "8648fd22da3d5c30133f156d0c214db70fd2d71c1d739c1fa65debbd3f8b9d5a"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/product/index.html",
+      "bytes": 7588,
+      "sha256": "140699bab7d729895891d7325011538d6598f0142881eb479f36b584189ceb55"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/projects/index.html",
+      "bytes": 7492,
+      "sha256": "014cfb9d9b7bfb2712322678e20301a940cfb078aeed50a7b8a88007ec38c6ba"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/reference/index.html",
+      "bytes": 9725,
+      "sha256": "e94a2034ad53fd1f2fb67f9ea7b217a34b74fa07d2e1a9577abc4a1337cd6cf6"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/report/index.html",
+      "bytes": 8594,
+      "sha256": "cf630ac4f444a78061ff9b6c81fa7be2ab2f710d01aa40ed9b43cd42e01b7ef0"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/scene/index.html",
+      "bytes": 7450,
+      "sha256": "10f3b34a41e3bcf52ff3253b020789d4dd2a8c868bb38eec552e9588bfa7696e"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/scientific-workspace/index.html",
+      "bytes": 9548,
+      "sha256": "1f0af4b19058ed449ace03d7e89d40c09f6abdb184ec3a9d5495c801f8dfe115"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/search/index.html",
+      "bytes": 16856,
+      "sha256": "7435e2809bf2754ed701a10edd3d8349b9904f20227e852dbf31712429eb8d35"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/sensors/index.html",
+      "bytes": 7109,
+      "sha256": "5f4e7d3549914f8273a3bab676a16c93c3d3e5dbf8637d0962f6e900dd30cd3c"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/server-error/index.html",
+      "bytes": 6990,
+      "sha256": "8d227694b6dfd2aeb4c6a9aa8eb7deb736dfb3937bce30362251a19e4b6e2b6b"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/service/index.html",
+      "bytes": 7899,
+      "sha256": "5b17f1e6ab39b7d7e976a24c33be25ba4cc7b0a2ed684463090b8a54e1f5706b"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/sign-in/index.html",
+      "bytes": 8738,
+      "sha256": "c1538c7902a2dc626595fec89bddc2ece34cc4b9112dece0f4ebc94bd9ab6779"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/sign-up/index.html",
+      "bytes": 8996,
+      "sha256": "f8f50ec7187641e50817610c71dabfc79f03d5c9d313b10a613eb5fc7fde23ee"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/software/index.html",
+      "bytes": 7972,
+      "sha256": "f3d642b1f2a8f2f0002086487adac7e17a71ab22a1ae1b56b75bdc0d5a7ff257"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/stress-test/index.html",
+      "bytes": 11713,
+      "sha256": "a3bedacdc968bea050c6f9079becbdb26e2671eec641ef6f4cd5ad104eaeae6f"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/terms/index.html",
+      "bytes": 7923,
+      "sha256": "de8af9ce645b1660ba7e004d90badeaa48c5ab57e6b362f98d2cea7b63ef7e2e"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/two-factor/index.html",
+      "bytes": 8595,
+      "sha256": "4a030193793a321c0a0e55b57ec2e5c967b8a2325c154d94aa411dad94e940cb"
+    },
+    {
+      "path": "docs/v/1.0.0/examples/workspace/index.html",
+      "bytes": 8344,
+      "sha256": "c2e20c8cf818231aa17f4820130b8c1fed6040011dc6e174abfff7f1f47f8870"
+    },
+    {
+      "path": "docs/v/1.0.0/index.html",
+      "bytes": 7244,
+      "sha256": "6f55876b4af10a3722f54a1be90146f1dbcb4b67fe8af5f3514ece059e91a681"
+    },
+    {
+      "path": "docs/v/1.0.0/journal/index.html",
+      "bytes": 6037,
+      "sha256": "4434fa6c76b3ae60a7e827a7cf80d9fcab21689a0f0cb7f47be44bb3dec6b6e5"
+    },
+    {
+      "path": "docs/v/1.0.0/journal/what-a-shell-should-own/index.html",
+      "bytes": 7952,
+      "sha256": "e84c27a1f403e857c4e04cc40e1fbe042c514323e403e118cbd7a65d1879216f"
+    },
+    {
+      "path": "docs/v/1.0.0/language/index.html",
+      "bytes": 7485,
+      "sha256": "8935d9e3794e1bd1c7b464c7f98a00f5c1bca7b852a3dfee52fac4d5acb18665"
+    },
+    {
+      "path": "docs/v/1.0.0/nightjar-local-evidence.json",
+      "bytes": 21562,
+      "sha256": "a9abac5545cbb6efe19d390826738633ebd0e4d1bd7ec9db19b83b72250d62b9"
+    },
+    {
+      "path": "docs/v/1.0.0/nightjar/PROVENANCE.json",
+      "bytes": 97956,
+      "sha256": "57823c897e29f05e063ca745e7079d65dfddaf194e2dd30e76c7213615b08ea3"
+    },
+    {
+      "path": "docs/v/1.0.0/nightjar/README.md",
+      "bytes": 1053,
+      "sha256": "cb453c70218f2fb673ebb4ad8913089e3061d9fc78cc860d35447ffe06fbbedf"
+    },
+    {
+      "path": "docs/v/1.0.0/nightjar/build.py",
+      "bytes": 2795,
+      "sha256": "2ea2fdd30b8566168dc25bcf567e6e3bf07d0d8a53a6ca46586c29c54db2c0ee"
+    },
+    {
+      "path": "docs/v/1.0.0/nightjar/ci-proposal.yml",
+      "bytes": 421,
+      "sha256": "1dd457b2f1935e83914e2c92a977dd7d4422231eb126f2e87822df3e23adb562"
+    },
+    {
+      "path": "docs/v/1.0.0/nightjar/source-files.json",
+      "bytes": 6793,
+      "sha256": "addc48e6aa6ad4994d6f5a8daf37b51aded5d3541ff499ad8a08140c3f3483cc"
+    },
+    {
+      "path": "docs/v/1.0.0/nightjar/verify-html.py",
+      "bytes": 2306,
+      "sha256": "7ffbaa1bdb86b2965d6666d1960e6013f1808c60081b8bcd5af763720c953184"
+    },
+    {
+      "path": "docs/v/1.0.0/nightjar/verify.py",
+      "bytes": 4446,
+      "sha256": "9099ad8fbdfd36e68cd9ba1c3e9df79916af896e2ab1363bdb696b81550dab35"
+    },
+    {
+      "path": "docs/v/1.0.0/release-policy.json",
+      "bytes": 371,
+      "sha256": "acc29f70b53a83bea8f3563a5127f001966833278836d5058fcc62a2af48dbbf"
+    },
+    {
+      "path": "docs/v/1.0.0/setup/index.html",
+      "bytes": 8280,
+      "sha256": "ea6560f0827ecdafbd7e2bbc28f48210cbc47a8f16cdda72f86d7cb9e49bc2c5"
+    },
+    {
+      "path": "docs/v/1.0.0/template.zip",
+      "bytes": 781359,
+      "sha256": "aac2f16d643a331f40d2a15ea3d4bfaf8ee64c96742fb28b7bb8620c64d58a17"
+    },
+    {
+      "path": "docs/versions/index.html",
+      "bytes": 458,
+      "sha256": "5c86be3b3dc18c2ac844272bb3d89d1c1022a8c635b09d9e27f5b76ba023caba"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/404.html",
+      "bytes": 6907,
+      "sha256": "c32bd3ed4f895f26d7e131e40ce9cf5f86b825c069eed0ea066fd1dc52910c54"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/LICENSE",
+      "bytes": 1076,
+      "sha256": "1067907e4c1a431923d3e1b37c42e3fbb8dbeb79aab20ccc0e8c8e7c1323eed6"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/NOTICE.md",
+      "bytes": 736,
+      "sha256": "8e5b59cf0cc4e427296763f718407ba4760821f95c1208ee51620050bcbbf398"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/VERSION",
+      "bytes": 6,
+      "sha256": "59854984853104df5c353e2f681a15fc7924742f9a2e468c29af248dce45ce03"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/css/dashboard-family.css",
+      "bytes": 1030,
+      "sha256": "c6881d516291fff6ec1c5383b43cfeb5a1f4682559685f250ecfb51a4e4ae609"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/css/dashboard.css",
+      "bytes": 8047,
+      "sha256": "edb906bb6801d654fbeb9767e8672f1873c7738505951e099665e2de150a937d"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/css/examples-family.css",
+      "bytes": 4250,
+      "sha256": "189a7318406b5762fb8fa085e50db1133eb663c758cca8dbd48a6ba185f20dec"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/css/examples.css",
+      "bytes": 11086,
+      "sha256": "06ce4da75d5cfad84360b14b0c121007f1af95673483f434a2d036b202dd7d95"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/css/fonts.css",
+      "bytes": 5580,
+      "sha256": "acc1aca21d6a25594b82e6c63da7e8e0f3fcb6459e2bb60521ac0db7556bf162"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/css/jekyll.css",
+      "bytes": 2227,
+      "sha256": "91d428f5c4002c6a8effcf2fba36fea55c006e924d12ee701a5fbb31c78941ba"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/css/scientific.css",
+      "bytes": 2074,
+      "sha256": "08614aa3c62d2217aaf709c6f94e9704dec8145f3b63427c76f1e36554c6c5ab"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/css/shell.css",
+      "bytes": 593642,
+      "sha256": "a65b1cbbe032d46be7373b1f3a90ca46ba1b3971fa85c98975cd9ec76394c05d"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/examples/coast.svg",
+      "bytes": 616,
+      "sha256": "8854d27cabdcb1c8a471b7fdb56ae640a957f3c5977cdd9ffa71ca44dd7f8b4b"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/examples/notebook.svg",
+      "bytes": 506,
+      "sha256": "7ea9240d26c7cb2d60912dbad34c4eff87aaa8f48f65735987e1843292b18353"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/examples/observations.csv",
+      "bytes": 136,
+      "sha256": "8818a5383144e4e4ff8525631ddd3186f04836763564cba37abae9ed9dd3c955"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/examples/station.svg",
+      "bytes": 541,
+      "sha256": "a8c6618b46b679c509d4ff3ca6fb289d9f39b9feebba51e69f383d2d0571cb85"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-LICENSE.txt",
+      "bytes": 4512,
+      "sha256": "84044c09058803d87a241bd28abb4ce30a433d7db9c27a04da3efad6a0ca539c"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-latin-400-italic.BpsFK_tr.woff",
+      "bytes": 22856,
+      "sha256": "b926f7b97d2f6bf1a12cbfc65a0394120ae401d5ff5cc3a484fafddf0618fd6b"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-latin-400-italic.CSuqwwKr.woff2",
+      "bytes": 23672,
+      "sha256": "5d0e978b6560631da2504e1612e91ee1ff959c04adae245eb320ac90cad2ba2f"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-latin-400-normal.BqEyEoaF.woff2",
+      "bytes": 21884,
+      "sha256": "425c0713a8176f92273d378599c7eac57de7fafabd4bd0ed457b70eb8f80d371"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-latin-400-normal.D27F5sTu.woff",
+      "bytes": 21060,
+      "sha256": "6cff12116b83321230347db75d0721e70c27c6ec69eccca93ca4b1556eaaf67f"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-latin-500-italic.DOe3GFcv.woff2",
+      "bytes": 23896,
+      "sha256": "b5843bdfcb8683f34fb44444cf15d2a03ad93d6b11934a55d059aae2b650bbfe"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-latin-500-italic.DYW_i9qW.woff",
+      "bytes": 22968,
+      "sha256": "1742eadcf53022296ab6d2b536a782fb97e0a842bbf4a46b75ff3708ab24d047"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-latin-500-normal.7RbcRiD8.woff2",
+      "bytes": 22200,
+      "sha256": "5bcc3aa180e7f26f643cd5b2621cd7c2de193d0661d913a94afd3d4881a7a34b"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-latin-500-normal.fsTFPL3E.woff",
+      "bytes": 21168,
+      "sha256": "8fa8e562e1a2997b442cd71ce0aa5c1814b119a80331d9cfdd0f4eb032e8a0bd"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-latin-700-italic.Cb9agdGy.woff2",
+      "bytes": 23988,
+      "sha256": "cc04783263e416f8ee2a218fde6ffd532d6b81636d3187d30e39e4ad05736d5e"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-latin-700-italic.DyccbiE3.woff",
+      "bytes": 22964,
+      "sha256": "bae8102694ddf05ad437268b85de6df81aeb7412e4d39fd834687dd3272dd1de"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-latin-700-normal.BZpUvMxY.woff2",
+      "bytes": 22240,
+      "sha256": "b9d66d1708156f765ada51939bc24ed259dafa69eb631b36e443680fe9e15879"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-latin-700-normal.YuyVweIx.woff",
+      "bytes": 21216,
+      "sha256": "19e78b1c5f2c683c28800f84dd6d453ddb67987b0079060a4cbe50c7bdded148"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-mono-LICENSE.txt",
+      "bytes": 4513,
+      "sha256": "b489132782690f2cc1ed23ab56d7057bbb08c42573603e8e704ae2e2ea9c8216"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-mono-latin-400-italic.B_vYWRnS.woff2",
+      "bytes": 13928,
+      "sha256": "e4a744be99f104ecbd224af9a91da2a7cadd76e1b9cde550b26e341d2e465349"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-mono-latin-400-italic.Br0OE6wL.woff",
+      "bytes": 17396,
+      "sha256": "fcb3ae2d69514d180dad5531cbca053a7875dfc162c4a71fc5c483efca8ca7c7"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-mono-latin-400-normal.DBZPkcnn.woff",
+      "bytes": 15720,
+      "sha256": "9690f3c6eb06d0a4e7b3de424daa616612e31718cf5440b3fc5977db72673d24"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-mono-latin-400-normal.GekRknry.woff2",
+      "bytes": 12680,
+      "sha256": "e03013e0baa5690a803c188da2214d920c3245b25ad78421ecc8ae86cd842ae9"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-mono-latin-500-italic.D-wAjtQg.woff2",
+      "bytes": 14144,
+      "sha256": "6ae318fb48664db81936182f961e5c326dc10228cec8d50f72be0f1da2fd5126"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-mono-latin-500-italic.D6SF9iFo.woff",
+      "bytes": 17584,
+      "sha256": "f28af2e29c9d44c030f2d06547c9b6f5845f65622780959bf8dd7ca06dd28658"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-mono-latin-500-normal.D6j6AMzd.woff",
+      "bytes": 15932,
+      "sha256": "ae8da93ddfad37b344aa6f615bd26771c58e3b3be3a371a623e90a7cd28f432d"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-mono-latin-500-normal.pxIOXZmA.woff2",
+      "bytes": 12936,
+      "sha256": "ce7027efa5c894e8b244b0ca05ec121b6a85655957afd9c76c59b56910de7d4e"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-mono-latin-700-italic.APUcH-iK.woff2",
+      "bytes": 13960,
+      "sha256": "21eb25612d5c76e78c41bacf87adf6dbb44f20e4ee7f75be6c260e512310c087"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-mono-latin-700-italic.BibL9KEE.woff",
+      "bytes": 17504,
+      "sha256": "5699ca875213d64bb6167f70f7e536e1bd1cc87dabe8226375981b6364f2e4b9"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-mono-latin-700-normal.CHYrj1DZ.woff",
+      "bytes": 15848,
+      "sha256": "7ac13ad17113e63e24d7c0be1bb447faa26c23f75c12a0a87e8c68ae4e8ed0cc"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-mono-latin-700-normal.foxDnrFi.woff2",
+      "bytes": 12696,
+      "sha256": "283fbef73f42c21722c5a3efc7a44b0c38aac1ada665602b2144c13ed58c0e99"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-slab-LICENSE.txt",
+      "bytes": 11404,
+      "sha256": "58fde637cb64b89166884b28067832233d8440e409b1666d6455c578bf135cf8"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-slab-latin-400-normal.DwurWVj7.woff2",
+      "bytes": 13968,
+      "sha256": "484e9925bb3045e88a8eec1103ab125e6dbe486172fb56b06fe6751c8b570839"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-slab-latin-400-normal.wzK1bUc4.woff",
+      "bytes": 17664,
+      "sha256": "0955e34245e7b69776d433aa6bce99a1a9286e33710472e46cf3a6777517d5b3"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-slab-latin-700-normal.ThI0IOtl.woff",
+      "bytes": 17900,
+      "sha256": "f9af152b7ce8f7291f9ea7f1806009b207bc3a4af8ca3e0ec9b24cf6c90e1b01"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/fonts/roboto-slab-latin-700-normal.WCCj9XVQ.woff2",
+      "bytes": 14184,
+      "sha256": "66fa77aafb51fb5058e1fd7e34977f55e84494600bccb2d4cc9d0cbc998eb5cb"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/js/dashboard-model.mjs",
+      "bytes": 14441,
+      "sha256": "882e7dce010d7120727fccc3599b2b3e90473db93066de70d93a61d05a8179c5"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/js/dashboard-ui.mjs",
+      "bytes": 6035,
+      "sha256": "3f551d6ab16d74cefdec7d8246bfce448b85f8412694b106826ea312c31dfb4f"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/js/dashboards.mjs",
+      "bytes": 27070,
+      "sha256": "94ebca4a88c7e820dfb801e28d9251c7f781d016d43f1ee9f34c2876f9de7b01"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/js/examples.js",
+      "bytes": 16730,
+      "sha256": "e2dd5bd36a17050db6aff9512c1bbad22feba8f686de548a9e7849dee1b64735"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/js/scientific.mjs",
+      "bytes": 3263,
+      "sha256": "ccff3cf6fda8b5952b1b03b3a5aaa0eb0bf09339b979c0b87c211a2f93bc51fe"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/js/shell.js",
+      "bytes": 1499,
+      "sha256": "814a3ed82f1e9664e8fe4047959b05db4e2d1930cea127d21bf4274c5f06da41"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/js/thermal-model.mjs",
+      "bytes": 1696,
+      "sha256": "f33396b42f6711fe54435caa9e7577144eea779786b4838e68ee43ce3e2a13f9"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/mark.svg",
+      "bytes": 930,
+      "sha256": "741f03e83df63c3b492ac209e0b8d0a73738e7c5cfb3f859c52a606fc54a80e4"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/assets/owner.svg",
+      "bytes": 36757,
+      "sha256": "05c66bb02e8ec8a2277a452a5f3728362c7ea7f087ee19126230d9d1d114423a"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/about/index.html",
+      "bytes": 8169,
+      "sha256": "36523bab5b78627460cc199466f937cc95599f580b888dbd342bc25584258dd9"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/archive/index.html",
+      "bytes": 8746,
+      "sha256": "da4877260770d3d48156d4ddb94998f25473d02e09c3592572670d0494b7d8ed"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/article/index.html",
+      "bytes": 8898,
+      "sha256": "32ddeb0d20ff525d38acf73f5d19d50796bc996c99191837eb80ad4f2e842c81"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/careers/index.html",
+      "bytes": 7398,
+      "sha256": "f99e991d4534892ab7ab22d71c2bf38cf55b84397f1b8e7125a5d40688547676"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/case-study/index.html",
+      "bytes": 8402,
+      "sha256": "9b4e62a21889c03dc9b937966685c45c4ae2a6f6ed97e851a0ee578d9dac5698"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/categories/index.html",
+      "bytes": 6937,
+      "sha256": "0125a7ebda7e4ebefa71dcc751382574040ea1740e61474455390cd256d995d7"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/category/index.html",
+      "bytes": 7453,
+      "sha256": "fc33131f9a2042219be5d9b2023d64a323ba14ff12d38ea238e33c3cafe2f8d5"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/changelog/index.html",
+      "bytes": 7801,
+      "sha256": "0f69b29283682460ede50739fce457c9dff034e269d9017bccbc375b0ea53443"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/chat/index.html",
+      "bytes": 7419,
+      "sha256": "aa5b891edde8903468e783934317359a38782c7bf599dd2449ac9de794c62e4a"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/collection-item/index.html",
+      "bytes": 7905,
+      "sha256": "2db9bb87bec14be6b1220f2c524ee74e25cbed806812551cb03f249bc25d1c13"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/collection/index.html",
+      "bytes": 7947,
+      "sha256": "5a302061f72f133dfd9abd748e686b8b0ce120b5b21eee5be46892826918335f"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/coming-soon/index.html",
+      "bytes": 8235,
+      "sha256": "fb36233f29e7336e49c2a2d90aecbafca58e94ab52ee2b25adc72c1be054b8e9"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/contact/index.html",
+      "bytes": 8323,
+      "sha256": "042fe2018036b9a238813ccca2cde6d5bf51900a294703e4bdfe4da163ad7a3d"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/dashboard-administration/index.html",
+      "bytes": 50054,
+      "sha256": "503d4584054609ce3319819508c403267928207255631868671493b3f6d8f49b"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/dashboard-analytics/index.html",
+      "bytes": 49657,
+      "sha256": "97b50b6d444f1a7501929a8a8c14774cc8ab1c031e429199a89af52b87695598"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/dashboard-components/index.html",
+      "bytes": 8823,
+      "sha256": "e6332202c43e9f5084e679449be8279b47f7d907778500fdf47522f929a19032"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/dashboard-operations/index.html",
+      "bytes": 48451,
+      "sha256": "a64d37864a7f8ee6a536f373e4243b4894ccc3c58645c3edee1fb839cf9e100c"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/documentation/index.html",
+      "bytes": 7079,
+      "sha256": "242de28063d80d619c04db02da97e5c6c3df6094c91fadbf2fa6c7ac2acf41fb"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/event/index.html",
+      "bytes": 8459,
+      "sha256": "f5d7930f1a708fc7822a51ac006dbba58b3bbba6150be3c723446fb4e8405244"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/events/index.html",
+      "bytes": 8069,
+      "sha256": "804ebeba641a07eeb762fa573b1ccd0093f3cff213ab3cedc0b12d0c7d1666d8"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/faq/index.html",
+      "bytes": 7468,
+      "sha256": "e303cd3e93db6574eebbb746b09df9e95a1c592c7079a2199b5ba8be1c84d1fd"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/fleet/index.html",
+      "bytes": 8146,
+      "sha256": "525bab79b3643c1ac88e21c745a5a8a56e2062d1a46505136cecfee2eeb2f7c0"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/gallery/index.html",
+      "bytes": 8549,
+      "sha256": "cf44bd1288a3743a37e80ecd31964b66976d63cd59e3d0105d8f4d35a0381807"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/guide/index.html",
+      "bytes": 8140,
+      "sha256": "a08b2edf8c68d1edfe3e60c184a6abbbeb082f764385d6a0dfe83f052335dae2"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/home/index.html",
+      "bytes": 7798,
+      "sha256": "992a51e7c94044e9a8fc0bdf044d358220c77fce5b66bfa9331d68c8e3464a16"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/index.html",
+      "bytes": 22453,
+      "sha256": "909cdeb9e4db2618ffe69ef3e0cca0f062e0dfbf7c74e99dab6d06d706f5237c"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/integrations/index.html",
+      "bytes": 9212,
+      "sha256": "e94275708f66e90ad042f6feab5492828170fe282b9caeb2bebbda2e97412eca"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/not-found/index.html",
+      "bytes": 7005,
+      "sha256": "90fc8a0461fadfce45ee822e0126c2a417d6463f03dab17bf70c2ecb5e6ef905"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/opportunity/index.html",
+      "bytes": 8554,
+      "sha256": "776c0d21cdb84c273937f13d3c7ed6ffe9fb10dd43d25ccd28c008305dd54c7a"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/password-reset/index.html",
+      "bytes": 8628,
+      "sha256": "7ef459e95b267efe35919b1a6776510241e4a82b173eaa80c8a8daffc3dbd36c"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/patterns/index.html",
+      "bytes": 8177,
+      "sha256": "45c938343770ce792c0ad9f0f4a87826225bb3e1dfbb11d154553a6c534a01fe"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/person/index.html",
+      "bytes": 8760,
+      "sha256": "a202bd9add4d10295830f8202833123a779476917f153a6a562a47230fe93523"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/place/index.html",
+      "bytes": 7962,
+      "sha256": "972863044d0870acaceec561674a62392737fad923405144a761a04a355a4a58"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/pricing/index.html",
+      "bytes": 8019,
+      "sha256": "61989630e117990055843210ccb5b7b66e73c9cc5bdb7f72d2a7519162b70140"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/privacy/index.html",
+      "bytes": 8121,
+      "sha256": "b3c29cb0a005ac2334404e221474cc4e76aa0a03fdc542664173ec4f8289e558"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/product/index.html",
+      "bytes": 7780,
+      "sha256": "ce23294329289cf93634472e7ddefce41853e3224046d50cf0583d841df3381d"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/projects/index.html",
+      "bytes": 7692,
+      "sha256": "a35537e216f7c3d866d7df2cc842b42e7931266e97b9e2184522c5273b9c6d2a"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/reference/index.html",
+      "bytes": 9901,
+      "sha256": "2b74bfde50166bc1a2cd7de78bbdcaa522559a6630b152090c2d28b0c4ece084"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/report/index.html",
+      "bytes": 8786,
+      "sha256": "bdddd128cf3ae06366fe89afaafa8db28f73c3154293ed6874b09fb4b82f0d79"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/scene/index.html",
+      "bytes": 7634,
+      "sha256": "90f8a4bab614f9480f59c5c0c070280b1935598232179f70f4f24213b4084788"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/scientific-workspace/index.html",
+      "bytes": 9708,
+      "sha256": "481f097b983f41338c03dee1031c39e5fe824247d204e0e1028cea2e3023359f"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/search/index.html",
+      "bytes": 17456,
+      "sha256": "7aedc7b94719667f333d0415207d9fb859cf8b331797d750080b67bcb0663096"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/sensors/index.html",
+      "bytes": 7285,
+      "sha256": "c83fac99e019dd03f84b13a4a360fd27049a6387b6e3fd33ffd172fb86cf8203"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/server-error/index.html",
+      "bytes": 7182,
+      "sha256": "743d527fdd74ed7086eb8f6c586d38720f4d8fd10f64f5940641797788ecba13"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/service/index.html",
+      "bytes": 8115,
+      "sha256": "9f04a45ec0db67ca82e496807af74a53e922f28c026f64b8bf257cae9bfe11aa"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/sign-in/index.html",
+      "bytes": 8946,
+      "sha256": "1cefa2e044f6aa7baee43b21182c61cfff2bc8d0ab3c96c91297d41d28c9b3fe"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/sign-up/index.html",
+      "bytes": 9204,
+      "sha256": "ae3b999c84b13630bb542a6d9f406c0ad4e03caa11ebb8188ccd8ff5ebd7f0cb"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/software/index.html",
+      "bytes": 8188,
+      "sha256": "87712a11e988b057312db65489c6af0bcbf6691bb14bb5885a5fae82b5418acb"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/stress-test/index.html",
+      "bytes": 11905,
+      "sha256": "fc3124251946c0e51b9b3096ec3c1d8000b55cb9909549d6726ba4604ae62d58"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/terms/index.html",
+      "bytes": 8115,
+      "sha256": "97b965c575b45f7376e2c35f9761aeddd6383e0e004888821e3b841e3ee1e732"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/two-factor/index.html",
+      "bytes": 8803,
+      "sha256": "e2297a3fe5761352541737ada63f82663b6e6af2d884c0ecbef484fe4215f4b0"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/examples/workspace/index.html",
+      "bytes": 8520,
+      "sha256": "139accf4474a84db16c04dccdf0a57d9318bd7bc1fa4129d2eec85ee1bcd77c9"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/index.html",
+      "bytes": 7428,
+      "sha256": "f982f88a641f8300b26aa9796e8db456d8a532235baf395f9b66d4fbc909685e"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/journal/index.html",
+      "bytes": 6205,
+      "sha256": "97875cfede1497566667fe13a7ab17972ebb3c90433c361b72691e6dee3ac79f"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/journal/what-a-shell-should-own/index.html",
+      "bytes": 8120,
+      "sha256": "07993288d06458b3e5c4bcd490179792e8f285d686cc6c3f4fbdd58402004815"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/language/index.html",
+      "bytes": 7629,
+      "sha256": "1ea69871310532fff348f8cf6cb8d51d35007d92c9675ca840d54c02fa59fcc4"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/nightjar-local-evidence.json",
+      "bytes": 21570,
+      "sha256": "266982f2b7a404b40371e68e4fbbddc50608719278bdfcee6a9a82e2c9abb1ed"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/nightjar/PROVENANCE.json",
+      "bytes": 97956,
+      "sha256": "57823c897e29f05e063ca745e7079d65dfddaf194e2dd30e76c7213615b08ea3"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/nightjar/README.md",
+      "bytes": 1053,
+      "sha256": "cb453c70218f2fb673ebb4ad8913089e3061d9fc78cc860d35447ffe06fbbedf"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/nightjar/build.py",
+      "bytes": 2795,
+      "sha256": "2ea2fdd30b8566168dc25bcf567e6e3bf07d0d8a53a6ca46586c29c54db2c0ee"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/nightjar/ci-proposal.yml",
+      "bytes": 421,
+      "sha256": "1dd457b2f1935e83914e2c92a977dd7d4422231eb126f2e87822df3e23adb562"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/nightjar/source-files.json",
+      "bytes": 6793,
+      "sha256": "addc48e6aa6ad4994d6f5a8daf37b51aded5d3541ff499ad8a08140c3f3483cc"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/nightjar/verify-html.py",
+      "bytes": 2306,
+      "sha256": "7ffbaa1bdb86b2965d6666d1960e6013f1808c60081b8bcd5af763720c953184"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/nightjar/verify.py",
+      "bytes": 4446,
+      "sha256": "9099ad8fbdfd36e68cd9ba1c3e9df79916af896e2ab1363bdb696b81550dab35"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/release-policy.json",
+      "bytes": 371,
+      "sha256": "acc29f70b53a83bea8f3563a5127f001966833278836d5058fcc62a2af48dbbf"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/setup/index.html",
+      "bytes": 8440,
+      "sha256": "7199e20b959b57c577f96fd3eef1963fc5833b8187adf9ad2a73313540d574af"
+    },
+    {
+      "path": "preview/docs/v/1.0.0/template.zip",
+      "bytes": 781359,
+      "sha256": "aac2f16d643a331f40d2a15ea3d4bfaf8ee64c96742fb28b7bb8620c64d58a17"
+    },
+    {
+      "path": "preview/docs/versions/index.html",
+      "bytes": 474,
+      "sha256": "69f9288d30e285d4351140cca5fb7de9b9a8499e23f2338c6134a5f78cdc1fae"
+    }
+  ]
+}
