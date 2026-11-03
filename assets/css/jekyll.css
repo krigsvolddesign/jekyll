@@ -28,3 +28,23 @@ html[data-appearance=dark] .page-index a {color:var(--color-gold-300,var(--ice-4
 
 /* The Krigsvold source shell overlays its header on dashboard pages. */
 .krigsvold .docs-version-nav--dashboard { padding-top: 7rem; }
+
+/* Optional polar panoramic hero. Original palette and structural treatment remain
+   from krigsvold.org, including its canonical page masthead veil. */
+.page-masthead--illustrated {
+  background-color:var(--navy-900,#0a1d35);
+  background-image:var(--krigsvold-hero-art);
+  background-position: center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  isolation:isolate;
+}
+.page-masthead--illustrated .page-masthead__veil {
+  background:linear-gradient(90deg, rgb(3 15 30 / .94) 0%, rgb(6 27 51 / .76) 52%, rgb(7 28 48 / .36) 100%);
+}
+.page-masthead--illustrated :is(h1,p) { color:#fff; text-shadow:0 1px 2px rgb(6 19 37 / .28); }
+@media(max-width:48rem) {
+  .page-masthead--illustrated { background-position:65% center; }
+  .page-masthead--illustrated .page-masthead__veil { background:linear-gradient(90deg, rgb(3 15 30 / .97), rgb(6 27 51 / .8)); }
+}
+@media(forced-colors:active) { .page-masthead--illustrated { background-image:none; } }
