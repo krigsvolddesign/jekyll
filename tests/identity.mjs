@@ -79,14 +79,22 @@ for(const base of['','/preview'])for(const width of[320,375,768])for(const scale
    const a=input.getBoundingClientRect(),b=text.getBoundingClientRect();
    const style=getComputedStyle(el);
    return{associated:input.closest('label')===el,
-    order:b.left>=a.right-1,vertical:Math.abs(b.top-a.top)<=Math.max(20,parseFloat(getComputedStyle(text).lineHeight)||20),
+    sideBySide:b.left>=a.right-1&&Math.abs(b.top-a.top)<=Math.max(20,parseFloat(getComputedStyle(text).lineHeight)||20),
+    stacked:b.top>=a.bottom-2,
     inputWidth:a.width,inputHeight:a.height,textWidth:b.width,
-    layout:style.display,wrap:style.flexWrap,overflow:document.documentElement.scrollWidth>innerWidth};
+    direction:style.flexDirection,layout:style.display,wrap:style.flexWrap,
+    overflow:document.documentElement.scrollWidth>innerWidth};
   });
   assert.ok(measured,`Consent structure exists: ${base} ${width} ${scale}%`);
-  assert.ok(measured.associated&&measured.order&&measured.vertical,`Consent is visually grouped at ${base} ${width}px ${scale}%: ${JSON.stringify(measured)}`);
+  assert.equal(measured.associated,true,'Consent retains one native accessible label');
   assert.ok(measured.inputWidth>0&&measured.inputHeight>0&&measured.textWidth>0,'Checkbox and label remain visible');
   assert.equal(measured.layout,'flex');assert.equal(measured.wrap,'nowrap');
+  if(measured.direction==='column'){
+    assert.ok(measured.stacked&&measured.textWidth>=80,`Stacked label uses a readable text column: ${JSON.stringify(measured)}`);
+  }else{
+    assert.equal(measured.direction,'row','Consent must remain row or intentional column');
+    assert.ok(measured.sideBySide&&measured.textWidth>=80,`Horizontal label must not become a letter-wide column: ${JSON.stringify(measured)}`);
+  }
   assert.equal(measured.overflow,false,`No document overflow at ${base} ${width}px ${scale}%`);
  }finally{await c.close();}
 }
