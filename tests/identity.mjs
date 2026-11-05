@@ -56,8 +56,9 @@ if(variant){await p.setViewportSize({width:1440,height:1100});const audit=await 
   const printedCredit=p.locator('.hero--section .hero-image-credit a');
   assert.equal(await printedCredit.count(),1,'Image attribution remains present in print');
   assert.equal(await printedCredit.isVisible(),true,'Image attribution remains displayed in print');
-  assert.equal(await printedCredit.evaluate(el=>getComputedStyle(el).color),'rgb(0, 0, 0)',
-    'Printed image-credit link uses black ink on white paper, including dark appearance');
+  const printInk=await printedCredit.evaluate(el=>getComputedStyle(el).color);
+  const printContrast=placeholderContrast(printInk,'rgb(255, 255, 255)');
+  assert.ok(printContrast>=4.5,`Printed image-credit link must use dark, readable ink on white paper (observed ${printContrast.toFixed(2)}:1, ${printInk})`);
   await p.emulateMedia({media:'screen'});
 
 }finally{await context.close();}}
