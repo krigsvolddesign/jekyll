@@ -6,6 +6,20 @@ const name=process.env.BROWSER||'chromium',engine={chromium,firefox,webkit}[name
 const dir=mkdtempSync(join(tmpdir(),'krigsvold-identity-')),rows=[],scans=[];let browser,server;
 const bounded=async(label,fn,ms=15000)=>{let timer;try{return await Promise.race([fn(),new Promise((_,reject)=>timer=setTimeout(()=>reject(Error(label+' timed out')),ms))])}finally{clearTimeout(timer)}};
 const deadline=setTimeout(()=>{console.error('Identity overall deadline exceeded');process.exit(1)},330000);
+
+/* Test actual computed placeholder ink against each control's surface. */
+function placeholderContrast(ink,background) {
+ const luminance=color=>{
+  const values=color.match(/[0-9.]+/g);
+  assert.ok(values&&values.length>=3,'Expected RGB computed style: '+color);
+  const [r,g,b]=values.slice(0,3).map(Number).map(c=>{
+   const v=c/255;return v<=0.04045?v/12.92:((v+0.055)/1.055)**2.4;
+  });
+  return 0.2126*r+0.7152*g+0.0722*b;
+ };
+ const first=luminance(ink),second=luminance(background);
+ return (Math.max(first,second)+0.05)/(Math.min(first,second)+0.05);
+}
 const paths=[['/language/','section'],['/examples/','section'],['/journal/','section'],['/setup/','compact'],['/journal/what-a-shell-should-own/','compact'],['/404.html','plain'],['/examples/dashboard-administration/',null]];
 try{
 for(const base of['','/preview'])assert.equal(spawnSync('python3',['nightjar/build.py','--destination',join(dir,base||'.'),'--baseurl',base],{stdio:'inherit',timeout:120000}).status,0);
@@ -25,6 +39,27 @@ try{const p=await context.newPage();for(const[path,variant]of paths){for(const w
  }
 }if(variant==='section'){const credit=hero.getByRole('link',{name:'Image credits and licenses'});assert.equal(await credit.getAttribute('href'),base+'/image-credits/');assert.ok(await credit.isVisible());assert.equal(await credit.evaluate(n=>getComputedStyle(n).color),'rgb(255, 255, 255)','credits remain readable across appearances');const img=hero.locator('img');assert.ok(await img.evaluate(n=>n.complete&&n.naturalWidth>0));assert.ok((await img.getAttribute('src')).startsWith(base+'/assets/images/sections/'));if(width<992){const r=await img.boundingBox(),h=await hero.locator('h1').boundingBox();assert.ok(h.y>=r.y+r.height,'mobile title follows image');assert.equal(await img.evaluate(n=>getComputedStyle(n).objectFit),'contain');}else assert.ok((await hero.boundingBox()).height<=360,'short desktop section');}else assert.equal(await hero.locator('img').count(),0,'restrained interiors have no forced photography');}rows.push({base:base||'/',mode,path,width,variant});}
 if(variant){await p.setViewportSize({width:1440,height:1100});const audit=await bounded('identity accessibility '+path,()=>new AxeBuilder({page:p}).include('header[data-hero-variant]').withTags(['wcag2a','wcag2aa','wcag21aa']).analyze(),45000);assert.deepEqual(audit.violations,[]);scans.push({base:base||'/',mode,path,incomplete:audit.incomplete.map(x=>x.id)});}}
+
+  /* Manual acceptance blockers: placeholder contrast and printable credits. */
+  await p.setViewportSize({width:1440,height:1100});
+  const searchResponse=await p.goto(`http://127.0.0.1:${port}${base}/examples/search/`,{waitUntil:'load'});
+  assert.equal(searchResponse.status(),200,'Placeholder test page exists');
+  const searchInput=p.locator('.example-root input[placeholder]').first();
+  assert.equal(await searchInput.count(),1,'Example search exposes placeholder ink');
+  const styles=await searchInput.evaluate(el=>({ink:getComputedStyle(el,'::placeholder').color,
+    opacity:getComputedStyle(el,'::placeholder').opacity,background:getComputedStyle(el).backgroundColor}));
+  assert.equal(Number(styles.opacity),1,'Placeholder is fully opaque in '+mode);
+  const contrast=placeholderContrast(styles.ink,styles.background);
+  assert.ok(contrast>=4.5,`${name} ${mode} placeholder must meet 4.5:1 (observed ${contrast.toFixed(2)}:1)`);
+  await p.goto(`http://127.0.0.1:${port}${base}/language/`,{waitUntil:'load'});
+  await p.emulateMedia({media:'print'});
+  const printedCredit=p.locator('.hero--section .hero-image-credit a');
+  assert.equal(await printedCredit.count(),1,'Image attribution remains present in print');
+  assert.equal(await printedCredit.isVisible(),true,'Image attribution remains displayed in print');
+  assert.equal(await printedCredit.evaluate(el=>getComputedStyle(el).color),'rgb(0, 0, 0)',
+    'Printed image-credit link uses black ink on white paper, including dark appearance');
+  await p.emulateMedia({media:'screen'});
+
 }finally{await context.close();}}
 for(const base of['','/preview'])for(const width of[320,1440])for(const[path,variant]of paths){const c=await browser.newContext({javaScriptEnabled:false,viewport:{width,height:1100}});try{c.setDefaultTimeout(10000);c.setDefaultNavigationTimeout(15000);const p=await c.newPage();await p.goto(`http://127.0.0.1:${port}${base}${path}`);assert.equal(await p.locator('header[data-hero-variant]').count(),variant?1:0);assert.ok(await p.locator('a.navbar-brand').isVisible());assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);}finally{await c.close();}}
 for(const base of['','/preview']){const c=await browser.newContext({forcedColors:'active',viewport:{width:320,height:1000}});try{c.setDefaultTimeout(10000);c.setDefaultNavigationTimeout(15000);const p=await c.newPage();await p.goto(`http://127.0.0.1:${port}${base}/language/`);assert.equal(await p.locator('.page-masthead__art').isVisible(),false);const menu=p.getByRole('button',{name:'Menu',exact:true});await menu.focus();await p.keyboard.press('Enter');assert.equal(await menu.getAttribute('aria-expanded'),'true');assert.equal(await menu.evaluate(n=>getComputedStyle(n,'::after').content),'"Close"');await p.keyboard.press('Escape');assert.equal(await menu.getAttribute('aria-expanded'),'false');assert.ok(await menu.evaluate(n=>document.activeElement===n));}finally{await c.close();}}
