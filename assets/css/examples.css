@@ -83,9 +83,18 @@ html[data-appearance=dark] .example-prose :is(blockquote,.footnotes) { color: va
 .example-root [data-conversation] label textarea { display: block; margin-top: .4rem; font-weight: 400; }
 /* The generic shell's label is a vertical field stack. Consent is a
    distinct horizontal checkbox+text control, including enlarged layouts. */
+.example-root .example-form { container-type:inline-size; }
 .example-root .example-checkbox { display: flex; flex-direction: row; flex-wrap: nowrap; gap: .75rem; align-items: flex-start; font-weight: 400; }
 .example-checkbox input { width: 1.2rem; min-height: 1.2rem; height: 1.2rem; padding: 0; margin: .25rem 0 0; flex: 0 0 1.2rem; accent-color: var(--ex-link); }
 .example-checkbox span { min-inline-size: 0; flex: 1 1 auto; }
+/* Extreme text enlargement can leave only a letter-wide column beside the
+   checkbox. When the form is narrower than eight *current* rem units, move
+   the text beneath the control so whole words can use its full inline size.
+   Container queries use the actual form width rather than a device breakpoint. */
+@container (max-width:8rem) {
+  .example-root .example-checkbox { flex-direction:column; }
+  .example-root .example-checkbox span { width:100%; flex-basis:auto; }
+}
 .example-form button { margin: 1.25rem .5rem .75rem 0; }
 .example-help { font-size: .9rem; color: var(--ex-muted); }
 .example-search__controls { display: flex; gap: .75rem; margin-bottom: 1rem; }
