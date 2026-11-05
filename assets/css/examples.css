@@ -81,8 +81,10 @@ html[data-appearance=dark] .example-prose :is(blockquote,.footnotes) { color: va
 }
 .example-root textarea { resize: vertical; }
 .example-root [data-conversation] label textarea { display: block; margin-top: .4rem; font-weight: 400; }
-.example-root .example-checkbox { display: flex; flex-wrap: nowrap; gap: .75rem; align-items: flex-start; font-weight: 400; }
-.example-checkbox input { width: 1.2rem; height: 1.2rem; margin-top: .25rem; flex: 0 0 1.2rem; accent-color: var(--ex-link); }
+/* The generic shell's label is a vertical field stack. Consent is a
+   distinct horizontal checkbox+text control, including enlarged layouts. */
+.example-root .example-checkbox { display: flex; flex-direction: row; flex-wrap: nowrap; gap: .75rem; align-items: flex-start; font-weight: 400; }
+.example-checkbox input { width: 1.2rem; min-height: 1.2rem; height: 1.2rem; padding: 0; margin: .25rem 0 0; flex: 0 0 1.2rem; accent-color: var(--ex-link); }
 .example-checkbox span { min-inline-size: 0; flex: 1 1 auto; }
 .example-form button { margin: 1.25rem .5rem .75rem 0; }
 .example-help { font-size: .9rem; color: var(--ex-muted); }
