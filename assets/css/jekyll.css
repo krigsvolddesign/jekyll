@@ -169,7 +169,11 @@ html[data-appearance] .hero--plain :is(h1,p,.eyebrow) { color:var(--ink); }
 .hero-image-credit { font-size:.8rem; margin-block:.75rem 0; }
 .hero-image-credit a { color:inherit; text-decoration:underline; text-underline-offset:.15em; }
 
-html[data-appearance] .hero--section .hero-image-credit a { color:#fff!important; }
+/* White credit ink is legible over photographic screen heroes, but disappears
+   on the white paper background. Restrict this image treatment to screen. */
+@media screen {
+  html[data-appearance] .hero--section .hero-image-credit a { color:#fff!important; }
+}
 
 /* Krigsvold reference dark mode: a deliberately light footer provides a
    polar-paper counterpoint to dark content, with original navy text.
