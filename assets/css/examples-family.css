@@ -9,6 +9,7 @@
   --ex-line: var(--krigsvold-line);
   --ex-control-line: var(--krigsvold-control-line);
   --ex-input: var(--krigsvold-input-bg);
+  --ex-placeholder: var(--krigsvold-input-placeholder);
   --ex-focus: var(--krigsvold-focus-ring);
   --ex-on-accent: var(--krigsvold-on-accent);
   --ex-mono: "Roboto Mono", monospace;
