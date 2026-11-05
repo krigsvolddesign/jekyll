@@ -62,6 +62,34 @@ if(variant){await p.setViewportSize({width:1440,height:1100});const audit=await 
   await p.emulateMedia({media:'screen'});
 
 }finally{await context.close();}}
+// The checkbox and its label text must remain one coherent, accessible row
+// as the viewport narrows and typography grows. Test actual rendered geometry,
+// not merely a CSS declaration. Both the root and subpath builds are covered.
+for(const base of['','/preview'])for(const width of[320,375,768])for(const scale of[100,200,400]){
+ const c=await browser.newContext({viewport:{width,height:1100},reducedMotion:'reduce'});
+ try{
+  c.setDefaultTimeout(10000);c.setDefaultNavigationTimeout(15000);
+  const p=await c.newPage();
+  await p.goto(`http://127.0.0.1:${port}${base}/examples/sign-up/`,{waitUntil:'load'});
+  await p.evaluate(value=>document.documentElement.style.fontSize=value+'%',scale);
+  const label=p.locator('.example-checkbox').first();
+  const measured=await label.evaluate(el=>{
+   const input=el.querySelector('input[type=checkbox]'),text=el.querySelector('span');
+   if(!input||!text)return null;
+   const a=input.getBoundingClientRect(),b=text.getBoundingClientRect();
+   const style=getComputedStyle(el);
+   return{associated:input.closest('label')===el,
+    order:b.left>=a.right-1,vertical:Math.abs(b.top-a.top)<=Math.max(20,parseFloat(getComputedStyle(text).lineHeight)||20),
+    inputWidth:a.width,inputHeight:a.height,textWidth:b.width,
+    layout:style.display,wrap:style.flexWrap,overflow:document.documentElement.scrollWidth>innerWidth};
+  });
+  assert.ok(measured,`Consent structure exists: ${base} ${width} ${scale}%`);
+  assert.ok(measured.associated&&measured.order&&measured.vertical,`Consent is visually grouped at ${base} ${width}px ${scale}%: ${JSON.stringify(measured)}`);
+  assert.ok(measured.inputWidth>0&&measured.inputHeight>0&&measured.textWidth>0,'Checkbox and label remain visible');
+  assert.equal(measured.layout,'flex');assert.equal(measured.wrap,'nowrap');
+  assert.equal(measured.overflow,false,`No document overflow at ${base} ${width}px ${scale}%`);
+ }finally{await c.close();}
+}
 for(const base of['','/preview'])for(const width of[320,1440])for(const[path,variant]of paths){const c=await browser.newContext({javaScriptEnabled:false,viewport:{width,height:1100}});try{c.setDefaultTimeout(10000);c.setDefaultNavigationTimeout(15000);const p=await c.newPage();await p.goto(`http://127.0.0.1:${port}${base}${path}`);assert.equal(await p.locator('header[data-hero-variant]').count(),variant?1:0);assert.ok(await p.locator('a.navbar-brand').isVisible());assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);}finally{await c.close();}}
 for(const base of['','/preview']){const c=await browser.newContext({forcedColors:'active',viewport:{width:320,height:1000}});try{c.setDefaultTimeout(10000);c.setDefaultNavigationTimeout(15000);const p=await c.newPage();await p.goto(`http://127.0.0.1:${port}${base}/language/`);assert.equal(await p.locator('.page-masthead__art').isVisible(),false);const menu=p.getByRole('button',{name:'Menu',exact:true});await menu.focus();await p.keyboard.press('Enter');assert.equal(await menu.getAttribute('aria-expanded'),'true');assert.equal(await menu.evaluate(n=>getComputedStyle(n,'::after').content),'"Close"');await p.keyboard.press('Escape');assert.equal(await menu.getAttribute('aria-expanded'),'false');assert.ok(await menu.evaluate(n=>document.activeElement===n));}finally{await c.close();}}
 // Full-page rules include landmark-unique, beyond the WCAG-tagged hero scans.
