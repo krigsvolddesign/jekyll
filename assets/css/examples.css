@@ -93,7 +93,7 @@ html[data-appearance=dark] .example-prose :is(blockquote,.footnotes) { color: va
    Container queries use the actual form width rather than a device breakpoint. */
 @container (max-width:8rem) {
   .example-root .example-checkbox { flex-direction:column; }
-  .example-root .example-checkbox span { width:100%; flex-basis:auto; }
+  .example-root .example-checkbox span { width:100%; flex-basis:auto; overflow-wrap:anywhere; word-break:normal; }
 }
 .example-form button { margin: 1.25rem .5rem .75rem 0; }
 .example-help { font-size: .9rem; color: var(--ex-muted); }
