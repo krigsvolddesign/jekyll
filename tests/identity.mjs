@@ -98,6 +98,30 @@ for(const base of['','/preview'])for(const width of[320,375,768])for(const scale
   assert.equal(measured.overflow,false,`No document overflow at ${base} ${width}px ${scale}%`);
  }finally{await c.close();}
 }
+// Regression: a clean document scroll width does not prove that brand or hero
+// words have survived overflow clipping at extreme text enlargement.
+for(const base of['','/preview'])for(const scale of[200,400]){
+ const c=await browser.newContext({viewport:{width:320,height:1100},reducedMotion:'reduce'});
+ try{
+  c.setDefaultTimeout(10000);c.setDefaultNavigationTimeout(15000);
+  const p=await c.newPage();await p.goto(`http://127.0.0.1:${port}${base}/`,{waitUntil:'load'});
+  await p.evaluate(s=>document.documentElement.style.fontSize=s+'%',scale);
+  const measured=await p.evaluate(()=>{
+   const brand=document.querySelector('.navbar-brand span');
+   const eyebrow=document.querySelector('main .eyebrow');
+   const title=document.querySelector('main h1');
+   const menu=document.querySelector('.site-navbar .navbar-toggler');
+   const inside=el=>{if(!el)return false;const r=document.createRange();r.selectNodeContents(el);
+    const rects=[...r.getClientRects()];return rects.length>0&&rects.every(x=>x.left>=-.5&&x.right<=innerWidth+.5);};
+   const m=menu?.getBoundingClientRect();
+   return {brand:inside(brand),eyebrow:inside(eyebrow),heading:inside(title),
+    menu:!!m&&m.width>0&&m.height>0&&m.left>=-.5&&m.right<=innerWidth+.5,
+    overflow:document.documentElement.scrollWidth>innerWidth};
+  });
+  assert.ok(measured.brand&&measured.eyebrow&&measured.heading&&measured.menu&&!measured.overflow,
+   `Krigsvold 320px/${scale}% brand, headline and disclosure must remain visible at ${base}: ${JSON.stringify(measured)}`);
+ }finally{await c.close();}
+}
 for(const base of['','/preview'])for(const width of[320,1440])for(const[path,variant]of paths){const c=await browser.newContext({javaScriptEnabled:false,viewport:{width,height:1100}});try{c.setDefaultTimeout(10000);c.setDefaultNavigationTimeout(15000);const p=await c.newPage();await p.goto(`http://127.0.0.1:${port}${base}${path}`);assert.equal(await p.locator('header[data-hero-variant]').count(),variant?1:0);assert.ok(await p.locator('a.navbar-brand').isVisible());assert.equal(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),true);}finally{await c.close();}}
 for(const base of['','/preview']){const c=await browser.newContext({forcedColors:'active',viewport:{width:320,height:1000}});try{c.setDefaultTimeout(10000);c.setDefaultNavigationTimeout(15000);const p=await c.newPage();await p.goto(`http://127.0.0.1:${port}${base}/language/`);assert.equal(await p.locator('.page-masthead__art').isVisible(),false);const menu=p.getByRole('button',{name:'Menu',exact:true});await menu.focus();await p.keyboard.press('Enter');assert.equal(await menu.getAttribute('aria-expanded'),'true');assert.equal(await menu.evaluate(n=>getComputedStyle(n,'::after').content),'"Close"');await p.keyboard.press('Escape');assert.equal(await menu.getAttribute('aria-expanded'),'false');assert.ok(await menu.evaluate(n=>document.activeElement===n));}finally{await c.close();}}
 // Full-page rules include landmark-unique, beyond the WCAG-tagged hero scans.
