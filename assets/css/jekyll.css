@@ -260,3 +260,19 @@ body.krigsvold.hero-context--compact:not(.dashboard-page):has(.site-navbar:not([
 html[data-appearance="dark"] body.krigsvold.hero-context--compact:not(.dashboard-page):has(.site-navbar:not([data-navigation-ready]),.site-navbar.is-menu-open) .nav-shell {
   background:var(--paper,#fbfaf7);
 }
+
+/* At extreme enlarged text on a 320px viewport, retain complete visible
+   masthead words rather than clipping the rightmost letters inside the hero.
+   Preserve the source sizes and palette; only line-breaking changes. */
+@media (max-width:400px) {
+  .page-masthead .eyebrow { overflow-wrap:anywhere; word-break:normal; }
+  .page-masthead h1 { max-inline-size:100%; overflow-wrap:anywhere; word-break:break-all; }
+}
+/* At 400% root text the nav has room for only one major control per row.
+   Keep the complete Krigsvold/Jekyll words, with the native Menu button on
+   its own accessible row. No adjustment at normal desktop/mobile sizing. */
+@container host-navigation (max-width:7em) {
+  .site-navbar .navbar-brand { flex:1 1 100%; max-inline-size:100%; min-inline-size:0; flex-wrap:wrap; margin-right:0; }
+  .site-navbar .navbar-brand span { font-size:min(1em, 10vw); overflow-wrap:normal; word-break:normal; }
+  .site-navbar .navbar-toggler { margin-inline:auto; }
+}
