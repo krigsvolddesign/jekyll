@@ -266,7 +266,6 @@ html[data-appearance="dark"] body.krigsvold.hero-context--compact:not(.dashboard
    Preserve the source sizes and palette; only line-breaking changes. */
 @media (max-width:400px) {
   .page-masthead .eyebrow { overflow-wrap:anywhere; word-break:normal; }
-  .page-masthead h1 { max-inline-size:100%; overflow-wrap:anywhere; word-break:break-all; }
 }
 /* At 400% root text the nav has room for only one major control per row.
    Keep the complete Krigsvold/Jekyll words, with the native Menu button on
