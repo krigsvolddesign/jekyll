@@ -44,8 +44,8 @@ Focused browser verification covers the existing state transitions and source da
 rather than interpreting a prettier initial screenshot as functional completion.
 
 Homepage art/tint/ribbon, footer identity, core tokens/fonts and frozen archives
-remain outside this work. The complete inherited suites remain required. A small
-new operational gate is budgeted using measured preceding CI durations, not by
+remain outside this work. The complete inherited suites remain enabled. A small
+new operational check is budgeted using measured preceding CI durations, not by
 skipping engines, assertions or difficult states.
 
 ## Reviewed host navigation correction
@@ -61,21 +61,30 @@ the adapted `test:navigation` self-builds and exercises the same 38 states in th
 selected engine, with bounded synchronization and no disabled-JavaScript font API
 wait. See `docs/qa/navigation-text-resize.md` for the detailed finding and limits.
 
-## Consolidated candidate and verification provenance
+## Historical consolidated candidate and verification provenance
 
 The final candidate normally merges the collection/search source at
 `3e5d49dcf47cc3b9e6646e66274fb246d5848df2` into the workspace feature. That
 source remains in its original ancestry and is attributed in
-`GRAMMAR-COLLECTIONS.md`. The original collection PR remains unmerged: its
-Cloudflare authentication failure is retained as a failed infrastructure record,
-not represented as a successful native build or accepted develop integration.
+`GRAMMAR-COLLECTIONS.md`. The original collection PR remains unmerged. Its
+guarded pre-upload deployment failed when GitHub's current-branch lookup
+returned HTTP403; the underlying authentication or rate-limit cause was not
+established. That historical failure is retained rather than represented as a
+successful native build or separate develop integration.
 This consolidation combines the two reviewed scopes without bypassing a gate.
 
 The preliminary workspace source `d4a207d` passed the unchanged focused gate in
 Chromium (41.117 seconds) and Firefox (79.232 seconds), and its adapted navigation
 gate passed all 38 Firefox states in 40.259 seconds. These are local proofs, not
-hosted or native Cloudflare approval of the consolidated source. Only workflow
-and package-script unions were needed when combining the two branches; every
+fresh hosted-check success or verified native Cloudflare delivery of the
+consolidated source. Only workflow and package-script unions were needed when
+combining the two branches; every
 inherited suite, all three engines, cancellation and bounded job execution remain.
-The consolidated candidate requires fresh hosted checks, a genuine Cloudflare
-preview and complete actual-service acceptance before any develop merge.
+At that stage, the consolidated candidate was held for fresh hosted checks, a
+genuine Cloudflare preview and actual-service acceptance before integration.
+That historical evidence does not add a current acceptance or deployment gate.
+The ratified [GitFlow policy](https://github.com/k3jph/design-workbench/blob/develop/docs/GITFLOW-ACCEPTANCE.md)
+now defines integration into protected `develop` or `main` as acceptance, with
+one required `verify` check and zero required human reviewers. The extended
+browser and visual suites are advisory; Cloudflare verifies accepted-branch
+source identity and artifact integrity without querying reviews or CI history.

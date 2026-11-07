@@ -26,12 +26,12 @@ Local Jekyll builds and rendered-link checks run for both families at deployment
 
 Desktop cloud-browser checks compared analytics metrics and filtered source rows across both languages, exercised administration confirmation and draft validation, and checked operational threshold and acknowledgement changes. The shared fixture and source shell hashes are checked automatically.
 
-The checked-in Jekyll CI adds paired browser workflows, initial-data parity, validation and error recovery, cancellation, safe text rendering, mobile sidebar keyboard behaviour, 320/768/1100/1440px reflow, and light/dark axe checks. It saves screenshots and failure traces. Those PR checks are the authoritative final acceptance result. Existing workbench CI continues to test the original component packages and examples.
+The checked-in Jekyll CI adds paired browser workflows, initial-data parity, validation and error recovery, cancellation, safe text rendering, mobile sidebar keyboard behaviour, 320/768/1100/1440px reflow, and light/dark axe checks. It saves screenshots and failure traces. These extended suites are advisory quality evidence. The ratified [GitFlow policy](https://github.com/k3jph/design-workbench/blob/develop/docs/GITFLOW-ACCEPTANCE.md) defines integration into protected `develop` or `main` as acceptance, with one fast required `verify` check and zero required human reviewers. Existing workbench CI continues to test the original component packages and examples.
 
 ## Remaining limits and recommended next work
 
 - This is a static, synthetic demonstration. Writes, acknowledgements and drafts live in page memory and reset on reload; there is no authentication, authorisation, persistence or live monitoring adapter.
 - Charts use a small SVG renderer. Exact-value tables are required and implemented; rich pointer tooltips, chart editing and very large/streaming datasets are outside this work order.
-- The browser checks establish an initial visual evidence set. There was no previous dashboard image baseline. Manual screen-reader use, print-on-paper review, and sustained use with real users remain additional validation before stable promotion.
+- The browser checks establish an initial visual evidence set. There was no previous dashboard image baseline. Manual screen-reader use, print-on-paper review, and sustained use with real users remain distinct usability evidence; this historical report does not add a GitFlow acceptance or deployment gate.
 - Reuse the fixture, pure model and semantic contracts for future Astro/React ports. Use framework-native rendering and existing component packages. Do not copy imperative DOM controllers into React.
 - The documentation marks the new composition and capabilities experimental; it does not imply a new stable npm API, a package release, or changes to either authoritative source website.
