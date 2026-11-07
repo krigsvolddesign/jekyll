@@ -82,7 +82,7 @@ def promotion_ok(pr, sha, reviews, checks):
     independent_approval=any(r.get('state')=='APPROVED' and r.get('commit_id')==head.get('sha') and
                              login and login!=pr.get('user',{}).get('login') for login,r in latest.items())
     sole_maintainer_merge=(pr.get('user',{}).get('login')==SOLO_MAINTAINER and
-                            pr.get('merged_by',{}).get('login')==SOLO_MAINTAINER)
+                            (pr.get('merged_by') or {}).get('login')==SOLO_MAINTAINER)
     return independent_approval or sole_maintainer_merge
 
 def github(path):
@@ -111,10 +111,17 @@ def guard(c, branch, sha):
     if branch=='main':
         prs=github_list(f"repos/{c['repository']}/commits/{sha}/pulls")
         approved=False
-        for pr in prs:
-            head=pr.get('head',{}).get('sha','')
-            if not SHA.fullmatch(head):continue
-            reviews=github_list(f"repos/{c['repository']}/pulls/{pr['number']}/reviews")
+        for summary in prs:
+            # The commit-associated PR collection is a GitHub summary response
+            # and does not contain merged_by. Fetch the actual PR resource:
+            # only it establishes who merged the production promotion.
+            number=summary.get('number')
+            head=summary.get('head',{}).get('sha','')
+            if not isinstance(number,int) or number<1 or not SHA.fullmatch(head):continue
+            pr=github(f"repos/{c['repository']}/pulls/{number}")
+            assert pr.get('number')==number and pr.get('head',{}).get('sha')==head, 'Full promotion PR identity differs from commit association'
+            assert pr.get('merge_commit_sha')==sha, 'Full promotion PR does not identify the current production commit'
+            reviews=github_list(f"repos/{c['repository']}/pulls/{number}/reviews")
             checks=github(f"repos/{c['repository']}/commits/{head}/check-runs?filter=latest&per_page=100")
             if promotion_ok(pr,sha,reviews,checks):approved=True
         assert approved,'Production requires a merged GitFlow PR, six exact-head successful checks, and independent approval or the sole maintainer as merger'
