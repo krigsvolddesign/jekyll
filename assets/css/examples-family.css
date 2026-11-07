@@ -9,6 +9,7 @@
   --ex-line: var(--krigsvold-line);
   --ex-control-line: var(--krigsvold-control-line);
   --ex-input: var(--krigsvold-input-bg);
+  --ex-placeholder: var(--krigsvold-input-placeholder);
   --ex-focus: var(--krigsvold-focus-ring);
   --ex-on-accent: var(--krigsvold-on-accent);
   --ex-mono: "Roboto Mono", monospace;
@@ -48,3 +49,85 @@ html[data-appearance=dark] .example-root .btn-outline-dark-blue:focus-visible { 
 
 /* Long titles must remain readable at every masthead breakpoint. */
 .page-masthead h1 { overflow-wrap:anywhere; }
+
+/* #91: source FAQ groups and aligned news/fellow regions translated to these
+   three tasks. Native disclosures and complete original fixture prose remain. */
+.example-question-scope { display:grid; grid-template-columns:minmax(9rem,1fr) minmax(0,2.5fr); gap:clamp(1.5rem,3vw,3rem); margin-block:0 3rem; }
+.example-question-scope > header { border-top:1px solid var(--ex-line); padding-top:1rem; }
+.example-question-scope h3 { margin:0; font:700 1.15rem/1.35 var(--serif); color:var(--ex-strong); }
+.example-faq--scoped details { margin:0; padding:0; border-top:1px solid var(--ex-line); border-bottom:0; }
+.example-faq--scoped details:last-child { border-bottom:1px solid var(--ex-line); }
+.example-faq--scoped summary { position:relative; min-height:44px; padding:1rem 2.5rem 1rem 0; line-height:1.5; }
+.example-faq--scoped .example-faq__answer { padding-bottom:1.25rem; }
+.example-faq--scoped details p { margin:0; }
+.example-release, .example-component-register__entry { display:grid; grid-template-columns:minmax(10rem,1fr) minmax(0,2.5fr); gap:clamp(1.5rem,3vw,3rem); padding-block:2rem; border-top:1px solid var(--ex-line); }
+.example-release h2, .example-component-register__scope h2 { margin:0; color:var(--ex-strong); font:700 1.35rem/1.35 var(--serif); }
+.example-release__version { display:block; font-variant-numeric:tabular-nums; font-size:1.75rem; }
+.example-release__separator { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+.example-release time { display:block; margin-top:.5rem; color:var(--ex-muted); font:400 .875rem/1.5 var(--sans); }
+.example-release .example-prose > :first-child, .example-component-register__entry .example-prose > :first-child { margin-top:0; }
+.example-component-register__entry .example-prose p { max-width:65ch; }
+@media(max-width:48rem) {
+ .example-question-scope, .example-release, .example-component-register__entry { grid-template-columns:minmax(0,1fr); gap:1rem; }
+ .example-question-scope { margin-bottom:2rem; }
+ .example-release, .example-component-register__entry { padding-block:1.5rem; }
+}
+@media(forced-colors:active) {
+ .example-question-scope > header, .example-faq--scoped details, .example-release, .example-component-register__entry { border-color:CanvasText; }
+}
+@media print { .example-question-scope, .example-release, .example-component-register__entry { break-inside:avoid; } }
+/* The old 46rem envelope included the index and its gap, squeezing nested
+   comparison regions. Reuse the source example container width; prose retains
+   its own bounded measure. Other document archetypes are audited separately. */
+.example-root:is([data-example="faq"],[data-example="changelog"],[data-example="dashboard-components"]) .example-reading { max-width:74rem; }
+
+/* #91 reading/reference wave: the navigation index is outside the prose
+   measure. Shared fixture order and semantic section headings remain intact. */
+.example-frame--document .example-reading { max-width:74rem; }
+.example-frame--document .example-document > div { min-width:0; }
+.example-root:is([data-example="guide"],[data-example="reference"],[data-example="integrations"],[data-example="opportunity"]) .example-section {
+ display:grid; grid-template-columns:minmax(10rem,1fr) minmax(0,3fr);
+ gap:clamp(1.5rem,3vw,3rem); border-top:1px solid var(--ex-line); padding-top:1.5rem;
+}
+.example-root:is([data-example="guide"],[data-example="reference"],[data-example="integrations"],[data-example="opportunity"]) .example-section__label h2 { margin:0; font-size:1.35rem; line-height:1.35; }
+.example-root:is([data-example="guide"],[data-example="reference"],[data-example="integrations"],[data-example="opportunity"]) .example-section__body > .example-prose > :first-child { margin-top:0; }
+.example-documentation-paths { list-style:none; margin:0; padding:0; }
+.example-documentation-paths > li { display:grid; grid-template-columns:minmax(12rem,1fr) minmax(0,1.5fr); gap:clamp(1.5rem,3vw,3rem); padding-block:1.5rem; border-top:1px solid var(--ex-line); }
+.example-documentation-paths h3, .example-documentation-paths p { margin:0; }
+.example-documentation-paths p { max-width:65ch; }
+@media(max-width:48rem) {
+ .example-root:is([data-example="guide"],[data-example="reference"],[data-example="integrations"],[data-example="opportunity"]) .example-section,
+ .example-documentation-paths > li { grid-template-columns:minmax(0,1fr); gap:1rem; }
+}
+@media(forced-colors:active) {
+ .example-root:is([data-example="guide"],[data-example="reference"],[data-example="integrations"],[data-example="opportunity"]) .example-section,
+ .example-documentation-paths > li { border-color:CanvasText; }
+}
+
+.example-documentation-paths__scope { min-width:0; }
+.example-documentation-paths__scope img { display:block; max-width:100%; height:auto; margin-bottom:1rem; }
+
+/* #91 collection/dossier wave: retain existing metadata and scoped regions.
+   Report navigation stays in flow because labels already form a left column. */
+.example-report-index { margin-bottom:2rem; padding-bottom:1rem; border-bottom:1px solid var(--ex-line); }
+.example-report-index .example-local-index ol { display:flex; flex-wrap:wrap; gap:.5rem 1.5rem; margin-bottom:0; }
+.example-report-index .example-local-index li { margin-bottom:.5rem; }
+.example-report-body .example-stats dd { font-variant-numeric:tabular-nums; }
+.example-root[data-example="search"] .example-search-scope { padding:1.5rem; background:var(--ex-panel); }
+.example-root[data-example="search"] .example-search-scope label { margin-top:0; }
+.example-root[data-example="search"] .example-search-output { margin-top:2rem; padding-top:1.25rem; border-top:1px solid var(--ex-line); }
+/* Search creates one body child, not a metadata/body listing pair. Let the
+   existing title and summary use their actual region, without invented fields. */
+.example-root[data-example="search"] [data-search-results] > li { display:block; }
+.example-root[data-example="search"] [data-search-results] > li > div { max-width:68ch; }
+@media(max-width:48rem) {
+ .example-root[data-example="search"] .example-search-scope { padding:1rem; }
+}
+@media(forced-colors:active) {
+ .example-root[data-example="search"] .example-search-scope { background:Canvas; }
+ .example-report-index, .example-root[data-example="search"] .example-search-output { border-color:CanvasText; }
+}
+/* Reserve the native submit label's intrinsic width; the input owns the
+   remaining query column instead of squeezing a word across two lines. */
+.example-root[data-example="search"] .example-search__controls input { min-width:0; flex:1 1 auto; }
+.example-root[data-example="search"] .example-search__controls button { flex:0 0 auto; white-space:nowrap; }

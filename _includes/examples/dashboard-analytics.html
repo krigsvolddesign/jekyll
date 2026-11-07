@@ -26,6 +26,7 @@
 {% assign data_error_message = '' %}
 {% assign metrics_unavailable = false %}{% if invalid_numeric or precision_error %}{% assign metrics_unavailable = true %}{% endif %}
 {% if invalid_numeric %}{% assign data_error_message = 'Analytics observations must be nonnegative whole numbers.' %}{% elsif precision_error %}{% assign data_error_message = 'Analytics totals exceed supported safe integer precision.' %}{% endif %}
+<section class="dash-scope" aria-label="Analytics scope">
 <form class="example-form dash-toolbar" id="analytics-filters" novalidate>
   <fieldset disabled data-dashboard-controls><legend>Analytics filters</legend><div class="dash-controls">
     <div><label for="analytics-range">Date range</label><select id="analytics-range" name="range"><option value="7">Last 7 days</option><option value="14">Last 14 days</option><option value="28">Last 28 days</option><option value="custom">Custom range</option></select></div>
@@ -43,13 +44,14 @@
   {% include examples/metric.html id='conversion' label='Completion rate' unavailable=metrics_unavailable %}
   {% include examples/metric.html id='mean_duration' label='Mean session duration' unavailable=metrics_unavailable %}
 </dl>
+</section>
 <div class="dash-grid">
   {% include examples/chart.html id='sessions' title='Session trend' description='Daily sessions across the selected categories.' %}
   {% include examples/chart.html id='downloads' title='Download trend' description='Daily downloads in the selected period.' %}
   {% include examples/chart.html id='categories' title='Category comparison' description='Current sessions versus the preceding period of equal length, when available.' %}
 </div>
 <section class="dash-panel" aria-labelledby="analytics-source-title"><h2 id="analytics-source-title">Analytics source records</h2><p>Counts are synthetic. Completion rate = completed tasks ÷ sessions; mean duration is weighted by session count.</p>
-<div class="example-table-scroll" role="region" aria-label="Analytics source records" tabindex="0"><table id="analytics-source"><caption>Selected source records — dates and categories</caption><thead><tr><th scope="col">Date</th><th scope="col">Category</th><th scope="col">Sessions</th><th scope="col">Downloads</th><th scope="col">Completed tasks</th></tr></thead><tbody>{% assign dates = initial | map: 'date' | uniq | sort %}{% for date in dates %}{% assign daily = initial | where: 'date', date %}{% for category in categories %}{% assign category_rows = daily | where: 'category', category %}{% for row in category_rows %}<tr><th scope="row">{{ row.date | escape }}</th><td>{{ row.category | escape }}</td><td>{{ row.sessions }}</td><td>{{ row.downloads }}</td><td>{{ row.completions }}</td></tr>{% endfor %}{% endfor %}{% for row in daily %}{% unless categories contains row.category %}<tr><th scope="row">{{ row.date | escape }}</th><td>{{ row.category | escape }}</td><td>{{ row.sessions }}</td><td>{{ row.downloads }}</td><td>{{ row.completions }}</td></tr>{% endunless %}{% endfor %}{% endfor %}</tbody></table></div></section>
+<div class="example-table-scroll" role="region" aria-label="Analytics source table" tabindex="0"><table id="analytics-source"><caption>Selected source records — dates and categories</caption><thead><tr><th scope="col">Date</th><th scope="col">Category</th><th scope="col">Sessions</th><th scope="col">Downloads</th><th scope="col">Completed tasks</th></tr></thead><tbody>{% assign dates = initial | map: 'date' | uniq | sort %}{% for date in dates %}{% assign daily = initial | where: 'date', date %}{% for category in categories %}{% assign category_rows = daily | where: 'category', category %}{% for row in category_rows %}<tr><th scope="row">{{ row.date | escape }}</th><td>{{ row.category | escape }}</td><td>{{ row.sessions }}</td><td>{{ row.downloads }}</td><td>{{ row.completions }}</td></tr>{% endfor %}{% endfor %}{% for row in daily %}{% unless categories contains row.category %}<tr><th scope="row">{{ row.date | escape }}</th><td>{{ row.category | escape }}</td><td>{{ row.sessions }}</td><td>{{ row.downloads }}</td><td>{{ row.completions }}</td></tr>{% endunless %}{% endfor %}{% endfor %}</tbody></table></div></section>
 
 <noscript><p class="example-notice">{% if data_error_message != empty %}JavaScript is required to choose a different range.{% else %}Interactive filtering and charts require JavaScript. The published data table remains available; controls are disabled.{% endif %}</p></noscript>
 {% endif %}

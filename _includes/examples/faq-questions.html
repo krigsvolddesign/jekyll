@@ -1,0 +1,2 @@
+{% assign question_offset = include.offset | default: 0 %}{% assign question_limit = include.limit | default: include.items.size %}
+{% for item in include.items offset:question_offset limit:question_limit %}<details class="krigsvold-faq"><summary>{{ item.question | escape }}</summary><div class="example-faq__answer"><p>{{ item.answer | escape }}</p></div></details>{% endfor %}

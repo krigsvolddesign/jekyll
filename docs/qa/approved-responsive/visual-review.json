@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "reviewType": "independent-local-responsive-hero-review",
+  "repository": "krigsvolddesign/jekyll",
+  "reviewedFrontendCodeCommit": "c9179975461cdd8f3d1d0b0cdb77d2340caf6b87",
+  "reviewedSourceTree": "3b3b724eca917b22288a36bec15bb0641ee564d0",
+  "sourceCSSMatchedGitCommit": true,
+  "approvedAssetBytesMatchedGitCommit": true,
+  "deployedPreviewVerifiedByThisReport": false,
+  "workingBuildEvidence": {
+    "htmlSha256": "fb964c8d6073aa6851a618ed78796726ccd3c47b70e8c32e6752cae2227c0b23",
+    "heroCSSSha256": "4d978c17753f52632618e4105ebf8344ce8c114e159112acba7db7701bed5784",
+    "reviewArtifactHash": "9b32be4f5f96161a06ba41335cc67422f62bca5afd191607332b12e19ec6b335"
+  },
+  "approvedArtwork": [
+    {
+      "path": "assets/images/hero/krigsvold-hero-master.png",
+      "sha256": "11ab8f82242fc0d51232c9e7f1603f30d69a9234024b09effc3f579176bb81ef",
+      "bytes": 2727682
+    },
+    {
+      "path": "assets/images/hero/krigsvold-hero-640.webp",
+      "sha256": "ad25f988dbde7dc9b485a937cb678995088bc50e7fc727e75d7ad901be81e434",
+      "bytes": 31130
+    },
+    {
+      "path": "assets/images/hero/krigsvold-hero-960.webp",
+      "sha256": "332e766837f33a5acf4d61df3ed800fdc78ff5acf628abbe8e81b978c6cb43fd",
+      "bytes": 63400
+    },
+    {
+      "path": "assets/images/hero/krigsvold-hero-1440.webp",
+      "sha256": "fe8a40b8a9e0fd00c6e71ccdb4b2d67ef1035eb85639f70035db55b61c082505",
+      "bytes": 130294
+    },
+    {
+      "path": "assets/images/hero/krigsvold-hero-1920.webp",
+      "sha256": "639455d5bfa4fb482730a064926cb16064273ec7c6ddf81ab65a185d35588ea4",
+      "bytes": 202900
+    },
+    {
+      "path": "assets/images/hero/krigsvold-hero-2172.webp",
+      "sha256": "e967893b399f8e13041b011a71cb55440b44340e140050e0408d6f7b0ad158e5",
+      "bytes": 244712
+    }
+  ],
+  "widths": [
+    320,
+    375,
+    640,
+    768,
+    1024,
+    1440,
+    1920,
+    3440
+  ],
+  "cases": {
+    "total": 30,
+    "normalRootLightDark": 16,
+    "rootNoJavaScript": 8,
+    "forcedColorModes": 2,
+    "previewRepresentativeLightDark": 4
+  },
+  "visualJudgment": {
+    "actualScreenshotsInspected": true,
+    "artworkMasterInspected": true,
+    "fullPanoramaGeometryPreserved": true,
+    "noNavbarOcclusion": true,
+    "typographyPaletteAndSpacingRolesRetained": true,
+    "treatment": "Existing polar overlay declarations retained unchanged",
+    "noVisibleLegsFeetOrClawsObserved": null
+  },
+  "heroTextContrast": {
+    "method": "Actual background screenshots after hiding only hero text. Conservative minimum across each text Range line rectangle, including whitespace; sRGB relative luminance and foreground alpha composited. No token-only assumption.",
+    "cases": 84,
+    "minimum": 7.342,
+    "allPassAA": true
+  },
+  "navigationContrast": {
+    "method": "Actual local rendered nav text line rectangles, conservative per-pixel backgrounds with only text made transparent; all normal-size nav labels checked4.5:1",
+    "cases": 78,
+    "minimum": 13.526,
+    "allPassAA": true
+  },
+  "responsivePerformance": {
+    "onlySelectedSuppliedWebPDownloadedPerNormalCase": true,
+    "masterPNGOrOptional16x9Downloaded": false,
+    "noHorizontalOverflowOrAssetErrors": true
+  },
+  "screenshots": [
+    {
+      "file": "desktop-1440-light.png",
+      "sha256": "dbe86a7b44cd6d6339fe64c102d0d36d7d1553c566305765e93670e99f754d0c",
+      "bytes": 783529,
+      "capture": "Local build, not a deployed Preview"
+    },
+    {
+      "file": "mobile-320-dark.png",
+      "sha256": "d237bb38db276ad6d2c26d4ff833bd3e5f62914ba216ff5da122c7adb1ed9dc2",
+      "bytes": 109763,
+      "capture": "Local build, not a deployed Preview"
+    }
+  ],
+  "limitations": [
+    "Local render evidence only; later metadata-only commits may preserve identical UI, but the actual Git-connected deployment must be verified separately.",
+    "No manual assistive-technology or physical-device certification.",
+    "Not a claim of pixel-identical canonical homepages or full browser HTTP-cache behavior.",
+    "Full50recipe behavior regression is recorded by the repository browser suite, not inferred from two screenshots."
+  ]
+}

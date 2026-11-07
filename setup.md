@@ -1,5 +1,6 @@
 ---
 layout: page
+hero_variant: compact
 permalink: /setup/
 title: Make it your own.
 eyebrow: Template guide

@@ -9,6 +9,7 @@
 </form>
 <p data-dashboard-fallback>Interactive dashboard controls are unavailable. Reload to try again.</p>
 <p class="dash-status" role="status" data-dashboard-status>Published synthetic directory.</p>
+<div class="dash-administration-work">
 <section class="dash-panel" aria-labelledby="directory-title"><h2 id="directory-title">People directory</h2>
   <div class="dash-actions"><span data-selection-count>0 people selected.</span><button class="{% include examples/button-classes.html %}" type="button" data-bulk="Active" disabled>Activate selected</button><button class="{% include examples/button-classes.html secondary=true %}" type="button" data-bulk="Suspended" disabled>Suspend selected</button><button class="{% include examples/button-classes.html secondary=true %}" type="button" data-new-person disabled>Add person</button></div>
   <div class="dash-state" data-directory-state hidden></div>
@@ -34,4 +35,5 @@
     </div><button class="{% include examples/button-classes.html %}" type="submit">Save person locally</button><button class="{% include examples/button-classes.html secondary=true %}" type="button" data-discard-person>Discard draft</button></fieldset>
   </form>
 </section>
+</div>
 <dialog class="dash-dialog" aria-labelledby="bulk-title" data-bulk-dialog><h2 id="bulk-title">Confirm directory change</h2><p data-bulk-description></p><p>This changes only the selected synthetic records in this page’s memory.</p><div class="dash-actions"><button class="{% include examples/button-classes.html secondary=true %}" type="button" data-bulk-cancel>Cancel</button><button class="{% include examples/button-classes.html %}" type="button" data-bulk-confirm>Confirm change</button></div></dialog>

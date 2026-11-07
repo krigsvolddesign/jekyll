@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 1,
+  "family": "krigsvold",
+  "role": "Jekyll host-owned decorative panoramic hero; not a Core foundation asset",
+  "approval": "User work order Finalize Responsive Heroes and Deploy Through GitFlow: approved2172\u00d7724 Antarctic ice-shelf panorama supersedes all earlier artwork",
+  "sourceArchive": "martlet-krigsvold-approved-responsive-heroes.zip",
+  "sourceArchiveSha256": "2b1e7baa26ef3aef804c06a8c4817a84f59e3f13f3ad974f23f32c7048108649",
+  "artworkSource": "User-supplied approved2172\u00d7724 pair; all image bytes copied exactly from supplied archive; optional16:9 crop is not used",
+  "rights": "Maintainer supplied and authorized these exact assets for this repository; no third-party stock-photo or photographer attribution is asserted. Repository code licensing does not assert an independent third-party artwork license.",
+  "runtimeExternalImageRequests": false,
+  "files": [
+    {
+      "path": "assets/images/hero/krigsvold-hero-1440.webp",
+      "width": 1440,
+      "height": 480,
+      "bytes": 130294,
+      "sha256": "fe8a40b8a9e0fd00c6e71ccdb4b2d67ef1035eb85639f70035db55b61c082505",
+      "role": "runtime-responsive"
+    },
+    {
+      "path": "assets/images/hero/krigsvold-hero-1920.webp",
+      "width": 1920,
+      "height": 640,
+      "bytes": 202900,
+      "sha256": "639455d5bfa4fb482730a064926cb16064273ec7c6ddf81ab65a185d35588ea4",
+      "role": "runtime-responsive"
+    },
+    {
+      "path": "assets/images/hero/krigsvold-hero-2172.webp",
+      "width": 2172,
+      "height": 724,
+      "bytes": 244712,
+      "sha256": "e967893b399f8e13041b011a71cb55440b44340e140050e0408d6f7b0ad158e5",
+      "role": "runtime-responsive"
+    },
+    {
+      "path": "assets/images/hero/krigsvold-hero-640.webp",
+      "width": 640,
+      "height": 213,
+      "bytes": 31130,
+      "sha256": "ad25f988dbde7dc9b485a937cb678995088bc50e7fc727e75d7ad901be81e434",
+      "role": "runtime-responsive"
+    },
+    {
+      "path": "assets/images/hero/krigsvold-hero-960.webp",
+      "width": 960,
+      "height": 320,
+      "bytes": 63400,
+      "sha256": "332e766837f33a5acf4d61df3ed800fdc78ff5acf628abbe8e81b978c6cb43fd",
+      "role": "runtime-responsive"
+    },
+    {
+      "path": "assets/images/hero/krigsvold-hero-master.png",
+      "width": 2172,
+      "height": 724,
+      "bytes": 2727682,
+      "sha256": "11ab8f82242fc0d51232c9e7f1603f30d69a9234024b09effc3f579176bb81ef",
+      "role": "archival-master"
+    }
+  ],
+  "sourceAuthority": {
+    "site": "https://krigsvold.org/",
+    "observedStylesheet": {
+      "url": "https://krigsvold.org/_astro/Page.7T515cpF.css",
+      "sha256": "2d2203baeaf2013ba46f30d26d81f0946f99508e8ee8895cab15da77ee5631f8"
+    },
+    "observationMethod": "Actual origin HTML and stylesheet retrieval; independent rendered visual review is separate evidence",
+    "preservedSourceRules": [
+      "Roboto UI and Roboto Slab headings",
+      "navy950 #061325, navy900 #0a1d35, blue600 #286a9d, ice400 #9ed5e6, paper #fbfaf7",
+      "source navigation and page-masthead geometry; unmodified shell.css",
+      "plain masthead inverse appearance retains paper/ink"
+    ],
+    "hostExtension": "Only opt-in illustrated masthead adds host-owned decorative picture and navy/ice scrim, with white image-backed text in both appearances"
+  },
+  "approvedMasterSha256": "11ab8f82242fc0d51232c9e7f1603f30d69a9234024b09effc3f579176bb81ef",
+  "runtimeMaxImageBytes": 250000,
+  "archivalMasterMaxBytes": 3000000,
+  "runtimeMasterDownload": false,
+  "overlayAuthority": {
+    "sourceCommit": "244d228e366b4ba35bff240a8be243eb9a39c4b0",
+    "unchanged": true,
+    "reason": "User explicitly preserves the current Krigsvold gradient colors, alpha values and stops; only image geometry and responsiveness change"
+  }
+}
