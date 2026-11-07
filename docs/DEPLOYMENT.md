@@ -4,7 +4,7 @@ Jekyll builds the site. Cloudflare Workers serves the generated static HTML, CSS
 
 The build command is `bash scripts/deployment/build-cloudflare.sh`. That script runs locked Bundler/Jekyll directly for root and `/preview`. Python only stages the source allowlist, verifies provenance, creates the deterministic source ZIP, retains frozen documentation, and hashes the already-built output. It does not invoke Ruby. Committed `.ruby-version` and `.node-version` files pin Ruby 3.2.11 and Node 24.19.0; no dashboard runtime or build variables are required. Bundler remains 2.4.19 and the existing Gemfile.lock pins Jekyll 4.3.2. Cloudflare may perform its normal dependency installation before the command; the script still explicitly verifies and installs the locked dependencies. `SKIP_DEPENDENCY_INSTALL=true` is an optional build-only optimization, never a runtime binding or a prerequisite. The integrity-locked local Wrangler is 4.156.2.
 
-## Dashboard command fields during development validation
+## Native Git build command fields
 
 Replace each entire command field; do not append these commands to a generated `npm run build` or another existing value. Both repositories use the same three fields. No dashboard variables are mandatory.
 
@@ -20,23 +20,25 @@ Nonproduction / Preview command:
 bash scripts/deployment/preview-cloudflare.sh
 ```
 
-Production deploy command while validation is paused:
+Production deploy command:
 
 ```sh
-exit 1
+bash scripts/deployment/deploy-cloudflare.sh
 ```
 
-The paused production command must remain in place until an explicitly reviewed GitFlow production promotion is approved. A manual nonproduction upload is identified as manual evidence; it does not establish that the native Git-triggered build deployed successfully.
+These are the intended saved Cloudflare settings, not proof of the current dashboard configuration. During an explicitly requested validation pause, `exit 1` can replace the production deploy command; restore the main-only production script when production promotion is authorized. A manual nonproduction upload is identified as manual evidence; it does not establish that the native Git-triggered build deployed successfully.
 
 ## GitFlow and one native deployment authority
 
-Feature PRs target `develop`; GitHub Actions retains all existing source, archive, browser and release verification. Successful develop merges build the exact checked source tree through Cloudflare's native Git connection. Native preflight independently checks that the merged PR head has the identical Git tree and all six existing GitHub Actions checks passed, including Chromium, Firefox and WebKit. Public GitHub REST endpoints are used; a GitHub credential or CLI is not required. An optional read-only token can handle authenticated API rate limits, but missing verification never becomes a pass.
+The canonical policy is [GitFlow acceptance and deployment authority](https://github.com/k3jph/design-workbench/blob/develop/docs/GITFLOW-ACCEPTANCE.md). Feature PRs target `develop`; release promotions target `main`. Integration into either protected branch is the acceptance event. This repository requires exactly one fast GitHub Actions check, `verify`, and zero human reviewers. Browser, compatibility, visual, archive and other extended suites remain enabled as advisory quality measurements. Candidate branches may fail while work continues.
 
-Cloudflare's documented Preview Builds switch triggers a preview build on every nonproduction branch push; it is not a develop-only filter. Feature branch native builds therefore appear as Cloudflare checks, while the source scripts reject unsupported branches before building or uploading. Only a verified `develop` merge may update the stable develop Preview. Keep the six GitHub verification checks separate from those expected native branch-guard rejections. See [Cloudflare build branches](https://developers.cloudflare.com/workers/ci-cd/builds/build-branches/).
+Cloudflare builds the exact current accepted branch through its native Git connection: `develop` authorizes development delivery and `main` authorizes production delivery. Its guard checks the local checkout, native builder-reported branch/SHA and current public Git ref, then validates the deterministic artifact. It does not query pull requests, reviews, check-runs or historical CI results, and does not reconstruct GitHub's acceptance decision. Missing source identity or artifact integrity still fails safely.
+
+Cloudflare's documented Preview Builds switch triggers a preview build on every nonproduction branch push; it is not a develop-only filter. Candidate branches can build isolated, noindex previews on a best-effort basis without a PR, review or successful advisory suite. A candidate preview is not acceptance or production authority. Only the current accepted `develop` commit may update the stable develop Preview. See [Cloudflare build branches](https://developers.cloudflare.com/workers/ci-cd/builds/build-branches/).
 
 Cloudflare supplies `WORKERS_CI_BRANCH`; the build selects that Git branch automatically. `JEKYLL_DEPLOY_BRANCH` is only an explicit local override when Cloudflare CI does not supply a branch; conflicting values are rejected before any build or deployment command. For the develop Preview, use the native nonproduction deploy command `bash scripts/deployment/preview-cloudflare.sh`. This invokes only `wrangler preview --name develop --ignore-base-config`, never production `wrangler deploy`. The exact parent Worker and supported native Preview URL are pinned in `infra/deployment/site.json`. The actual addresses are `develop-martletdesign-jekyll-reference.k3jph.workers.dev` and `develop-krigsvolddesign-jekyll-reference.k3jph.workers.dev`; the shorter proposed names would require different parent Workers. Preview runtime variables, secrets and bindings must be empty. Preview responses send `X-Robots-Tag: noindex, nofollow, noarchive` and a disallow-all robots.txt.
 
-Keep production activation paused while development is being validated. After development acceptance, the production native command is `bash scripts/deployment/deploy-cloudflare.sh`. It requires Cloudflare’s main branch and invokes the main-only deployment guard after a reviewed release promotion. It requires a merged release/develop/hotfix PR into main, an actual nondismissed approval of the exact PR head, a current branch SHA and matching verified artifact. It cannot accept develop. No production merge or deployment is needed to demonstrate this task's development previews. Existing production Worker names, custom domains and routes remain unchanged; generated Wrangler configuration does not publish or replace routes.
+After GitFlow integration accepts the production changes into `main`, the production native command is `bash scripts/deployment/deploy-cloudflare.sh`. It requires Cloudflare’s main branch, the exact current accepted main SHA and a matching verified artifact; it cannot accept develop or a candidate branch. GitHub owns PR integration and its required check, so Cloudflare requires no additional human approval, PR-history query or CI-history gate. Verify the actual production URL and source SHA after delivery; a successful merge or build alone is not deployment proof. Existing production Worker names, custom domains and routes remain unchanged; generated Wrangler configuration does not publish or replace routes.
 
 Native Builds configuration requires a **user-scoped** token, which differs from a build deployment token. Account-owned tokens returning Invalid token do not establish a native Git connection. Do not claim a connection is active until Cloudflare settings/readback and an automatic Git-triggered build prove it. Do not enable a competing Actions deployment workflow. Connecting an existing production Worker may start an initial build; use a fail-closed paused production command during setup, never assume connection creation is nondeploying. Preview auto-build switches and Git connections must be read back from actual Cloudflare state.
 
@@ -46,7 +48,7 @@ Use narrowly scoped build credentials and separate preview/production build sett
 
 `infra/deployment/history.json` pins an archive of the existing `/docs/` and `/preview/docs/` history. Complete original file inventories and live manifests/source ZIPs were verified before capture. Extraction accepts only exact pinned regular files under those prefixes, rejects traversal/overwrites and never rebuilds v1.0.0 using new hero source. Original licenses, attribution and published ZIP bytes remain intact.
 
-Current root and `/preview` source ZIPs are deterministic snapshots of this Git commit, not a claim that a changed VERSION=1.0.0 development artifact replaced the published v1.0.0 release. No npm package, tag, source-release asset or publishing identity is altered. Advanced R2 remains disabled.
+Current root and `/preview` source ZIPs are deterministic snapshots of the checked source allowlist. Frozen v1.0.0 history and existing published release assets remain intact. Deployment does not create a version tag or GitHub Release: source publication separately requires a unique protected tag on eligible main history, the matching `VERSION`, deterministic `source.zip` and verified `SHA256SUMS`. No npm publication is performed. Advanced R2 remains disabled.
 
 Native `_headers` adds `Cache-Control: public, no-transform`, preventing automatic edge beacon injection or HTML changes without altering other sites' zone analytics. Deployment extras are outside frozen snapshots.
 
