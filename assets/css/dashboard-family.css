@@ -19,3 +19,13 @@
 .dash-administration-work > .dash-panel { flex:2 1 36rem; min-width:0; margin-bottom:0; }
 .dash-administration-work > .dash-editor { flex:1 1 22rem; }
 @media(forced-colors:active) { .dash-scope { border-color:CanvasText; } }
+
+/* Preserve whole workspace/navigation words when narrow text is enlarged.
+   Cap compounded spacing at the existing normal-text dimensions; keep the
+   native control, type size, bordered regions and ordinary desktop layout. */
+@media(max-width:26rem) {
+ .dash-layout { width:calc(100% - min(2rem,32px)); }
+ .dash-sidebar { padding-inline:min(1rem,16px); }
+ .dash-sidebar .eyebrow { margin-inline-end:0; }
+ .dash-app[data-ready] .dash-nav-toggle { max-width:100%; padding-inline:min(1.5rem,24px); white-space:normal; overflow-wrap:normal; word-break:normal; }
+}
