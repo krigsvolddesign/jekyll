@@ -1,3 +1,5 @@
+> Current 1.1.1 behavior: Krigsvold contents blocks are optional and inline. No stock page or composition generates one automatically, and no sidebar column or empty index margin is reserved. The earlier index-envelope observations below describe the 1.1.0 audit, not the current default.
+
 # Grammar reconciliation: first three specimens
 
 Tracks workbench #91 and baseline audit PR #92. This is a bounded host translation,

@@ -3,16 +3,12 @@ title: What a shell should own.
 description: A narrow article is a different composition, even on the same screen.
 author: The design workshop
 tags: [Design, Publishing]
-toc:
-  - {id: the-frame, title: The frame}
-  - {id: the-reading, title: The reading}
-  - {id: the-contract, title: The contract}
 ---
 ## The frame
 
 A website shell should own the recurring relationships: the site identity, navigation, masthead, reading measures, and footer. A page supplies its subject, metadata, and content.
 
-This article puts its contents inside the narrow reading column. The wide language page puts its index to the left. Both can be viewed on the same screen: the composition follows the available content space, not only the viewport.
+This article begins directly with its reading content. Krigsvold does not add a contents index by default. An author may write section links inline when they help a particular document.
 
 ## The reading
 
