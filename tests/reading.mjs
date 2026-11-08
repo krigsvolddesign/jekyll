@@ -50,8 +50,9 @@ try {
      assert.deepEqual(await root.locator('.example-documentation-paths a').evaluateAll(ns=>ns.map(n=>n.getAttribute('href'))),items.map(x=>base+x.url));
     }
     if(record.composition==='document'&&width===1440) {
-     const wrapper=await root.locator('.example-wrap').boundingBox(),body=await root.locator('.example-document > div').boundingBox();
-     assert.ok(wrapper.width>1000&&body.width>700,'navigation does not consume the prose envelope');
+     const wrapper=await root.locator('.example-wrap').boundingBox(),body=await root.locator('.example-wrap > article').boundingBox();
+     assert.ok(wrapper.width>1000&&body.width>700,'default documents retain their full content envelope without a contents sidebar');
+     assert.equal(await root.locator('.example-local-index').count(),0,'contents require explicit author opt-in');
      for(const prose of await root.locator('.example-prose').all())assert.ok((await prose.boundingBox()).width<=750,'prose keeps a readable independent measure');
     }
     const axe=await bounded('full accessibility '+id,()=>new AxeBuilder({page:p}).analyze(),45000);

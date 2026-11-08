@@ -18,13 +18,13 @@ This is a working Jekyll template built from the consolidated **Krigsvold Astro 
 
 ### Three compositions to inspect
 
-- [The language]({{ '/language/' | relative_url }}) uses a wide document with a left-hand index.
-- [A journal entry]({{ '/journal/what-a-shell-should-own/' | relative_url }}) uses a narrow reading column, inline contents, date, author, and tags.
+- [The language]({{ '/language/' | relative_url }}) uses a wide document with a bounded reading measure.
+- [A journal entry]({{ '/journal/what-a-shell-should-own/' | relative_url }}) uses a narrow reading column, date, author, and tags.
 - [Use this template]({{ '/setup/' | relative_url }}) explains how to build it and replace the content.
 
 ## A shell with a job
 
-The masthead holds the title and context. Navigation leads to destinations. An index links within the current document. The footer closes the page. Those relationships survive a different rendering engine.
+The masthead holds the title and context. Navigation leads to destinations. Authors can add section links inline when a particular document needs them. The footer closes the page. Those relationships survive a different rendering engine.
 
 <details><summary>A note from the workshop</summary><p>Polar bears have declined to review the spacing scale.</p></details>
 

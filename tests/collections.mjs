@@ -32,7 +32,9 @@ try {
     assert.equal(await p.locator('html').getAttribute('data-appearance'),mode);
     if(id==='report') {
      const nav=p.getByRole('navigation',{name:'Report sections',exact:true}),body=p.locator('.example-report-body');
-     assert.deepEqual(await nav.locator('a').evaluateAll(ns=>ns.map(n=>n.getAttribute('href'))),report.sections.map(s=>'#'+s.id));
+     assert.equal(await nav.count(),0,'report contents are absent unless explicitly requested');
+     assert.equal(await p.locator('.example-report-index').count(),0,'no empty contents margin remains');
+     for(const section of report.sections)assert.equal(await body.locator(`[id="${section.id}"]`).count(),1,'report heading anchors remain available');
      assert.deepEqual((await body.locator('h2').allTextContents()).map(norm),report.sections.map(s=>s.title));
      const measures=report.sections.find(s=>s.id==='measures').items;
      assert.deepEqual((await body.locator('.example-stats dt').allTextContents()).map(norm),measures.map(m=>m.label));
@@ -40,8 +42,7 @@ try {
      const table=p.getByRole('region',{name:'Observation register table',exact:true});
      assert.equal(await table.count(),1);
      assert.deepEqual(await table.locator('tbody tr').evaluateAll(ns=>ns.map(n=>Array.from(n.querySelectorAll('th,td'),x=>x.textContent.trim()))),report.sections.find(s=>s.id==='register').rows);
-     await nav.locator('a[href="#register"]').focus();await p.keyboard.press('Enter');await p.waitForURL('**/#register');
-     const csv=p.getByRole('link',{name:'Download example data (CSV)',exact:true});assert.equal(await csv.getAttribute('href'),base+'/assets/examples/observations.csv');assert.equal(await csv.getAttribute('download'),'observations.csv');
+     const csv=p.getByRole('link',{name:'Download example data (CSV)',exact:true});assert.equal(await csv.getAttribute('href'),base+'/assets/examples/observations.csv');assert.equal(await csv.getAttribute('download'),'observations.csv');await csv.focus();assert.ok(await csv.evaluate(n=>document.activeElement===n),'the retained download remains keyboard reachable');
     } else {
      const region=p.getByRole('region',{name:'Search results',exact:true}),box=p.getByRole('searchbox',{name:'Search the example record'});
      assert.equal(await region.count(),1);assert.equal(await box.isEnabled(),true);assert.equal(await submitLabelFits(p),true,'native submit label stays on one line within its button');
@@ -72,7 +73,7 @@ try {
    const p=await c.newPage();await p.goto(`${origin}${base}/examples/search/?q=${encodeURIComponent(article.title)}`);
    await p.waitForFunction(()=>document.querySelectorAll('[data-search-results] li').length===1);assert.equal(await p.getByRole('searchbox').inputValue(),article.title);
    await p.evaluate(()=>history.replaceState=()=>{throw Error('simulated address failure')});await p.getByRole('searchbox').fill('shoreline');await p.getByRole('searchbox').press('Enter');await p.waitForFunction(()=>document.querySelector('[data-search-status]').textContent.includes('address could not be updated'));assert.ok(await p.locator('[data-search-results] li').count()>0);
-   await p.goto(`${origin}${base}/examples/report/`);const downloadPromise=p.waitForEvent('download');await p.getByRole('link',{name:'Download example data (CSV)',exact:true}).click();const download=await bounded('CSV download',()=>downloadPromise,15000);assert.equal(download.suggestedFilename(),'observations.csv');const path=await bounded('complete CSV',()=>download.path(),15000);assert.equal(createHash('sha256').update(readFileSync(path)).digest('hex'),createHash('sha256').update(readFileSync('assets/examples/observations.csv')).digest('hex'));
+   await p.goto(`${origin}${base}/examples/report/`);const downloadPromise=p.waitForEvent('download');await p.getByRole('link',{name:'Download example data (CSV)',exact:true}).press('Enter');const download=await bounded('CSV download',()=>downloadPromise,15000);assert.equal(download.suggestedFilename(),'observations.csv');const path=await bounded('complete CSV',()=>download.path(),15000);assert.equal(createHash('sha256').update(readFileSync(path)).digest('hex'),createHash('sha256').update(readFileSync('assets/examples/observations.csv')).digest('hex'));
   }finally{await c.close();}
   const unavailable=await browser.newContext({viewport:{width:320,height:1000}});unavailable.setDefaultTimeout(10000);unavailable.setDefaultNavigationTimeout(15000);
   try {
@@ -80,7 +81,7 @@ try {
    await unavailable.route('**/examples/search/**',route=>route.fulfill({status:200,contentType:'text/html',body:corrupt}));const p=await unavailable.newPage();await p.goto(`${origin}${base}/examples/search/`);assert.equal(await p.getByRole('searchbox').isDisabled(),true);assert.equal(await p.locator('[data-search-fallback]').isVisible(),true);assert.match(await p.locator('[data-search-status]').textContent(),/unavailable/);
   }finally{await unavailable.close();}
   const nojs=await browser.newContext({javaScriptEnabled:false,viewport:{width:320,height:1000}});nojs.setDefaultNavigationTimeout(15000);
-  try{const p=await nojs.newPage();for(const id of['report','search']){await p.goto(`${origin}${base}/examples/${id}/`);if(id==='report')assert.equal(await p.getByRole('navigation',{name:'Report sections'}).locator('a').count(),4);else{assert.equal(await p.getByRole('searchbox').isDisabled(),true);assert.equal(await p.locator('[data-search-fallback]').isVisible(),true);}}}finally{await nojs.close();}
+  try{const p=await nojs.newPage();for(const id of['report','search']){await p.goto(`${origin}${base}/examples/${id}/`);if(id==='report'){assert.equal(await p.getByRole('navigation',{name:'Report sections'}).count(),0);for(const section of report.sections)assert.equal(await p.locator(`[id="${section.id}"]`).count(),1);}else{assert.equal(await p.getByRole('searchbox').isDisabled(),true);assert.equal(await p.locator('[data-search-fallback]').isVisible(),true);}}}finally{await nojs.close();}
  }
  const result={status:'passed',engine:name,cases:rows.length,fullAxeScans:rows.length,noJsCases:4,additionalStates:['initial query URL','address update failure retains results','corrupt index unavailable fallback','complete CSV bytes/filename'],durationMilliseconds:Date.now()-started,rows};
  if(process.env.COLLECTIONS_EVIDENCE_DIR){mkdirSync(process.env.COLLECTIONS_EVIDENCE_DIR,{recursive:true});writeFileSync(join(process.env.COLLECTIONS_EVIDENCE_DIR,name+'-collections.json'),JSON.stringify(result,null,2)+'\n');}
