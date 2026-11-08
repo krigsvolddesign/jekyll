@@ -8,11 +8,24 @@ A genuine Jekyll template using the consolidated Krigsvold Astro shell.
 - `bundle exec jekyll serve`
 - `bundle exec jekyll build --destination dist`
 
-Layouts: default, wide page with optional left index, and narrow post with inline contents. Date, author, summary, and tags live in the masthead. Header/footer are shared includes; navigation and site identity are configurable. Appearance is progressive enhancement; content and links remain available without JavaScript.
+Layouts provide the shared shell, documents, and narrow posts. Krigsvold does not add contents indexes by default. Authors may write section links by hand or explicitly opt into an inline contents block; no sidebar or index margin is reserved. Date, author, summary, and tags live in the masthead. Header/footer are shared includes; navigation and site identity are configurable. Appearance is progressive enhancement; content and links remain available without JavaScript.
 
 The exported CSS is vendored intact, with its SHA-256 in `_data/shell.json`. Fonts and marks are self-hosted. Jekyll adaptations are separate. Original source websites are untouched.
 
 Static hosting settings: build `bundle exec jekyll build --destination dist`; output `dist`. Suggested domain `jekyll.krigsvolddesign.dev`. The same deterministic static output can be served by a private-source host without a runtime R2 binding.
+
+## Optional inline contents
+
+Stock pages and all 50 examples begin with their content. To request a contents block for a specific document, set an explicit Boolean flag and supply the section destinations in front matter:
+
+```yaml
+show_toc: true
+toc:
+  - {id: relationships, title: Relationships}
+  - {id: hierarchy, title: Hierarchy}
+```
+
+Use the exact rendered heading IDs in these destinations (for example, `## Relationships` produces `relationships`). The block appears inline above the article, using the existing `toc` style. Example layouts also accept `show_toc: true`; a manually supplied `toc` list takes precedence, otherwise that example's existing section IDs are used. Omit the flag to render no block. Handwritten `<nav aria-label="On this page">` links in page content remain a normal author choice.
 
 ## Complete example library
 

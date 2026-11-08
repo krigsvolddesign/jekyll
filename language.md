@@ -14,12 +14,7 @@ layout: page
 permalink: /language/
 title: A language worth keeping.
 eyebrow: Krigsvold · Principles
-description: A wide document tests the shared masthead, index, reading measure, and typography.
-toc:
-  - {id: relationships, title: Relationships}
-  - {id: hierarchy, title: Hierarchy}
-  - {id: states, title: States and continuity}
-  - {id: boundaries, title: Boundaries}
+description: A wide document tests the shared masthead, reading measure, and typography.
 ---
 ## Relationships
 

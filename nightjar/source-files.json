@@ -1,6 +1,7 @@
 [
   ".gitignore",
   "404.html",
+  "CHANGELOG.md",
   "Gemfile",
   "Gemfile.lock",
   "LICENSE",
