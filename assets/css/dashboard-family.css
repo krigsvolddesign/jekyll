@@ -36,3 +36,12 @@
 
 /* Source records begin a new working region after the charts. */
 .dash-app [aria-labelledby="analytics-source-title"] { margin-top:2rem; }
+
+/* Native date fields must not inherit the prose line-height. Keep the
+   dashboard's existing 2.75rem control size consistent across field types. */
+body.krigsvold.dashboard-page :is(input:not([type=checkbox]):not([type=radio]),select) {
+  height:2.75rem;
+  min-height:2.75rem;
+  line-height:normal;
+  padding-block:.5rem;
+}
