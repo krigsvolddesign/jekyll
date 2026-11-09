@@ -19,6 +19,6 @@
     "@playwright/test": "1.64.1"
   },
   "dependencies": {
-    "@krigsvold/core": "github:krigsvolddesign/core#d631d6c6865a81c68388b6704115e4953e1f8f8b"
+    "@krigsvold/core": "github:krigsvolddesign/core#eaa20dfb54a087123576da726a11c4a8b0318ed6"
   }
 }
