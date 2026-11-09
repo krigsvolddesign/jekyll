@@ -6,15 +6,6 @@ layout: default
 <link rel="stylesheet" href="{{ '/assets/css/dashboard-family.css' | relative_url }}">
 <div class="example-root dash-app" data-dashboard="{{ page.dashboard | escape }}">
   <div class="dash-layout">
-    <aside class="dash-sidebar" aria-label="Dashboard workspace">
-      <p class="eyebrow">Northlight · Workspace</p>
-      <button class="{% include examples/button-classes.html %} dash-nav-toggle" type="button" aria-controls="dashboard-nav" aria-expanded="false" hidden>Dashboard navigation</button>
-      <nav id="dashboard-nav" aria-label="Dashboard navigation">
-        <ul>{% for view in site.data.dashboard_navigation %}<li><a href="{{ view.url | relative_url }}"{% if page.dashboard == view.id %} aria-current="page"{% endif %}>{{ view.title | escape }}</a></li>{% endfor %}</ul>
-        <p class="dash-sidebar__caption">One dataset.<br>Two design languages.</p>
-        <a href="{{ '/examples/' | relative_url }}">All page examples</a>
-      </nav>
-    </aside>
     <div class="dash-main" id="dashboard-main">
       <header class="dash-heading"><p class="eyebrow">{{ record.category | escape }}</p><h1 id="page-title">{{ record.title | escape }}</h1><p>{{ record.summary | escape }}</p>
         <div class="dash-heading__meta"><span>Snapshot: {% assign snapshot_iso = site.data.dashboards.as_of | date: '%Y-%m-%dT%H:%M:%S+00:00' %}{% assign snapshot_epoch = site.data.dashboards.as_of | date: '%s' %}{% if snapshot_iso != site.data.dashboards.as_of or snapshot_epoch == site.data.dashboards.as_of %}Invalid snapshot timestamp{% else %}<time datetime="{{ site.data.dashboards.as_of | escape }}">{{ site.data.dashboards.as_of | date: '%d %b %Y, %H:%M' }}{% assign snapshot_seconds = site.data.dashboards.as_of | date: '%S' %}{% unless snapshot_seconds == '00' %}:{{ snapshot_seconds }}{% endunless %} UTC</time>{% endif %}</span><a data-compare href="{{ site.data.dashboard_peer.url }}{{ page.url }}">Compare in {{ site.data.dashboard_peer.name }}</a></div>
