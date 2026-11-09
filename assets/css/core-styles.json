@@ -1,8 +1,9 @@
 {
   "package": "@krigsvold/core",
   "version": "2.3.0",
+  "source": "github:krigsvolddesign/core#64794a417bc961a90c81fcc2d384e893bc77b2c1",
   "files": {
-    "reference.css": "524c77227bcf0ee9b0e0a93bd8d800ebdb322873baacfb35013e5c3538f117d4",
+    "reference.css": "2330b2e2ad24cec67fb94eeeb41215a6070721207cf25589d185cf7630d2a70a",
     "fonts.css": "acc1aca21d6a25594b82e6c63da7e8e0f3fcb6459e2bb60521ac0db7556bf162",
     "shell.css": "a65b1cbbe032d46be7373b1f3a90ca46ba1b3971fa85c98975cd9ec76394c05d"
   }
