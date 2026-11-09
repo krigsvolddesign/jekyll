@@ -78,3 +78,9 @@ composition, navigation clearance, contrast, opt-in boundaries, print and forced
 colors; and runs axe without claiming manual assistive-technology certification.
 `HERO_EVIDENCE_DIR` retains screenshots and JSON. Rendered visual comparison
 against [krigsvold.org](https://krigsvold.org/) remains independent evidence.
+
+### Shared stylesheet ownership
+
+All reference CSS is exported by `@krigsvold/core@2.3.0`. Astro and Jekyll use identical `reference.css` and `fonts.css` files. Edit Core, publish it, update the exact dependency and lockfile, then run `npm run styles:sync`. `npm run styles:check` rejects edited or extra CSS assets. The generated asset manifest records the package version and SHA-256 of each file.
+
+Page templates and client code must not contain style elements, style attributes, CSS mutation calls, or local stylesheet definitions. Source and rendered-page checks enforce this. Use the Core markup classes and named data attributes instead.
