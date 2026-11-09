@@ -5,9 +5,12 @@ const fixture=JSON.parse(document.getElementById('dashboard-data').textContent);
 const params=new URL(location.href).searchParams;
 const status=root.querySelector('[data-dashboard-status]');
 const navToggle=root.querySelector('.dash-nav-toggle'),nav=root.querySelector('#dashboard-nav');
+if(navToggle&&nav){
 navToggle.addEventListener('click',()=>navToggle.setAttribute('aria-expanded',String(navToggle.getAttribute('aria-expanded')!=='true')));
 root.querySelector('.dash-sidebar').addEventListener('keydown',event=>{if(event.key==='Escape'){navToggle.setAttribute('aria-expanded','false');navToggle.focus();}});
-navToggle.hidden=false;root.dataset.ready='true';
+navToggle.hidden=false;
+}
+root.dataset.ready='true';
 function updateURL(values,tolerateFailure=false){const url=new URL(location.href);for(const[key,value]of Object.entries(values))value===null?url.searchParams.delete(key):url.searchParams.set(key,String(value));try{history.replaceState(history.state,'',url);}catch(error){if(!tolerateFailure)throw error;return false;}const peer=root.querySelector('[data-compare]');const compare=new URL(peer.href);compare.search=comparisonSearch(root.dataset.dashboard,url.search);peer.href=compare.href;return true;}
 const number=value=>new Intl.NumberFormat('en-US').format(value);
 function analytics(){

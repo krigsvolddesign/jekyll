@@ -1,0 +1,24 @@
+<header class="dashboard-rail" aria-label="Workspace navigation">
+  <div class="dashboard-rail__identity">
+    <a class="dashboard-rail__brand" href="{{ '/' | relative_url }}"><img src="{{ '/assets/mark.svg' | relative_url }}" alt="" width="40" height="40"><span>{{ site.title | escape }}</span></a>
+    <button class="menu-button dashboard-rail__toggle" type="button" aria-controls="site-nav" aria-expanded="false">Menu</button>
+  </div>
+  <div id="site-nav" class="dashboard-rail__menus">
+    <nav class="dashboard-rail__workspace" aria-label="Dashboard navigation">
+      <p class="dashboard-rail__label">Northlight · Workspace</p>
+      <ul>{% for view in site.data.dashboard_navigation %}<li><a href="{{ view.url | relative_url }}"{% if page.dashboard == view.id %} aria-current="page"{% endif %}>{{ view.title | escape }}</a></li>{% endfor %}</ul>
+    </nav>
+    <nav class="dashboard-rail__reference" aria-label="Reference site">
+      <p class="dashboard-rail__label">Krigsvold Reference</p>
+      <ul>{% for item in site.data.navigation %}<li><a href="{{ item.url | relative_url }}">{% if item.url == '/examples/' %}All Examples{% else %}{{ item.title | escape }}{% endif %}</a></li>{% endfor %}</ul>
+    </nav>
+    <button class="appearance-toggle" type="button" data-appearance-toggle aria-pressed="false">Dark mode</button>
+    <div class="dashboard-rail__ownership">
+      <a class="dashboard-rail__owner" href="https://jameshoward.us/" aria-label="James Howard website">
+        <img src="{{ '/assets/owner.svg' | relative_url }}" alt="" width="58" height="58">
+        <span><strong>{{ site.title | escape }}</strong><br>A website of James Howard</span>
+      </a>
+      <p>Copyright © {{ site.time | date: "%Y" }} <span>James P. Howard, II</span></p>
+    </div>
+  </div>
+</header>
