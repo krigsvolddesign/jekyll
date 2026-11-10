@@ -2,7 +2,7 @@
 
 # Krigsvold Jekyll
 
-A genuine Jekyll template using the consolidated Krigsvold Astro shell.
+Version 2 is the standalone Krigsvold Jekyll implementation on Core 3. It shares the canonical family stylesheet with Astro and React. See [upgrading to Jekyll 2](docs/migration-2.md).
 
 - `bundle install`
 - `bundle exec jekyll serve`
@@ -10,7 +10,7 @@ A genuine Jekyll template using the consolidated Krigsvold Astro shell.
 
 Layouts provide the shared shell, documents, and narrow posts. Krigsvold does not add contents indexes by default. Authors may write section links by hand or explicitly opt into an inline contents block; no sidebar or index margin is reserved. Date, author, summary, and tags live in the masthead. Header/footer are shared includes; navigation and site identity are configurable. Appearance is progressive enhancement; content and links remain available without JavaScript.
 
-The exported CSS is vendored intact, with its SHA-256 in `_data/shell.json`. Fonts and marks are self-hosted. Jekyll adaptations are separate. Original source websites are untouched.
+The canonical Core stylesheet is copied intact to `assets/css/krigsvold.css`, with its SHA-256 in `assets/css/core-styles.json`. Fonts and marks are self-hosted. All stylesheet changes originate in Core; Jekyll owns its templates and controllers.
 
 Static hosting settings: build `bundle exec jekyll build --destination dist`; output `dist`. Suggested domain `jekyll.krigsvolddesign.dev`. The same deterministic static output can be served by a private-source host without a runtime R2 binding.
 
