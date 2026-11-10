@@ -1,0 +1,10 @@
+{
+  "package": "@krigsvold/core",
+  "version": "3.0.0",
+  "source": "3.0.0",
+  "files": {
+    "krigsvold.css": "53e9e9d14cfccfae89e82a159e4e06c9086382990387cd38cbc9233ad2c79fd1",
+    "fonts.css": "acc1aca21d6a25594b82e6c63da7e8e0f3fcb6459e2bb60521ac0db7556bf162",
+    "shell.css": "173cae30aa6a03ece4e2570cc339d38ae7f85e1c04e143a77df4c795cc6bf920"
+  }
+}

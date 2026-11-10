@@ -20,7 +20,7 @@ const linear=x=>x<=.04045?x/12.92:((x+.055)/1.055)**2.4;
 const ratio=rgb=>1.05/(rgb.reduce((s,v,i)=>s+linear(v/255)*[.2126,.7152,.0722][i],0)+.05);
 function scrimAlpha(x,narrow){if(narrow)return .97+(.8-.97)*x;const stops=[[0,.94],[.52,.82],[.84,.64],[1,.42]];for(let i=1;i<stops.length;i++)if(x<=stops[i][0])return stops[i-1][1]+(stops[i][1]-stops[i-1][1])*(x-stops[i-1][0])/(stops[i][0]-stops[i-1][0]);return .42}
 try{
- const overlayDeclarations=[...readFileSync('assets/css/jekyll.css','utf8').matchAll(/background:linear-gradient\([^;]+;/g)].map(m=>m[0]);
+ const overlayDeclarations=[...readFileSync('assets/css/krigsvold.css','utf8').matchAll(/background:linear-gradient\([^;]+;/g)].map(m=>m[0]);
  assert.deepEqual(overlayDeclarations,[
   'background:linear-gradient(90deg, rgb(6 19 37 / .94) 0%, rgb(10 29 53 / .82) 52%, rgb(10 29 53 / .64) 84%, rgb(10 29 53 / .42) 100%);',
   'background:linear-gradient(90deg, rgb(6 19 37 / .97), rgb(10 29 53 / .8));'

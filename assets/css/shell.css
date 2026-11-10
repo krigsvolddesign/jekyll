@@ -28851,7 +28851,7 @@ html * { -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; 
 
   .foundation-specimen { margin-block-start: var(--krigsvold-space-12); padding-block-start: var(--krigsvold-space-8); border-top: 1px solid var(--krigsvold-line); }
   .foundation-specimen .foundation-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: var(--krigsvold-space-6); }
-  .foundation-specimen .foundation-grid :global(.krigsvold-card) { min-inline-size: 0; padding: var(--krigsvold-space-6); }
+  .foundation-specimen .foundation-grid .krigsvold-card { min-inline-size: 0; padding: var(--krigsvold-space-6); }
   .foundation-specimen .foundation-grid h3 { font-size: 1.25rem; margin-block: 0 1rem; }
   .foundation-specimen .type-display { font-family: var(--krigsvold-font-display); font-size: clamp(1.5rem,3vw,2rem); font-weight: 700; line-height: var(--krigsvold-leading-heading); }
   .foundation-specimen .type-sans { font-family: var(--krigsvold-font-sans); font-size: 1.3rem; }

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Krigsvold, in plain sight.
+title: Krigsvold for Jekyll
 eyebrow: The Jekyll reference
 hero_variant: signature
 hero_image: /assets/images/hero/krigsvold-hero-2172.webp
@@ -10,7 +10,7 @@ hero_image_1440: /assets/images/hero/krigsvold-hero-1440.webp
 hero_image_1920: /assets/images/hero/krigsvold-hero-1920.webp
 hero_image_width: 2172
 hero_image_height: 724
-description: The same shell. Markdown, Liquid, and a little JavaScript. Nothing hiding the design.
+description: Jekyll layouts and examples for publishing, services, and applications.
 ---
 ## A smaller engine. The same language.
 
