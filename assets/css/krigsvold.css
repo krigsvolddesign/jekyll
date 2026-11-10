@@ -308,7 +308,7 @@
 .krigsvold-button:hover { background: var(--krigsvold-button-hover, var(--krigsvold-accent-hover)); color: var(--krigsvold-button-text, var(--krigsvold-on-accent)); }
 .krigsvold-button:disabled { background: var(--krigsvold-disabled-bg); color: var(--krigsvold-disabled-text); border-color: var(--krigsvold-disabled-bg); }
 .krigsvold-card { min-inline-size: 0; padding: var(--krigsvold-space-4); border: 0; border-top: var(--krigsvold-divider-thickness) solid var(--krigsvold-accent); border-radius: var(--krigsvold-radius-card); background: var(--krigsvold-panel); color: var(--krigsvold-text); box-shadow: var(--krigsvold-shadow-card); }
-.krigsvold-skip-link { position: absolute; inset-block-start: var(--krigsvold-space-2); inset-inline-start: var(--krigsvold-space-2); z-index: 1000; transform: translateY(-200%); padding: var(--krigsvold-space-3); background: var(--krigsvold-bg); color: var(--krigsvold-text); font-family: var(--krigsvold-font-sans); }
+.krigsvold-skip-link { position: absolute; inset-block-start: var(--krigsvold-space-2); inset-inline-start: var(--krigsvold-space-2); z-index: 2000; transform: translateY(-200%); padding: var(--krigsvold-space-3); background: var(--krigsvold-bg); color: var(--krigsvold-text); font-family: var(--krigsvold-font-sans); }
 .krigsvold-skip-link:focus { transform: none; }
 
 .krigsvold-display { font-family: var(--krigsvold-font-display); font-size: var(--krigsvold-text-display); font-weight: 700; line-height: var(--krigsvold-leading-display); letter-spacing: var(--krigsvold-tracking-display); text-wrap: balance; }
@@ -30154,6 +30154,7 @@ body.reference-specimen:has(.site-navbar:not([data-navigation-ready]),.site-navb
 .krigsvold-palette-ribbon > :nth-child(11) { --palette-swatch:var(--krigsvold-color-rule,#d9dee2); }
 .krigsvold-palette-ribbon > :nth-child(12) { --palette-swatch:var(--krigsvold-color-gold,#b58a3b); }
 
+.scientific-page :is(h1,h2,h3,h4,h5,h6) { color:var(--krigsvold-text-strong); }
 .science-workspace { max-width:75rem; margin:2rem auto; padding:0 1rem; }
 :where(body.martlet,body.martlet-source-profile) .science-workspace { font-family:var(--martlet-font-sans, Lato, sans-serif); --science-action:var(--martlet-accent); --science-action-text:var(--martlet-on-accent); }
 :where(body.krigsvold,body.krigsvold-source-profile) .science-workspace { font-family:var(--krigsvold-font-sans, Roboto, sans-serif); --science-action:var(--krigsvold-accent); --science-action-text:var(--krigsvold-on-accent); }
@@ -30201,7 +30202,7 @@ body.krigsvold.dashboard-page {
 html[data-appearance=dark] body
 .dash-app { padding-block:2rem; }
 .dash-layout { display:grid; grid-template-columns:14rem minmax(0,1fr); gap:clamp(1.5rem,3vw,3rem); max-width:94rem; width:calc(100% - 3rem); margin-inline:auto; }
-.dash-main, .dash-sidebar, .dash-panel, .dash-grid, .dash-controls > div { min-width:0; }
+.dash-main, .dash-sidebar, .dash-panel, .dash-grid, .dash-controls > * { min-width:0; }
 .dash-sidebar { align-self:start; position:sticky; top:7rem; max-height:calc(100dvh - 8rem); overflow:auto; padding:1.25rem; }
 .dash-sidebar ul { list-style:none; padding:0; margin:1.5rem 0; }
 .dash-sidebar li { margin:0; }
@@ -30281,7 +30282,7 @@ html[data-appearance=dark] body
  .dash-grid, .dash-editor-grid { grid-template-columns:1fr; }
  .dash-grid > .dash-panel { grid-column:auto !important; }
  .dash-panel, .dash-toolbar, .dash-sidebar { padding:1rem; }
- .dash-controls { grid-template-columns:1fr; }
+ .dash-controls { grid-template-columns:minmax(0,1fr); }
  .dash-heading__meta { display:block; }
  .dash-heading__meta a { display:block; margin-top:.75rem; }
 }
@@ -30481,6 +30482,11 @@ body.krigsvold.dashboard-page main .dash-controls .example-help { margin:.375rem
 body.krigsvold.dashboard-page main .dash-form-actions { display:flex; flex-wrap:wrap; align-items:center; justify-content:flex-end; gap:.75rem; margin:1rem 0 0; }
 body.krigsvold.dashboard-page main :is(.dash-dialog .dash-actions,.example-pagination) { justify-content:flex-end; }
 @media(max-width:42rem) { body.krigsvold.dashboard-page main .krigsvold-button { padding-inline:min(1rem,12px); } }
+
+/* Preserve room for native date segments and picker icons with enlarged text. */
+@media(max-width:42rem) {
+  body.krigsvold.dashboard-page main :is(input:not([type=checkbox]):not([type=radio]):not([type=hidden]),select,textarea) { padding-inline:min(.75rem,8px); }
+}
 
 /* Website palette tools use Core roles, including their dynamic states. */
 .design-website [data-swatch="bg"] { background:var(--krigsvold-bg); }
